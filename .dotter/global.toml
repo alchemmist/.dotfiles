@@ -1,0 +1,11 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+
+[default.variables]
+
+[settings]
+default_target_type = "automatic"
