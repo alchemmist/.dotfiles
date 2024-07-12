@@ -1,11 +1,3 @@
-[helpers]
+[zsh.files]
+"zsh/.zshrc" = "~/.zshrc"
 
-[default]
-depends = []
-
-[default.files]
-
-[default.variables]
-
-[settings]
-default_target_type = "automatic"
