@@ -1,3 +1,7 @@
+[default]
+depends = ["zsh"]
+
+
 [zsh.files]
 "zsh/.zshrc" = "~/.zshrc"
 
