@@ -1,5 +1,7 @@
 [symlinks]
 "hypr/hyprland.conf" = "/home/alchemmist/.config/hypr/hyprland.conf"
+"tmux/.tmux.conf" = "/home/alchemmist/.tmux.conf"
+"tmux/.tmux.conf.local" = "/home/alchemmist/.tmux.conf.local"
 "waybar/config.jsonc" = "/home/alchemmist/.config/waybar/config.jsonc"
 "waybar/scripts/baraction" = "/home/alchemmist/.config/waybar/scripts/baraction"
 "waybar/scripts/update-sys" = "/home/alchemmist/.config/waybar/scripts/update-sys"

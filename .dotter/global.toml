@@ -1,5 +1,10 @@
 [default]
-depends = ["zsh", "waybar", "hyprland"]
+depends = [
+    "zsh", 
+    "waybar", 
+    "hyprland",
+    "tmux",
+]
 
 
 [zsh.files]
@@ -10,3 +15,8 @@ depends = ["zsh", "waybar", "hyprland"]
 
 [hyprland.files]
 "hypr" = "~/.config/hypr"
+
+[tmux.files]
+"tmux/.tmux.conf" = "~/.tmux.conf"
+"tmux/.tmux.conf.local" = "~/.tmux.conf.local"
+
