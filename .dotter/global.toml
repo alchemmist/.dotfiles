@@ -1,5 +1,5 @@
 [default]
-depends = ["zsh", "waybar"]
+depends = ["zsh", "waybar", "hyprland"]
 
 
 [zsh.files]
@@ -7,3 +7,6 @@ depends = ["zsh", "waybar"]
 
 [waybar.files]
 "waybar" = "~/.config/waybar"
+
+[hyprland.files]
+"hypr" = "~/.config/hypr"
