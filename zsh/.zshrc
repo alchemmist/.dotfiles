@@ -105,6 +105,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias python="/home/alchemmist/.python3.12/bin/python3.12"
+alias pip="/home/alchemmist/.python3.12/bin/pip3.12"
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias nvim_clear_swap="rm -rf ~/.local/state/nvim/swap/*"

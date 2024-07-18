@@ -1,7 +1,9 @@
 [default]
-depends = ["zsh"]
+depends = ["zsh", "waybar"]
 
 
 [zsh.files]
 "zsh/.zshrc" = "~/.zshrc"
 
+[waybar.files]
+"waybar" = "~/.config/waybar"
