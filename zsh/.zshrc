@@ -70,12 +70,20 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+source $ZSH/oh-my-zsh.sh
+
 plugins=(
     git
     poetry
+    zsh-autosuggestions
+    zoxide
+    zsh-you-should-use
+    fzf
+    shellfirm
+    docker
+    autoswitch_virtualenv
 )
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -107,9 +115,23 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias python="/home/alchemmist/.python3.12/bin/python3.12"
 alias pip="/home/alchemmist/.python3.12/bin/pip3.12"
+
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
+
 alias nvim_clear_swap="rm -rf ~/.local/state/nvim/swap/*"
+
+hp-scan() {
+    cd ~/Pictures/scans
+    yes "" | /usr/bin/hp-scan -m color
+    cd -
+}
+
+dot() {
+    cd ~/.dotfiles
+    dotter $argv
+    cd -
+}
 
 
 # PROTECTION FOR RM COMMAND
@@ -145,11 +167,18 @@ rm() {
 eval "neofetch"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+# SSH-agent
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    eval "$(ssh-agent -s > /dev/null)"
+fi
+ssh-add ~/.ssh/github > /dev/null 2>&1
 
 
 
-if [ "$(tty)" = "/dev/tty1" -a -z "$(printenv HYPRLAND_INSTANCE_SIGNATURE)" ]; then
+
+if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/tty2" ] && [ -z "$(printenv HYPRLAND_INSTANCE_SIGNATURE)" ]; then
   exec ~/.local/bin/wlinitrc
 fi
+
 
 # HA HA HA

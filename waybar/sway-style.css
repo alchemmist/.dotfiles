@@ -1,0 +1,64 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "CascadiaMonoNerdFont";
+    font-weight: normal;
+    font-size: 15px;
+    min-height: 0;
+}
+
+window#waybar {
+    color: lightgrey;
+    background: rgba(0,0,0,0);
+    transition: background .3s;
+}
+
+tooltip {
+    background: #1e1e2e;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #11111b;
+}
+
+#workspaces button {
+    padding: 5px;
+    color: lightgrey;
+    margin-right: 5px;
+}
+
+#workspaces button.active {
+    color: #a6adc8;
+}
+
+#workspaces button.focused {
+    color: #11111b;
+    background: lightgrey;
+}
+
+#workspaces button.urgent {
+    color: #11111b;
+    background: #a6adc8;
+}
+
+#workspaces button:hover {
+    background: #11111b;
+    color: lightgrey;
+}
+
+#clock,
+#custom-power_profile,
+#custom-weather,
+#window,
+#battery,
+#pulseaudio,
+#network,
+#bluetooth,
+#temperature,
+#workspaces,
+#tray,
+#language,
+#backlight {
+    padding: 0px 8px;
+    margin: 0px 0px;
+}

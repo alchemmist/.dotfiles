@@ -1,14 +1,17 @@
 [symlinks]
 "hypr/hyprland.conf" = "/home/alchemmist/.config/hypr/hyprland.conf"
+"sway/config" = "/home/alchemmist/.config/sway/config"
 "tmux/.tmux.conf" = "/home/alchemmist/.tmux.conf"
 "tmux/.tmux.conf.local" = "/home/alchemmist/.tmux.conf.local"
-"waybar/config.jsonc" = "/home/alchemmist/.config/waybar/config.jsonc"
+"waybar/hypr-config.json" = "/home/alchemmist/.config/waybar/hypr-config.json"
+"waybar/hypr-style.css" = "/home/alchemmist/.config/waybar/hypr-style.css"
 "waybar/scripts/baraction" = "/home/alchemmist/.config/waybar/scripts/baraction"
 "waybar/scripts/update-sys" = "/home/alchemmist/.config/waybar/scripts/update-sys"
 "waybar/scripts/waybar-wttr.py" = "/home/alchemmist/.config/waybar/scripts/waybar-wttr.py"
 "waybar/style/style-dark.css" = "/home/alchemmist/.config/waybar/style/style-dark.css"
 "waybar/style/style.css" = "/home/alchemmist/.config/waybar/style/style.css"
-"waybar/style.css" = "/home/alchemmist/.config/waybar/style.css"
+"waybar/sway-config.json" = "/home/alchemmist/.config/waybar/sway-config.json"
+"waybar/sway-style.css" = "/home/alchemmist/.config/waybar/sway-style.css"
 "zsh/.zshrc" = "/home/alchemmist/.zshrc"
 
 [templates]

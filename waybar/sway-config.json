@@ -5,40 +5,38 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 50,
-    "modules-left": ["clock#time", "clock#date", "custom/weather","hyprland/workspaces"],
+    "height": 27,
+    "modules-left": ["sway/workspaces"],
     "modules-center": [],
-    "modules-right": ["network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "hyprland/language", "tray"],
+    "modules-right": ["network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "hyprland/language","clock#time", "clock#date"],
 
     "hyprland/language": {
         "format": "{}",
-        "format-en": "US",
+        "format-en": "EN",
         "format-ru": "RU",
         "format-it": "it",
         "keyboard-name": "at-translated-set-2-keyboard",
         "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
     },
 
-    "hyprland/workspaces": {
-		"active-only": false,
-		"all-outputs": false,
-		"disable-scroll": false,
-		"on-scroll-up": "hyprctl dispatch workspace e-1",
-		"on-scroll-down": "hyprctl dispatch workspace e+1",
-		"persistent_workspaces": {
-	            "1": [],
-	            "2": [],
-	            "3": [],
-	            "4": [],
-	            "5": [],
-	            "6": [],
-	            "7": [],
-	            "8": [],
-	            "9": [],
-	            "10": []
-		},
-		"sort-by-number": true
-	},
+    "sway/workspaces": {
+        "only-active": false,
+        "all-outputs": true,
+        "disable-scroll": true,
+
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
+        }
+    },
     
     "custom/power_profile":{
         //shows the current power profile and switches to next on click
@@ -52,7 +50,7 @@
    "custom/weather" : {
         //shows the current weather and forecast
         "tooltip" : true,
-        "format" : "{}",
+        "format" : "}",
         "interval" : 30,
         "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
         "return-type" : "json"
@@ -109,7 +107,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", " ", " "]
+            "default": ["", " ", "  "]
         }
     },
 
@@ -132,7 +130,7 @@
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "  {essid} {signalStrength}%",
+        "format-wifi": "   {essid} {signalStrength}%",
         "format-ethernet": "{ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠",
@@ -151,3 +149,4 @@
 }
 
 // HA hA HA
+
