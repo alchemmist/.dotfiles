@@ -4,7 +4,9 @@ depends = [
     "waybar", 
     "hyprland",
     "tmux",
-    "sway"
+    "sway",
+    "nvim",
+    "wofi",
 ]
 
 
@@ -23,3 +25,9 @@ depends = [
 
 [sway.files]
 "sway" = "~/.config/sway"
+
+[nvim.files]
+"nvim" = "~/.config/nvim"
+
+[wofi.files]
+"wofi" = "~/.config/wofi"

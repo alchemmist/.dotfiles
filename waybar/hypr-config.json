@@ -6,9 +6,14 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 50,
-    "modules-left": ["clock#time", "clock#date", "custom/weather","hyprland/workspaces"],
+    "modules-left": ["clock#time", "clock#date", "hyprland/workspaces"],
     "modules-center": [],
-    "modules-right": ["network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "hyprland/language", "tray"],
+    "modules-right": ["custom/weather","network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "hyprland/language", "custom/wallpaper", "tray"],
+
+    "custom/wallpaper": {
+        "format": " ",
+        "on-click": "kitty --title wallpaper_pack_selector /home/alchemmist/scripts/select_wallpaper_pack.sh"
+    },
 
     "hyprland/language": {
         "format": "{}",
@@ -41,7 +46,6 @@
 	},
     
     "custom/power_profile":{
-        //shows the current power profile and switches to next on click
         "exec": "asusctl profile -p | sed s:'Active profile is'::",
         "interval": 30,
         "format": "󰈐{}", 
@@ -50,7 +54,6 @@
     },
 
    "custom/weather" : {
-        //shows the current weather and forecast
         "tooltip" : true,
         "format" : "{}",
         "interval" : 30,
@@ -76,7 +79,7 @@
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
-        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "],
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
         "min-length": 6

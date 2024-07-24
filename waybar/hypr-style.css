@@ -48,6 +48,8 @@ tooltip {
     border-radius: 10px;
 }
 
+
+#custom-wallpaper,
 #clock,
 #custom-power_profile,
 #custom-weather,
@@ -68,6 +70,23 @@ tooltip {
     margin-top: 10px;
     border: 0px solid #181825;
 }
+
+
+#custom-wallpaper {
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+
+#custom-weather {
+    background: #1e1e2e;
+    opacity: 0.7;
+    padding: 0px 10px;
+    margin: 3px 10px;
+    margin-top: 10px;
+    border: 0px solid #181825;
+}
+
 
 #language {
     border-radius: 10px;

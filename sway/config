@@ -4,6 +4,14 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+exec_always dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec_always systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec_always flameshot # Screenshot application
+exec_always /usr/lib/polkit-kde-authentication-agent-1 # Graphical password requester
+exec_always wl-paste --type text --watch cliphist store #Stores only text data
+exec_always wl-paste --type image --watch cliphist store #Stores only image data
+
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -18,7 +26,6 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -97,8 +104,11 @@ input 10182:480:GXTP7863:00_27C6:01E0_Touchpad {
     bindsym Alt+F4 kill
 
     bindsym Alt+Space exec "rofi -show run"
-    # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+e exec thunar  
+    bindsym $mod+s exec flameshot gui --path=$HOME/Pictures/screenshots/ --clipboard # Take a screenshot
+    bindsym $mod+Shift+R exec ~/scripts/reload_waybar.sh # Reload Waybar
+    bindsym $mod+c exec "cliphist list | wofi --dmenu | cliphist decode | wl-copy" # Clipboard history
+
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -173,9 +183,9 @@ input 10182:480:GXTP7863:00_27C6:01E0_Touchpad {
     # bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    # bindsym $mod+s layout stacking
+    # bindsym $mod+w layout tabbed
+    # bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
