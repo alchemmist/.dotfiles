@@ -8,7 +8,7 @@
     "height": 50,
     "modules-left": ["clock#time", "clock#date", "hyprland/workspaces"],
     "modules-center": [],
-    "modules-right": ["custom/weather","network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "hyprland/language", "custom/wallpaper", "tray"],
+    "modules-right": ["custom/weather","network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "hyprland/language", "tray"],
 
     "custom/wallpaper": {
         "format": " ",
@@ -30,18 +30,6 @@
 		"disable-scroll": true,
 		"on-scroll-up": "hyprctl dispatch workspace e-1",
 		"on-scroll-down": "hyprctl dispatch workspace e+1",
-		"persistent_workspaces": {
-	            "1": [],
-	            "2": [],
-	            "3": [],
-	            "4": [],
-	            "5": [],
-	            "6": [],
-	            "7": [],
-	            "8": [],
-	            "9": [],
-	            "10": []
-		},
 		"sort-by-number": true
 	},
     
@@ -79,7 +67,7 @@
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
-        "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "],
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
         "min-length": 6
@@ -112,7 +100,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", " ", " "]
+            "default": ["", "", ""]
         }
     },
 

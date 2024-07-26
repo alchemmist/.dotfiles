@@ -71,6 +71,18 @@ tooltip {
     border: 0px solid #181825;
 }
 
+#custom-wallpaper {
+    padding-right: 7px;
+}
+
+#pulseaudio {
+    padding-right: 10px;
+}
+
+#backlight {
+    padding-right: 0px;
+    padding-left: 5px;
+}
 
 #custom-wallpaper {
     border-radius: 10px;

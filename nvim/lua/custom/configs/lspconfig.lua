@@ -13,7 +13,7 @@ for _, lsp in ipairs(servers) do
       capabilities = capabilities,
       settings = {
         python = {
-          pythonPath = vim.fn.getcwd() .. "/venv/bin/python",
+          -- pythonPath = vim.fn.getcwd() .. "/venv/bin/python",
         },
       },
     }

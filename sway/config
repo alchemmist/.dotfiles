@@ -10,6 +10,7 @@ exec_always flameshot # Screenshot application
 exec_always /usr/lib/polkit-kde-authentication-agent-1 # Graphical password requester
 exec_always wl-paste --type text --watch cliphist store #Stores only text data
 exec_always wl-paste --type image --watch cliphist store #Stores only image data
+exec_always /home/alchemmist/scripts/sway_init_workspaces.sh
 
 
 ### Variables
@@ -28,7 +29,18 @@ set $term alacritty
 # on the original workspace that the command was run on.
 
 ### Output configuration
-#
+workspace 1 output *
+workspace 2 output *
+workspace 3 output *
+workspace 4 output *
+workspace 5 output *
+workspace 6 output *
+workspace 7 output *
+workspace 8 output *
+workspace 9 output *
+workspace 10 output *
+
+
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 output * bg /home/alchemmist/Pictures/wallpapers/abstract/sway_wallpaper.png fill
 
@@ -106,7 +118,6 @@ input 10182:480:GXTP7863:00_27C6:01E0_Touchpad {
     bindsym Alt+Space exec "rofi -show run"
     bindsym $mod+e exec thunar  
     bindsym $mod+s exec flameshot gui --path=$HOME/Pictures/screenshots/ --clipboard # Take a screenshot
-    bindsym $mod+Shift+R exec ~/scripts/reload_waybar.sh # Reload Waybar
     bindsym $mod+c exec "cliphist list | wofi --dmenu | cliphist decode | wl-copy" # Clipboard history
 
 
