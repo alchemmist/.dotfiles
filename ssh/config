@@ -1,0 +1,14 @@
+Host github-main
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github-main
+
+Host github-sub
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github-sub
+
+Host 45.95.235.20
+    HostName 45.95.235.20
+    User root
+    IdentityFile ~/.ssh/romanenko_vpn_server

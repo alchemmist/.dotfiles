@@ -16,10 +16,8 @@
     },
 
     "hyprland/language": {
-        "format": "{}",
         "format-en": "EN",
         "format-ru": "RU",
-        "format-it": "it",
         "keyboard-name": "at-translated-set-2-keyboard",
         "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
     },

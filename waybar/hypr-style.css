@@ -103,6 +103,7 @@ tooltip {
 #language {
     border-radius: 10px;
     margin-right: 10px;
+    min-width: 30px;
 }
 
 #clock.time {

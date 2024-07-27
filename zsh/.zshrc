@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cargo/bin:$HOME/.python3.12/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cargo/bin:$HOME/.python3.12/bin:/home/alchemmist/.local/lib/python3.12/site-packages:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -9,6 +9,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+
+export EDITOR="nvim"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -116,8 +119,8 @@ plugins=(
 # alias python="/home/alchemmist/.python3.12/bin/python"
 # alias pip="/home/alchemmist/.python3.12/bin/pip"
 
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
+alias pbcopy='wl-copy'
+alias pbpaste='wl-paste'
 
 alias nvim_clear_swap="rm -rf ~/.local/state/nvim/swap/*"
 
@@ -167,12 +170,11 @@ rm() {
 eval "neofetch"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
 # SSH-agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     eval "$(ssh-agent -s > /dev/null)"
 fi
-ssh-add ~/.ssh/github > /dev/null 2>&1
-
 
 
 

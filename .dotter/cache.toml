@@ -1,5 +1,9 @@
 [symlinks]
+"git/.gitconfig" = "/home/alchemmist/.gitconfig"
 "hypr/hyprland.conf" = "/home/alchemmist/.config/hypr/hyprland.conf"
+"kitty/gruvbox.conf" = "/home/alchemmist/.config/kitty/gruvbox.conf"
+"kitty/kitty.conf" = "/home/alchemmist/.config/kitty/kitty.conf"
+"kitty/mocha.conf" = "/home/alchemmist/.config/kitty/mocha.conf"
 "nvim/init.lua" = "/home/alchemmist/.config/nvim/init.lua"
 "nvim/lazy-lock.json" = "/home/alchemmist/.config/nvim/lazy-lock.json"
 "nvim/lua/core/bootstrap.lua" = "/home/alchemmist/.config/nvim/lua/core/bootstrap.lua"
@@ -25,6 +29,7 @@
 "nvim/lua/plugins/configs/telescope.lua" = "/home/alchemmist/.config/nvim/lua/plugins/configs/telescope.lua"
 "nvim/lua/plugins/configs/treesitter.lua" = "/home/alchemmist/.config/nvim/lua/plugins/configs/treesitter.lua"
 "nvim/lua/plugins/init.lua" = "/home/alchemmist/.config/nvim/lua/plugins/init.lua"
+"ssh/config" = "/home/alchemmist/.ssh/config"
 "sway/config" = "/home/alchemmist/.config/sway/config"
 "tmux/.tmux.conf" = "/home/alchemmist/.tmux.conf"
 "tmux/.tmux.conf.local" = "/home/alchemmist/.tmux.conf.local"

@@ -7,6 +7,9 @@ depends = [
     "sway",
     "nvim",
     "wofi",
+    "kitty",
+    "git",
+    "ssh"
 ]
 
 
@@ -31,3 +34,12 @@ depends = [
 
 [wofi.files]
 "wofi" = "~/.config/wofi"
+
+[kitty.files]
+"kitty" = "~/.config/kitty"
+
+[git.files]
+"git/.gitconfig" = "~/.gitconfig"
+
+[ssh.files]
+"ssh/config" = "~/.ssh/config"
