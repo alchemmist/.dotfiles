@@ -9,7 +9,8 @@ depends = [
     "wofi",
     "kitty",
     "git",
-    "ssh"
+    "ssh",
+    "scripts",
 ]
 
 
@@ -43,3 +44,6 @@ depends = [
 
 [ssh.files]
 "ssh/config" = "~/.ssh/config"
+
+[scripts.files]
+"scripts" = "~/scripts"

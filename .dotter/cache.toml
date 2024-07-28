@@ -29,6 +29,8 @@
 "nvim/lua/plugins/configs/telescope.lua" = "/home/alchemmist/.config/nvim/lua/plugins/configs/telescope.lua"
 "nvim/lua/plugins/configs/treesitter.lua" = "/home/alchemmist/.config/nvim/lua/plugins/configs/treesitter.lua"
 "nvim/lua/plugins/init.lua" = "/home/alchemmist/.config/nvim/lua/plugins/init.lua"
+"scripts/swww_random.sh" = "/home/alchemmist/scripts/swww_random.sh"
+"scripts/tdm.sh" = "/home/alchemmist/scripts/tdm.sh"
 "ssh/config" = "/home/alchemmist/.ssh/config"
 "sway/config" = "/home/alchemmist/.config/sway/config"
 "tmux/.tmux.conf" = "/home/alchemmist/.tmux.conf"
