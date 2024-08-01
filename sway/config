@@ -42,7 +42,7 @@ workspace 10 output *
 
 
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg /home/alchemmist/Pictures/wallpapers/abstract/sway_wallpaper.png fill
+output * bg /home/alchemmist/Pictures/asdf.png fill
 
 default_border pixel 1
 default_floating_border pixel 1
@@ -50,11 +50,11 @@ titlebar_padding 1
 titlebar_border_thickness 1
 
 
-client.focused          #282828     #282828     #ffffff     #282828     #282828
-client.unfocused        #282828     #282828     #ffffff     #282828     #282828
-client.focused_inactive #282828     #282828     #ffffff     #282828     #282828
-client.urgent           #282828     #282828     #ffffff     #282828     #282828
-client.placeholder      #282828     #282828     #ffffff     #282828     #282828
+client.focused          #000000     #000000     #ffffff     #000000     #000000
+client.unfocused        #000000     #000000     #ffffff     #000000     #000000
+client.focused_inactive #000000     #000000     #ffffff     #000000     #000000
+client.urgent           #000000     #000000     #ffffff     #000000     #000000
+client.placeholder      #000000     #000000     #ffffff     #000000     #000000
 
 
 #
@@ -109,7 +109,7 @@ input 10182:480:GXTP7863:00_27C6:01E0_Touchpad {
 #
     # Start a terminal
     bindsym $mod+q exec $term
-    bindsym $mod+b exec "qutebrowser"
+    bindsym $mod+b exec "google-chrome-stable"
 
 
     # Kill focused window
@@ -209,6 +209,7 @@ input 10182:480:GXTP7863:00_27C6:01E0_Touchpad {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
 #
 # Scratchpad:
 #
@@ -294,7 +295,7 @@ bindsym $mod+Ctrl+Shift+j move down
 
 
 
-font pango:Cascadia Mono 11
+font pango:Cascadia Mono 12
 
 
 # Status Bar:

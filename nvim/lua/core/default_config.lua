@@ -1,5 +1,18 @@
 local M = {}
 
+local wm = os.getenv("WM")
+
+local function set_theme()
+  local wm = os.getenv("WM")
+  if wm == "Hyprland" then
+    return "gruvbox"
+  elseif wm == "sway" then
+    return "solarized_dark"
+  else
+    return "gruvbox" -- тема по умолчанию, если WM не равен Hyprland или sway
+  end
+end
+
 M.options = {
   nvchad_branch = "v2.0",
 }
@@ -11,7 +24,7 @@ M.ui = {
   hl_override = {},
   changed_themes = {},
   theme_toggle = { "guvbox", "one_light" },
-  theme = "gruvbox", -- default theme
+  theme = set_theme(), -- default theme
   transparency = true,
   lsp_semantic_tokens = false, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
 

@@ -11,6 +11,8 @@ depends = [
     "git",
     "ssh",
     "scripts",
+    "alacritty",
+    "wlinitrc",
 ]
 
 
@@ -47,3 +49,9 @@ depends = [
 
 [scripts.files]
 "scripts" = "~/scripts"
+
+[alacritty.files]
+"alacritty" = "~/.config/alacritty"
+
+[wlinitrc.files]
+"wlinitrc/wlinitrc" = "~/.local/bin/wlinitrc"

@@ -3,6 +3,12 @@ Host github-main
     User git
     IdentityFile ~/.ssh/github-main
 
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github-main
+
+
 Host github-sub
   HostName github.com
   User git

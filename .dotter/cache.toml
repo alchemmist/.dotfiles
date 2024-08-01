@@ -1,6 +1,9 @@
 [symlinks]
+"alacritty/alacritty.toml" = "/home/alchemmist/.config/alacritty/alacritty.toml"
 "git/.gitconfig" = "/home/alchemmist/.gitconfig"
+"hypr/hypridle.conf" = "/home/alchemmist/.config/hypr/hypridle.conf"
 "hypr/hyprland.conf" = "/home/alchemmist/.config/hypr/hyprland.conf"
+"hypr/hyprlock.conf" = "/home/alchemmist/.config/hypr/hyprlock.conf"
 "kitty/gruvbox.conf" = "/home/alchemmist/.config/kitty/gruvbox.conf"
 "kitty/kitty.conf" = "/home/alchemmist/.config/kitty/kitty.conf"
 "kitty/mocha.conf" = "/home/alchemmist/.config/kitty/mocha.conf"
@@ -44,6 +47,7 @@
 "waybar/style/style.css" = "/home/alchemmist/.config/waybar/style/style.css"
 "waybar/sway-config.json" = "/home/alchemmist/.config/waybar/sway-config.json"
 "waybar/sway-style.css" = "/home/alchemmist/.config/waybar/sway-style.css"
+"wlinitrc/wlinitrc" = "/home/alchemmist/.local/bin/wlinitrc"
 "wofi/config" = "/home/alchemmist/.config/wofi/config"
 "wofi/style/style-dark.css" = "/home/alchemmist/.config/wofi/style/style-dark.css"
 "wofi/style/style.css" = "/home/alchemmist/.config/wofi/style/style.css"

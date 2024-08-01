@@ -1,64 +1,38 @@
 * {
-    border: none;
-    border-radius: 0;
     font-family: "CascadiaMonoNerdFont";
-    font-weight: normal;
     font-size: 15px;
-    min-height: 0;
-}
-
-window#waybar {
-    color: lightgrey;
-    background: rgba(0,0,0,0);
-    transition: background .3s;
-}
-
-tooltip {
-    background: #1e1e2e;
-    border-radius: 10px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
+    border: none;
+    color: #839496;
+    background: #002b36;
+    border-radius: 0;
 }
 
 #workspaces button {
-    padding: 1px;
-    color: lightgrey;
-    margin-right: 5px;
-}
-
-#workspaces button.active {
-    color: #a6adc8;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background: transparent;
+    color: white;
+    border-bottom: 3px solid transparent;
 }
 
 #workspaces button.focused {
-    color: #11111b;
-    background: lightgrey;
+    border-bottom: 3px solid white;
 }
 
-#workspaces button.urgent {
-    color: #11111b;
-    background: #a6adc8;
+#clock, 
+#cpu, 
+#memory, 
+#network, 
+#battery, 
+#pulseaudio, 
+#custom-wifi {
+    padding: 0 10px;
+    background: transparent;
 }
 
-#workspaces button:hover {
-    background: #11111b;
-    color: lightgrey;
+#battery {
+    padding: 0 0px;
 }
 
-#clock,
-#custom-power_profile,
-#custom-weather,
-#window,
-#battery,
-#pulseaudio,
-#network,
-#bluetooth,
-#temperature,
-#workspaces,
-#tray,
-#language,
-#backlight {
-    padding: 0px 8px;
-    margin: 0px 0px;
-}
