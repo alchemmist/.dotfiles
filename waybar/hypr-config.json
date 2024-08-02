@@ -8,7 +8,25 @@
     "height": 50,
     "modules-left": ["clock#time", "clock#date", "hyprland/workspaces"],
     "modules-center": [],
-    "modules-right": ["custom/weather","network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "hyprland/language", "tray"],
+    "modules-right": ["custom/temperature", "memory","cpu", "custom/weather","network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "hyprland/language", "tray"],
+
+     "cpu": {
+        "interval": 5,
+        "format": " {usage}%",
+        "tooltip-format": "CPU Load: {load}%",
+        "max-length": 10,
+        "text-max-length": 25
+    },
+
+    "custom/temperature": {
+        "exec": "echo  $(( $(cat /sys/class/thermal/thermal_zone0/temp) / 1000 ))°C",
+        "interval": 10,
+        "format": "{}"
+    },
+
+    "memory": {
+        "format": " {}%"
+    },
 
     "custom/wallpaper": {
         "format": " ",
