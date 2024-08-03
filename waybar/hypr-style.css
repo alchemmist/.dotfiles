@@ -64,6 +64,8 @@ tooltip {
 #cpu,
 #memory,
 #tray,
+#custom-pacman_updates,
+#custom-paru_updates,
 #temperature,
 #language,
 #backlight {
@@ -75,13 +77,22 @@ tooltip {
     border: 0px solid #181825;
 }
 
+#custom-pacman_updates {
+    border-radius: 10px 0px 0px 10px;
+}
+
+#custom-paru_updates {
+    border-radius: 0px 10px 10px 0px;
+}
+
 #custom-temperature {
     border-radius: 10px 0px 0px 10px;
+    margin-left: 10px;
 }
 
 #cpu {
     border-radius: 0px 10px 10px 0px;
-    min-width: 40px;
+    min-width: 50px;
 }
 
 #memory {
@@ -138,6 +149,7 @@ tooltip {
 
 #temperature {
     border-radius: 10px 0px 0px 10px;
+    min-width: 50px;
 }
 
 #temperature.critical {
