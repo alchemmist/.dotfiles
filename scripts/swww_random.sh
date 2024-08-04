@@ -4,8 +4,9 @@ export SWWW_TRANSITION_FPS=60
 export SWWW_TRANSITION=wave
 export SWWW_TRANSITION_DURATION=3
 export SWWW_TRANSITION_ANGLE=60
+export WALLPAPER_PACK=nature
 
-DIR=~/Pictures/wallpapers/nature
+DIR="/home/alchemmist/Pictures/wallpapers/$WALLPAPER_PACK"
 
 find "$DIR" -type f -o -type l \
   | while read -r img; do
