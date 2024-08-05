@@ -58,6 +58,7 @@ tooltip {
 #pulseaudio,
 #network,
 #custom-temperature,
+#custom-caffeine,
 #bluetooth,
 #temperature,
 #workspaces,
@@ -77,6 +78,11 @@ tooltip {
     border: 0px solid #181825;
 }
 
+#custom-caffeine {
+    border-radius: 10px;
+    margin-right: 5px
+}
+
 #custom-pacman_updates {
     border-radius: 10px 0px 0px 10px;
 }
@@ -87,7 +93,7 @@ tooltip {
 
 #custom-temperature {
     border-radius: 10px 0px 0px 10px;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 #cpu {
@@ -116,7 +122,7 @@ tooltip {
 
 #custom-wallpaper {
     border-radius: 10px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 
@@ -125,7 +131,7 @@ tooltip {
     opacity: 0.7;
     padding: 0px 10px;
     margin-right: 0px;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-top: 10px;
     border: 0px solid #181825;
 }
@@ -133,17 +139,19 @@ tooltip {
 
 #language {
     border-radius: 10px;
-    margin-right: 10px;
-    min-width: 30px;
+    margin-right: 5px;
+    min-width: 20px;
 }
 
 #clock.time {
     border-radius: 10px;
     padding: 0px 10px;
+    margin-left: 10px;
 }
 
 #clock.date {
     border-radius: 10px;
+    margin-left: 5px;
     padding: 0px 10px;
 }
 
@@ -168,7 +176,7 @@ tooltip {
 #workspaces {
     background: #1e1e2e;
     border-radius: 10px;
-    margin-left: 10px;
+    margin-left: 5px;
     padding-right: 0px;
     padding-left: 5px;
 }
@@ -188,7 +196,6 @@ tooltip {
 #clock {
     color: #fab387;
     border-radius: 10px 0px 0px 10px;
-    margin-left: 10px;
     border-right: 0px;
 }
 
@@ -197,13 +204,13 @@ tooltip {
     border-radius: 10px 0px 0px 10px;
     border-left: 0px;
     border-right: 0px;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 #bluetooth {
     color: #89b4fa;
     border-radius: 0px 10px 10px 0px;
-    margin-right: 10px
+    margin-right: 5px
 } 
 
 #pulseaudio {
@@ -217,13 +224,13 @@ tooltip {
     border-left: 0px;
     border-right: 0px;
     border-radius: 0px 10px 10px 0px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 #battery {
     color: #a6e3a1;
     border-radius: 10px 10px 10px 10px;
-    margin-right: 10px;
+    margin-right: 5px;
     border-left: 0px;
 }
 
@@ -231,7 +238,7 @@ tooltip {
     border-radius: 10px;
     /* border-radius: 0px 10px 10px 0px; */
     /* border-right: 0px; */
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 

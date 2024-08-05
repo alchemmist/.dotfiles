@@ -1,4 +1,4 @@
-# If you come from bash you might have to change your $PATH.
+#autoswitch_virtualenv If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cargo/bin:$HOME/.python3.12/bin:/home/alchemmist/.local/lib/python3.12/site-packages:$PATH
 
 # Path to your Oh My Zsh installation.
@@ -84,7 +84,6 @@ plugins=(
     fzf
     shellfirm
     docker
-    autoswitch_virtualenv
 )
 
 
@@ -167,7 +166,7 @@ rm() {
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 
-eval "neofetch"
+eval "fastfetch"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 

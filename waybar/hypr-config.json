@@ -8,7 +8,14 @@
     "height": 50,
     "modules-left": ["clock#time", "clock#date", "hyprland/workspaces"],
     "modules-center": [],
-    "modules-right": ["custom/pacman_updates", "custom/paru_updates", "custom/temperature", "memory","cpu", "custom/weather","network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "hyprland/language", "tray"],
+    "modules-right": ["custom/pacman_updates", "custom/paru_updates", "custom/temperature", "memory","cpu", "custom/weather","network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "custom/caffeine", "hyprland/language", "tray"],
+    
+     "custom/caffeine": {
+        "exec": "pgrep -x caffeine > /dev/null && echo '󱐋' || echo '⏾'",
+        "interval": 1,
+        "tooltip": false,
+        "on-click": "/home/alchemmist/scripts/toggle_caffeine.sh"
+    },
 
     "custom/pacman_updates": {
         "exec": "checkupdates | wc -l",
