@@ -121,6 +121,7 @@ plugins=(
 alias pbcopy='wl-copy'
 alias pbpaste='wl-paste'
 
+alias tuxsay="cowsay -f tux"
 alias nvim_clear_swap="rm -rf ~/.local/state/nvim/swap/*"
 
 hp-scan() {

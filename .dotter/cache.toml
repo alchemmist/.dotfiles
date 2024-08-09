@@ -1,5 +1,6 @@
 [symlinks]
 "alacritty/alacritty.toml" = "/home/alchemmist/.config/alacritty/alacritty.toml"
+"fastfetch/config.jsonc" = "/home/alchemmist/.config/fastfetch/config.jsonc"
 "git/.gitconfig" = "/home/alchemmist/.gitconfig"
 "hypr/hypridle.conf" = "/home/alchemmist/.config/hypr/hypridle.conf"
 "hypr/hyprland.conf" = "/home/alchemmist/.config/hypr/hyprland.conf"

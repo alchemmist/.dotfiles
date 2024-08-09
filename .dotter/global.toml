@@ -13,6 +13,7 @@ depends = [
     "scripts",
     "alacritty",
     "wlinitrc",
+    "fastfetch"
 ]
 
 
@@ -55,3 +56,6 @@ depends = [
 
 [wlinitrc.files]
 "wlinitrc/wlinitrc" = "~/.local/bin/wlinitrc"
+
+[fastfetch.files]
+"fastfetch" = "~/.config/fastfetch"
