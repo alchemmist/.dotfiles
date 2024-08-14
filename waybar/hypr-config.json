@@ -5,16 +5,22 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 50,
-    "modules-left": ["clock#time", "clock#date", "hyprland/workspaces"],
+    "height": 40,
+    "modules-left": ["custom/wofi", "clock#time", "clock#date", "hyprland/workspaces"],
     "modules-center": [],
-    "modules-right": ["custom/pacman_updates", "custom/paru_updates", "custom/temperature", "memory","cpu", "custom/weather","network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "custom/caffeine", "hyprland/language", "tray"],
-    
-     "custom/caffeine": {
-        "exec": "pgrep -x caffeine > /dev/null && echo '󱐋' || echo '⏾'",
-        "interval": 1,
-        "tooltip": false,
-        "on-click": "/home/alchemmist/scripts/toggle_caffeine.sh"
+    "modules-right": ["custom/pacman_updates", "custom/paru_updates", "custom/temperature", "memory","cpu", "custom/weather","network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "custom/caffeine", "hyprland/language", "idle_inhibitor", "tray"],
+
+    "custom/wofi": {
+        "format": "󰣇",
+        "on-click": "wofi"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󱐋",
+            "deactivated": "⏾"
+        }
     },
 
     "custom/pacman_updates": {

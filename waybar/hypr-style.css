@@ -58,11 +58,12 @@ tooltip {
 #pulseaudio,
 #network,
 #custom-temperature,
-#custom-caffeine,
+#idle_inhibitor,
 #bluetooth,
 #temperature,
 #workspaces,
 #cpu,
+#custom-wofi,
 #memory,
 #tray,
 #custom-pacman_updates,
@@ -74,11 +75,20 @@ tooltip {
     opacity: 0.7;
     padding: 0px 10px;
     margin: 3px 0px;
-    margin-top: 10px;
+    margin-top: 5px;
     border: 0px solid #181825;
 }
 
-#custom-caffeine {
+#custom-wofi {
+    font-size: 20px;
+    padding-left: 9px;
+    padding-right: 13px;
+    margin-left: 10px;
+    margin-right: 0px;
+    border-radius: 10px;
+}
+
+#idle_inhibitor {
     border-radius: 10px;
     margin-right: 5px
 }
@@ -99,11 +109,11 @@ tooltip {
 #cpu {
     border-radius: 0px 10px 10px 0px;
     min-width: 55px;
+    margin-left: 0px
 }
 
 #memory {
-    margin: 3px 0px;
-    margin-top: 10px;
+    margin-right: 0px;
     border-radius: 0px 0px 0px 0px;
 }
 
@@ -132,7 +142,6 @@ tooltip {
     padding: 0px 10px;
     margin-right: 0px;
     margin-left: 5px;
-    margin-top: 10px;
     border: 0px solid #181825;
 }
 
@@ -146,7 +155,7 @@ tooltip {
 #clock.time {
     border-radius: 10px;
     padding: 0px 10px;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 #clock.date {
