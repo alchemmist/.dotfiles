@@ -44,3 +44,6 @@ endfunction
 )
 
 vim.g.mkdp_browserfunc = 'OpenMarkdownPreview'
+
+require('custom.snippets')
+

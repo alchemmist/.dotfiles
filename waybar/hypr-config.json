@@ -8,7 +8,15 @@
     "height": 40,
     "modules-left": ["custom/wofi", "clock#time", "clock#date", "hyprland/workspaces"],
     "modules-center": [],
-    "modules-right": ["custom/pacman_updates", "custom/paru_updates", "custom/temperature", "memory","cpu", "custom/weather","network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "custom/caffeine", "hyprland/language", "idle_inhibitor", "tray"],
+    "modules-right": ["custom/google_calendar", "custom/pacman_updates", "custom/paru_updates", "custom/temperature", "memory","cpu", "custom/weather","network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "custom/caffeine", "hyprland/language", "idle_inhibitor", "tray"],
+
+    "custom/google_calendar": {
+        "exec": "~/code/google-calendar/venv/bin/python ~/scripts/google-calendar.py",
+        "interval": 100,
+        "format": "{}",
+        "return-type": "json",
+        "tooltip": true
+    },
 
     "custom/wofi": {
         "format": "󰣇",
@@ -120,10 +128,11 @@
             "warning": 30,
             "critical": 20
         },
-        "format": "{icon} {capacity}%  {time}",
+        "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip": "{time}"
     },
 
     "pulseaudio": {

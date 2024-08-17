@@ -83,7 +83,7 @@ input type:keyboard {
   # Capslock key should work as escape key
   # See /usr/share/X11/xkb/rules/xorg.lst for options
   xkb_layout us,ru
-  xkb_options ctrl:nocaps,grp:win_space_toggle
+  xkb_options ctrl:nocaps,grp:shifts_toggle
 }
 
 input 10182:480:GXTP7863:00_27C6:01E0_Touchpad {

@@ -12,3 +12,8 @@ Host 45.95.235.20
     HostName 45.95.235.20
     User root
     IdentityFile ~/.ssh/romanenko_vpn_server
+
+Host 31.129.59.20
+    HostName 31.129.59.20
+    User root
+    IdentityFile ~/.ssh/test

@@ -57,6 +57,7 @@ tooltip {
 #battery,
 #pulseaudio,
 #network,
+#custom-google_calendar,
 #custom-temperature,
 #idle_inhibitor,
 #bluetooth,
@@ -79,9 +80,20 @@ tooltip {
     border: 0px solid #181825;
 }
 
+#custom-google_calendar {
+    min-width: 251px;
+    border-radius: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#custom-google_calendar.alert {
+    color: red;
+}
+
 #custom-wofi {
     font-size: 20px;
-    padding-left: 9px;
+    padding-left: 8px;
     padding-right: 13px;
     margin-left: 10px;
     margin-right: 0px;

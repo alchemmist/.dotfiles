@@ -1,12 +1,11 @@
 {
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "custom/spotify"],
+    "modules-left": ["sway/workspaces"],
     "modules-center": [],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "date", "clock"],
+    "modules-right": ["pulseaudio", "network", "cpu", "custom/spliter", "memory", "custom/spliter",  "battery", "custom/spliter", "clock"],
 
-    "date": {
-        "format": "{:",
-        "interval": 1
+    "custom/spliter": {
+        "format": "|"
     },
 
     "clock": {
@@ -28,14 +27,6 @@
             "8": [],
             "9": [],
             "10": []
-        },
-
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": ""
         }
     },
 
@@ -48,7 +39,7 @@
     },
 
     "battery": {
-        "format": "{icon}{capacity}% ",
+        "format": "{icon}{capacity}%",
         "format-charging": " {capacity}%",
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
