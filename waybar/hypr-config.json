@@ -173,11 +173,11 @@
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "  {essid} {signalStrength}%",
+        "format-wifi": "  {essid}",
         "format-ethernet": "{ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠",
-        "tooltip-format": "{essid} - {ifname} via {gwaddr}"
+        "tooltip-format": "{essid} {signalStrength}% - {ifname} via {gwaddr}"
         // "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
     },
 

@@ -55,7 +55,10 @@ def get_next_event():
 
 
     output_text = f"{time} {main_event['summary']}" if not is_tomorrow else f"{date_text.replace("0", "")} в {time} {main_event['summary']}"
-    truncated_text = output_text[:23] + ".."
+    if len(output_text) >= 28:
+        truncated_text = output_text[:27] + ".."
+    else: 
+        truncated_text = output_text
 
     return json.dumps({
             "text": truncated_text,
