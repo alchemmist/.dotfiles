@@ -32,7 +32,9 @@ rt.setup({
     end,
   },
 })
-require('ruscmd').setup{}
+require('ruscmd').setup{
+    keymaps = false
+}
 
 
 vim.cmd(

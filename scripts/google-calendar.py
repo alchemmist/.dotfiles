@@ -10,9 +10,42 @@ from googleapiclient.discovery import build
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 CLIENT_FILE = '/home/alchemmist/.secrets/client_secret_1062888509271-qjg5i29c20ullk3aj4crja613nutv7et.apps.googleusercontent.com.json'
 
+
+def form_tooltip(events: list[dict]) -> str:
+    events_by_date = {}
+    
+    for event in events:
+        start = event['start'].get('dateTime', event['start'].get('date'))
+        event_date = datetime.datetime.fromisoformat(start).date()
+        
+        if event_date not in events_by_date:
+            events_by_date[event_date] = []
+
+        events_by_date[event_date].append(event)
+    
+    sorted_dates = sorted(events_by_date.keys())
+    
+    formatted_output = []
+    
+    for date in sorted_dates:
+        formatted_output.append(f"------------{date.strftime('%d.%m.%Y')}------------")
+        
+        day_events = events_by_date[date]
+        day_events.sort(key=lambda event: event['start'].get('dateTime', event['start'].get('date')))
+        
+        for event in day_events:
+            if 'dateTime' in event['start']:
+                start_time = datetime.datetime.fromisoformat(event['start']['dateTime']).strftime('%H:%M')
+                formatted_output.append(f"    {start_time} {event['summary']}")
+            else:
+                formatted_output.append(f"    {event['summary']}")
+        
+        formatted_output.append("")  
+    
+    return "\n".join(formatted_output)
+
 def get_next_event():
     creds = None
-    # Файл token.json хранит пользовательский токен и обновляет его автоматически.
     if os.path.exists("token.json"):
         creds = Credentials.from_authorized_user_file("token.json", SCOPES)
     if not creds or not creds.valid:
@@ -28,16 +61,30 @@ def get_next_event():
     service = build('calendar', 'v3', credentials=creds)
 
     now = (datetime.datetime.now() - datetime.timedelta(hours=2)).isoformat() + 'Z'
-    events_result = service.events().list(calendarId='primary', timeMin=now,
-                                          maxResults=10, singleEvents=True,
-                                          orderBy='startTime').execute()
-    events = events_result.get('items', [])
+    calendars_result = service.calendarList().list().execute()
+    calendars = calendars_result.get('items', [])
 
-    if not events:
-        print("No events")
-        exit(0)
+    all_events = []
+    for calendar in calendars:
+        calendar_id = calendar['id']
+        events_result = service.events().list(calendarId=calendar_id, timeMin=now,
+                                              maxResults=30, singleEvents=True,
+                                              orderBy='startTime').execute()
+        events = events_result.get('items', [])
+        all_events.extend(events)
 
-    main_event = events[0]
+    if not all_events:
+        return json.dumps({
+                "text": "No events",
+                "tooltip": False,
+                "class": "normal" 
+            }
+        )
+
+    all_events.sort(key=lambda event: datetime.datetime.fromisoformat(
+        event['start'].get('dateTime', event['start'].get('date'))).replace(tzinfo=None))
+    main_event = list(filter(lambda event: 'dateTime' in event['start'], all_events))[0]
+
     start = main_event['start'].get('dateTime', main_event['start'].get('date'))
     main_event_time = datetime.datetime.fromisoformat(start).replace(tzinfo=None)
     time = main_event_time.strftime('%H:%M')
@@ -55,14 +102,16 @@ def get_next_event():
 
 
     output_text = f"{time} {main_event['summary']}" if not is_tomorrow else f"{date_text.replace("0", "")} в {time} {main_event['summary']}"
-    if len(output_text) >= 28:
-        truncated_text = output_text[:27] + ".."
-    else: 
-        truncated_text = output_text
+    # if len(output_text) >= 28:
+    #     truncated_text = output_text[:27] + ".."
+    # else: 
+    #     truncated_text = output_text
+
+    tooltip = form_tooltip(all_events[:20])
 
     return json.dumps({
-            "text": truncated_text,
-            "tooltip": f"{time} {date}",
+            "text": output_text,
+            "tooltip": tooltip,
             "class": main_event_class
         }
     )
@@ -70,3 +119,22 @@ def get_next_event():
 
 print(get_next_event())
 
+
+# ------------19.08.2024------------
+#     10:30 event1
+#     13:30 event2
+#     20:45 event3
+# ------------20.08.2024------------
+#     all_day_event1
+#     all_day_event2
+#
+#     10:30 event1
+#     13:30 event2
+#     20:45 event3
+# ------------21.08.2024------------
+#     all_day_event1
+#
+#     10:30 event1
+#     13:30 event2
+#     20:45 event3
+#
