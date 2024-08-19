@@ -124,6 +124,8 @@ alias pbpaste='wl-paste'
 alias tuxsay="cowsay -f tux"
 alias nvim_clear_swap="rm -rf ~/.local/state/nvim/swap/*"
 
+alias cd="z"
+
 hp-scan() {
     cd ~/Pictures/scans
     yes "" | /usr/bin/hp-scan -m color
