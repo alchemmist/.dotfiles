@@ -60,6 +60,7 @@
 "wofi/style/style-dark.css" = "/home/alchemmist/.config/wofi/style/style-dark.css"
 "wofi/style/style.css" = "/home/alchemmist/.config/wofi/style/style.css"
 "wofi/style.css" = "/home/alchemmist/.config/wofi/style.css"
+"zathura/zathurarc" = "/home/alchemmist/.config/zathura/zathurarc"
 "zsh/.zshrc" = "/home/alchemmist/.zshrc"
 
 [templates]

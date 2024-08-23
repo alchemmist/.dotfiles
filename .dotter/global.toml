@@ -13,7 +13,8 @@ depends = [
     "scripts",
     "alacritty",
     "wlinitrc",
-    "fastfetch"
+    "fastfetch",
+    "zathura"
 ]
 
 
@@ -59,3 +60,6 @@ depends = [
 
 [fastfetch.files]
 "fastfetch" = "~/.config/fastfetch"
+
+[zathura.files]
+"zathura" = "~/.config/zathura"

@@ -1,3 +1,5 @@
+#!/home/alchemmist/code/google-calendar/venv/bin/python
+
 import datetime
 import json 
 import os.path
@@ -60,7 +62,7 @@ def get_next_event():
 
     service = build('calendar', 'v3', credentials=creds)
 
-    now = (datetime.datetime.now() - datetime.timedelta(hours=2)).isoformat() + 'Z'
+    now = (datetime.datetime.now() - datetime.timedelta(hours=2, minutes=10)).isoformat() + 'Z'
     calendars_result = service.calendarList().list().execute()
     calendars = calendars_result.get('items', [])
 
@@ -94,14 +96,19 @@ def get_next_event():
     time_until_minutes = time_until_main_event.total_seconds() / 60
     main_event_class = "alert" if time_until_minutes < 30 else "normal"
 
-    if (is_tomorrow := main_event_time.date() == (datetime.datetime.now() \
-            + datetime.timedelta(days=1)).date()):
+    if (is_not_today := main_event_time.date() != datetime.datetime.now().date()):
         date_text = main_event_time.strftime('%d.%m')
     else:
         date_text = ""
 
 
-    output_text = f"{time} {main_event['summary']}" if not is_tomorrow else f"{date_text.replace("0", "")} в {time} {main_event['summary']}"
+    output_text = f"{time} {main_event['summary']}" if not is_not_today \
+        else f"{".".join(
+            map(
+                lambda x: x.lstrip("0"), 
+                date_text.split(".")
+                )
+            )} в {time} {main_event['summary']}"
     # if len(output_text) >= 28:
     #     truncated_text = output_text[:27] + ".."
     # else: 

@@ -380,9 +380,11 @@ local plugins = {
     config = function()
       vim.g.vimtex_compiler_method = 'latexmk'
       vim.g.vimtex_compiler_latexmk = {
-        build_dir = '',
-        callback = 1,
+        aux_dir = vim.fn.expand('$HOME/.cache/latex/aux'),
+        out_dir = vim.fn.expand('$HOME/.cache/latex/out'),
+        build_dir = vim.fn.expand('$HOME/.cache/latex'),
         continuous = 1,
+        callback = 1,
         executable = 'latexmk',
         options = {
           '-pdf',
@@ -392,6 +394,8 @@ local plugins = {
         },
       }
       vim.g.vimtex_view_method = 'zathura'
+      vim.g.vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
+      vim.g.vimtex_compiler_progname = 'nvr'
     end,
     ft = {"tex", "cls"}
   }

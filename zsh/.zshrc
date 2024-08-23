@@ -1,5 +1,5 @@
 #autoswitch_virtualenv If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cargo/bin:$HOME/.python3.12/bin:/home/alchemmist/.local/lib/python3.12/site-packages:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cargo/bin:$HOME/.python3.12/bin:/home/alchemmist/.local/lib/python3.12/site-packages:$HOME/code/syncthing-wrapper/src-tauri/target/release:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -123,8 +123,6 @@ alias pbpaste='wl-paste'
 
 alias tuxsay="cowsay -f tux"
 alias nvim_clear_swap="rm -rf ~/.local/state/nvim/swap/*"
-
-alias cd="z"
 
 hp-scan() {
     cd ~/Pictures/scans

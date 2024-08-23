@@ -81,7 +81,7 @@ tooltip {
 }
 
 #custom-google_calendar {
-    min-width: 335px;
+    min-width: 325px;
     border-radius: 10px;
     margin-right: 5px;
     margin-left: 5px;
@@ -133,9 +133,6 @@ tooltip {
     padding-right: 7px;
 }
 
-#pulseaudio {
-    padding-right: 10px;
-}
 
 #backlight {
     padding-right: 0px;
@@ -236,10 +233,13 @@ tooltip {
 } 
 
 #pulseaudio {
+    padding-right: 0px;
     color: #89b4fa;
     border-left: 0px;
     border-right: 0px;
+    min-width: 70px;
 }
+
 
 #pulseaudio.microphone {
     color: #cba6f7;
@@ -254,6 +254,7 @@ tooltip {
     border-radius: 10px 10px 10px 10px;
     margin-right: 5px;
     border-left: 0px;
+    min-width: 60px;
 }
 
 #custom-weather {
