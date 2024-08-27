@@ -19,6 +19,7 @@ M.mason = {
     
     -- python stuff
     "pyright",
+    "black",
     -- rust stuff
     "rust-analyzer",
     -- go stuff

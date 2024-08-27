@@ -1,1 +1,13 @@
 set guioptions none
+set selection-clipboard none
+set selection-mode none
+set adjust-open "best-fit"
+set render-loading "false"
+set zoom-center "true"
+set highlight-color "rgba(0, 0, 0, 0.03)"
+set highlight-active-color "rgba(0, 0, 0, 0.03)" 
+
+set synctex true
+set synctex-editor-command "nvim --remote-silent +%{line} %{input}"
+
+

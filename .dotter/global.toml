@@ -14,7 +14,8 @@ depends = [
     "alacritty",
     "wlinitrc",
     "fastfetch",
-    "zathura"
+    "zathura",
+    "wallpapers",
 ]
 
 
@@ -63,3 +64,6 @@ depends = [
 
 [zathura.files]
 "zathura" = "~/.config/zathura"
+
+[wallpapers.files]
+"wallpapers" = "~/Pictures/wallpapers"

@@ -32,9 +32,6 @@ rt.setup({
     end,
   },
 })
-require('ruscmd').setup{
-    keymaps = false
-}
 
 
 vim.cmd(
@@ -44,8 +41,10 @@ function OpenMarkdownPreview (url)
 endfunction
 ]]
 )
-
 vim.g.mkdp_browserfunc = 'OpenMarkdownPreview'
+
+
+
 
 require('custom.snippets')
 

@@ -123,6 +123,7 @@ alias pbpaste='wl-paste'
 
 alias tuxsay="cowsay -f tux"
 alias nvim_clear_swap="rm -rf ~/.local/state/nvim/swap/*"
+alias tex_compile="latexmk -pdf -silent -c -outdir=. -auxdir=/home/alchemmist/.cache/latex/aux"
 
 hp-scan() {
     cd ~/Pictures/scans

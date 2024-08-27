@@ -59,6 +59,7 @@ tooltip {
 #network,
 #custom-google_calendar,
 #custom-temperature,
+#custom-disk_space,
 #idle_inhibitor,
 #bluetooth,
 #temperature,
@@ -80,8 +81,9 @@ tooltip {
     border: 0px solid #181825;
 }
 
+
 #custom-google_calendar {
-    min-width: 325px;
+    min-width: 327px;
     border-radius: 10px;
     margin-right: 5px;
     margin-left: 5px;
@@ -120,12 +122,15 @@ tooltip {
 
 #cpu {
     border-radius: 0px 10px 10px 0px;
-    min-width: 55px;
-    margin-left: 0px
+    min-width: 50px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 #memory {
     margin-right: 0px;
+    margin-left: 0px;
+    min-width: 50px;
     border-radius: 0px 0px 0px 0px;
 }
 
@@ -176,6 +181,7 @@ tooltip {
 #temperature {
     border-radius: 10px 0px 0px 10px;
     min-width: 50px;
+    margin-right: 0px;
 }
 
 #temperature.critical {
