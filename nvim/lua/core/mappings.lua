@@ -1,5 +1,8 @@
 -- n, v, i, t = mode names
 
+
+-- local latex_mappings = require("custom.latex")
+
 local M = {}
 
 M.general = {
@@ -7,6 +10,9 @@ M.general = {
 		-- go to  beginning and end
 		["<C-b>"] = { "<ESC>^i", "Beginning of line" },
 		["<C-e>"] = { "<End>", "End of line" },
+
+		["<C-.>"] = { "\\Rightarrow", "Latex right arrow" },
+		["<C-,>"] = { "\\Leftarrow", "Latex left arrow" },
 
 		-- navigate within insert mode
 		-- ["<C-h>"] = { "<Left>", "Move left" },
@@ -64,8 +70,8 @@ M.general = {
 			end,
 			"LSP formatting",
 		},
-        ["<leader>b"] = { "<cmd>VimtexCompile<CR>", "Build latex doc" },
-        ["<leader>v"] = { "<cmd>VimtexView<CR>", "View place in latex doc" },
+		["<leader>b"] = { "<cmd>VimtexCompile<CR>", "Build latex doc" },
+		["<leader>v"] = { "<cmd>VimtexView<CR>", "View place in latex doc" },
 	},
 
 	t = {
@@ -77,6 +83,17 @@ M.general = {
 		["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
 		["<"] = { "<gv", "Indent line" },
 		[">"] = { ">gv", "Indent line" },
+		-- ["<C-b>"] = {
+		-- 	latex_mappings.wrap_text_in_textbf,
+		-- 	"Wrap text in \\textbf{}",
+		-- 	opts = {
+		-- 		callback = function()
+		-- 			if vim.bo.filetype == "tex" then
+		-- 				latex_mappings.wrap_text_in_textbf()
+		-- 			end
+		-- 		end,
+		-- 	},
+		-- },
 	},
 
 	x = {

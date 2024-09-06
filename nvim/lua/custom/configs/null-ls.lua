@@ -10,7 +10,9 @@ local sources = {
 	-- Lua
 	b.formatting.stylua,
 	-- Python
-    b.formatting.black,
+	b.formatting.black,
+	-- Latex
+	b.formatting.latexindent,
 
 	-- cpp
 	b.formatting.clang_format,
