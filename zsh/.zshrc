@@ -1,5 +1,23 @@
 #autoswitch_virtualenv If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cargo/bin:$HOME/.python3.12/bin:/home/alchemmist/.local/lib/python3.12/site-packages:$HOME/code/syncthing-wrapper/src-tauri/target/release:$PATH
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.python3.12/bin:$PATH
+export PATH=/home/alchemmist/.local/lib/python3.12/site-packages:$PATH
+export PATH=$HOME/code/syncthing-wrapper/src-tauri/target/release:$PATH
+export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
+export PATH=/home/alchemmist/time-desktop-linux-x64:$PATH
+export PATH=$HOME/code/CU-lms-wrapper/src-tauri/target/release:$PATH
+
+export VIMRUNTIME=/usr/share/nvim/runtime
+export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.12/site-packages
+
+
+
+
+export MANPATH=/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/usr/local/texlive/2024/texmf-dist/doc/info:$INFOPATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -123,7 +141,9 @@ alias pbpaste='wl-paste'
 
 alias tuxsay="cowsay -f tux"
 alias nvim_clear_swap="rm -rf ~/.local/state/nvim/swap/*"
+alias latex_clear_cache="rm -rf ~/latex/aux/* && rm -rf ~/latex/out/*"
 alias tex_compile="latexmk -pdf -silent -c -outdir=. -auxdir=/home/alchemmist/.cache/latex/aux"
+alias xo="xdg-open"
 
 hp-scan() {
     cd ~/Pictures/scans

@@ -11,6 +11,5 @@ selected=$(echo "$windows" | fzf)
 if [ -n "$selected" ]; then
     session=$(echo "$selected" | cut -d':' -f1)
     window_index=$(echo "$selected" | cut -d':' -f2)
-    tmux switch-client -t "$session"
-    tmux select-window -t "$window_index"
+    tmux switch-client -t "${session}:${window_index}"
 fi

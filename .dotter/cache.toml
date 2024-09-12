@@ -39,6 +39,7 @@
 "scripts/battery_stat.sh" = "/home/alchemmist/scripts/battery_stat.sh"
 "scripts/google-calendar.py" = "/home/alchemmist/scripts/google-calendar.py"
 "scripts/requirements.txt" = "/home/alchemmist/scripts/requirements.txt"
+"scripts/start_nvim_in_kb.sh" = "/home/alchemmist/scripts/start_nvim_in_kb.sh"
 "scripts/swww_random.sh" = "/home/alchemmist/scripts/swww_random.sh"
 "scripts/tdm.sh" = "/home/alchemmist/scripts/tdm.sh"
 "scripts/tmux_window_finder.sh" = "/home/alchemmist/scripts/tmux_window_finder.sh"

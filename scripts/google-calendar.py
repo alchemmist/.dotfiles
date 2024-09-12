@@ -12,7 +12,6 @@ from googleapiclient.discovery import build
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 CLIENT_FILE = '/home/alchemmist/.secrets/client_secret_1062888509271-qjg5i29c20ullk3aj4crja613nutv7et.apps.googleusercontent.com.json'
 
-
 def form_tooltip(events: list[dict]) -> str:
     events_by_date = {}
     
@@ -62,7 +61,7 @@ def get_next_event():
 
     service = build('calendar', 'v3', credentials=creds)
 
-    now = (datetime.datetime.now() - datetime.timedelta(hours=2, minutes=10)).isoformat() + 'Z'
+    now = (datetime.datetime.now() - datetime.timedelta(hours=2, minutes=5)).isoformat() + 'Z'
     calendars_result = service.calendarList().list().execute()
     calendars = calendars_result.get('items', [])
 

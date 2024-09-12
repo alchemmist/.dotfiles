@@ -395,16 +395,13 @@ local plugins = {
 		ft = { "tex", "cls" },
 	},
 	{
-		"SirVer/ultisnips",
+		"nativerv/cyrillic.nvim",
+		event = { "VeryLazy" },
 		config = function()
-			vim.g.UltiSnipsExpandTrigger = "<tab>"
-			vim.g.UltiSnipsJumpForwardTrigger = "<C-j>"
-			vim.g.UltiSnipsJumpBackwardTrigger = "<C-k>"
-			vim.g.UltiSnipsListSnippets = "<C-l>"
-			vim.g.UltiSnipsRemoveSelectModeMappings = 0
-			vim.g.UltiSnipsSnippetDirectories = { "UltiSnips" }
+			require("cyrillic").setup({
+				no_cyrillic_abbrev = false, -- default
+			})
 		end,
-        -- event = "InsertEnter",
 	},
 }
 

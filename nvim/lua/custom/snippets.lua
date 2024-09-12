@@ -1,7 +1,10 @@
+print("Module custom.snippets loaded successfully")
+
 local ls = require("luasnip")
 local s = ls.snippet
 local i = ls.insert_node
 local t = ls.text_node
+local f = ls.function_node
 
 ls.add_snippets("python", {
 	s("pprint", {
@@ -28,6 +31,7 @@ ls.add_snippets("tex", {
 		t("}"),
 	}),
 })
+
 
 ls.add_snippets("tex", {
 	s("an", {
@@ -71,5 +75,43 @@ ls.add_snippets("tex", {
 	s("<=>", {
 		t("\\Leftrightarrow "),
         i(1)
+	}),
+})
+
+ls.add_snippets("tex", {
+	s("--->", {
+		t("\\longrightarrow "),
+        i(1)
+	}),
+})
+
+ls.add_snippets("tex", {
+	s("<---", {
+		t("\\longleftarrow "),
+        i(1)
+	}),
+})
+
+ls.add_snippets("tex", {
+    s("bf", {
+            t("\\textbf{"),
+            i(1), 
+            t("}")
+        }),
+})
+
+ls.add_snippets("tex", {
+	s("enum", {
+		t({ "\\begin{enumerate}", "\t" }),
+		i(1),
+		t({ "", "\\end{enumerate}" }),
+	}),
+})
+
+ls.add_snippets("tex", {
+	s("sys", {
+		t({ "\\begin{cases}", "\t" }),
+		i(1),
+		t({ "", "\\end{cases}" }),
 	}),
 })
