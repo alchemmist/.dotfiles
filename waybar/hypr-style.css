@@ -168,13 +168,15 @@ tooltip {
 }
 
 #custom-localtime {
-    color: #fab387;
+    color: #cdd6f4;
+    /* color: #fab387; */
     border-radius: 10px;
     padding: 0px 10px;
     margin-left: 5px;
 }
 
 #clock.date {
+    color: #cdd6f4;
     border-radius: 10px;
     margin-left: 5px;
     padding: 0px 10px;
@@ -226,24 +228,27 @@ tooltip {
 }
 
 #network {
+    color: #cdd6f4;
     padding-right: 0px;
-    color: #f9e2af;
+    /* color: #f9e2af; */
     border-radius: 10px 0px 0px 10px;
-    min-width: 110px;
+    min-width: 210px;
     border-left: 0px;
     border-right: 0px;
     margin-left: 5px;
 }
 
 #bluetooth {
-    color: #89b4fa;
+    color: #cdd6f4;
+    /* color: #89b4fa; */
     border-radius: 0px 10px 10px 0px;
     margin-right: 5px
 } 
 
 #pulseaudio {
+    color: #cdd6f4;
     padding-right: 0px;
-    color: #89b4fa;
+    /* color: #89b4fa; */
     border-left: 0px;
     border-right: 0px;
     min-width: 70px;
@@ -251,7 +256,8 @@ tooltip {
 
 
 #pulseaudio.microphone {
-    color: #cba6f7;
+    color: #cdd6f4;
+    /* color: #cba6f7; */
     border-left: 0px;
     border-right: 0px;
     border-radius: 0px 10px 10px 0px;
@@ -259,7 +265,8 @@ tooltip {
 }
 
 #battery {
-    color: #a6e3a1;
+    color: #cdd6f4;
+    /* color: #a6e3a1; */
     border-radius: 10px 10px 10px 10px;
     margin-right: 5px;
     border-left: 0px;
