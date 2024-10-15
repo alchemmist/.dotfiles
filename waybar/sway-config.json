@@ -2,7 +2,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces"],
     "modules-center": [],
-    "modules-right": ["pulseaudio", "network", "cpu", "custom/spliter", "memory", "custom/spliter",  "battery", "custom/spliter", "clock"],
+    "modules-right": ["pulseaudio", "custom/spliter", "network", "custom/spliter", "cpu", "custom/spliter", "memory", "custom/spliter",  "battery", "custom/spliter", "clock"],
 
     "custom/spliter": {
         "format": "|"

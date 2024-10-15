@@ -1,5 +1,3 @@
-print("Module custom.snippets loaded successfully")
-
 local ls = require("luasnip")
 local s = ls.snippet
 local i = ls.insert_node
@@ -79,14 +77,14 @@ ls.add_snippets("tex", {
 })
 
 ls.add_snippets("tex", {
-	s("--->", {
+	s("->", {
 		t("\\longrightarrow "),
         i(1)
 	}),
 })
 
 ls.add_snippets("tex", {
-	s("<---", {
+	s("<-", {
 		t("\\longleftarrow "),
         i(1)
 	}),
@@ -113,5 +111,27 @@ ls.add_snippets("tex", {
 		t({ "\\begin{cases}", "\t" }),
 		i(1),
 		t({ "", "\\end{cases}" }),
+	}),
+})
+
+
+ls.add_snippets("tex", {
+	s("lim", {
+		t("\\lim\\limits_{"),
+        i(1),
+		t(" \\longrightarrow "),
+        i(2),
+		t("}{"),
+        i(3),
+		t("} "),
+        i(4)
+	}),
+})
+
+
+ls.add_snippets("tex", {
+	s("8", {
+		t("\\infty"),
+        i(1)
 	}),
 })

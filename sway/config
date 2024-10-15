@@ -42,7 +42,7 @@ workspace 10 output *
 
 
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg /home/alchemmist/Pictures/asdf.png fill
+output * bg /home/alchemmist/Pictures/wallpapers/Frame 3.png fill
 
 default_border pixel 1
 default_floating_border pixel 1
@@ -110,6 +110,9 @@ input 10182:480:GXTP7863:00_27C6:01E0_Touchpad {
     # Start a terminal
     bindsym $mod+q exec $term
     bindsym $mod+b exec "google-chrome-stable"
+    #bindsym 135 exec swaylock
+
+
 
 
     # Kill focused window

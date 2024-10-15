@@ -66,8 +66,20 @@ def get_next_event():
     calendars = calendars_result.get('items', [])
 
     all_events = []
+    yandex_calendars = []
+    
+    # Определяем Yandex календари по названию или id
+    for calendar in calendars:
+        calendar_id = calendar['summaryOverride']
+        if "Yandex" in calendar['summary'] or "Yandex" in calendar_id:
+            yandex_calendars.append(calendar_id)
+
     for calendar in calendars:
         calendar_id = calendar['id']
+        # Пропускаем Yandex календари
+        if calendar_id in yandex_calendars:
+            continue
+        
         events_result = service.events().list(calendarId=calendar_id, timeMin=now,
                                               maxResults=30, singleEvents=True,
                                               orderBy='startTime').execute()
@@ -108,11 +120,6 @@ def get_next_event():
                 date_text.split(".")
                 )
             )} в {time} {main_event['summary']}"
-    # if len(output_text) >= 28:
-    #     truncated_text = output_text[:27] + ".."
-    # else: 
-    #     truncated_text = output_text
-
     tooltip = form_tooltip(all_events[:20])
 
     return json.dumps({
@@ -125,22 +132,3 @@ def get_next_event():
 
 print(get_next_event())
 
-
-# ------------19.08.2024------------
-#     10:30 event1
-#     13:30 event2
-#     20:45 event3
-# ------------20.08.2024------------
-#     all_day_event1
-#     all_day_event2
-#
-#     10:30 event1
-#     13:30 event2
-#     20:45 event3
-# ------------21.08.2024------------
-#     all_day_event1
-#
-#     10:30 event1
-#     13:30 event2
-#     20:45 event3
-#

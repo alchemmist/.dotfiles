@@ -1,5 +1,3 @@
-print("Module custom.figures loaded successfully")
-
 local M = {}
 -- ~/.config/nvim/lua/figures.lua
 
@@ -24,25 +22,36 @@ function M.get_visual_selection()
 end
 
 -- Команда для создания новой фигуры
+function M.get_rofi_input()
+	-- Запуск rofi с флагом -dmenu для ввода строки
+	local handle = io.popen("rofi -dmenu -p 'Enter text:'")
+	local result = handle:read("*a")
+	handle:close()
+
+	-- Убираем лишние символы перевода строки
+	return result:gsub("%s+", "")
+end
+
 function M.create_figure()
-	local selected_text = M.get_visual_selection()
-	if selected_text and selected_text ~= "" then
-		local cmd = "inkscape-figures create " .. selected_text .. " /home/alchemmist/knowledge-base/CU/figures"
-		vim.cmd("! " .. cmd)
-	else
-		print("No text selected.")
+	-- Получаем ввод от rofi
+	local selected_text = M.get_rofi_input()
+
+	-- Проверяем, что введённый текст не пустой
+	if selected_text == "" then
+		print("No input provided")
+		return
 	end
+
+	-- Собираем команду для создания фигуры
+	local command = "inkscape-figures create " .. selected_text .. " /home/alchemmist/knowledge-base/CU/figures"
+	-- Выполняем команду
+	vim.cmd("! " .. command)
 end
 
 -- Команда для редактирования существующей фигуры
 function M.edit_figure()
-	local selected_text = M.get_visual_selection()
-	if selected_text and selected_text ~= "" then
-		local cmd = "inkscape-figures edit /home/alchemmist/knowledge-base/CU/figures/" .. selected_text .. ".svg"
-		vim.cmd("! " .. cmd)
-	else
-		print("No text selected.")
-	end
+	local cmd = "inkscape-figures edit /home/alchemmist/knowledge-base/CU/figures && hyprctl dispatch workspace 7"
+	vim.cmd("! " .. cmd)
 end
 
 -- Экспортируем функции

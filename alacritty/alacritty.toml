@@ -25,7 +25,7 @@ x = 0
 y = 0
 
 [colors.bright]
-black = "#002b36"
+black = "#252525"
 blue = "#839496"
 cyan = "#93a1a1"
 green = "#586e75"
@@ -46,7 +46,7 @@ white = "#eee8d5"
 yellow = "#b58900"
 
 [colors.primary]
-background = "#002b36"
+background = "#252525"
 foreground = "#839496"
 
 [scrolling]

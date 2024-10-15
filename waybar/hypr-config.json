@@ -7,7 +7,7 @@
     "gtk-layer-shell": true,
     "height": 40,
     "modules-left": ["custom/wofi", "custom/localtime", "clock#date", "hyprland/workspaces"],
-    "modules-center": ["custom/google_calendar"],
+    "modules-center": [],
     "modules-right": ["custom/pacman_updates", "custom/paru_updates", "custom/temperature","custom/disk_space", "memory","cpu", "network", "bluetooth", "temperature","battery", "backlight", "pulseaudio","pulseaudio#microphone", "custom/caffeine", "hyprland/language", "idle_inhibitor"],
 
      "custom/localtime": {

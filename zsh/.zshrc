@@ -15,10 +15,10 @@ export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.12/site-packages
 
 
 
-
 export MANPATH=/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH
 export INFOPATH=/usr/local/texlive/2024/texmf-dist/doc/info:$INFOPATH
 
+#export WAYLAND_DISPLAY=''
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 

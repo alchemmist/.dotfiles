@@ -41,7 +41,6 @@ endfunction
 vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
 
 require("custom.snippets")
-
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "*.snippets",
 	callback = function()
@@ -49,16 +48,18 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 })
 
+
 require("custom.figures")
+
 vim.api.nvim_set_keymap(
-	"v",
+	"n",
 	"<C-f>",
-	":lua require('lua.custom.figures').create_figure()<CR>",
+	":lua require('custom.figures').create_figure()<CR>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"v",
+	"n",
 	"<C-e>",
-	":lua require('lua.custom.figures').edit_figure()<CR>",
+	":lua require('custom.figures').edit_figure()<CR>",
 	{ noremap = true, silent = true }
 )
