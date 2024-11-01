@@ -135,3 +135,13 @@ ls.add_snippets("tex", {
         i(1)
 	}),
 })
+
+
+ls.add_snippets("tex", {
+	s("p", {
+		t({ "\\begin{pmatrix}", "\t" }),
+		i(1),
+		t({ "", "\\end{pmatrix}" }),
+	}),
+})
+

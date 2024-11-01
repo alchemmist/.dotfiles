@@ -187,7 +187,7 @@
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "max-length": 350,
+        // "max-length": 350,
         "format-wifi": "  {essid}",
         "format-ethernet": "{ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP)",
