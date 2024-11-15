@@ -186,13 +186,6 @@ M.lspconfig = {
 			"LSP implementation",
 		},
 
-		["<leader>ls"] = {
-			function()
-				vim.lsp.buf.signature_help()
-			end,
-			"LSP signature help",
-		},
-
 		["<leader>D"] = {
 			function()
 				vim.lsp.buf.type_definition()
@@ -279,6 +272,15 @@ M.lspconfig = {
 			"LSP code action",
 		},
 	},
+    i = {
+		["<C-l>"] = {
+			function()
+				vim.lsp.buf.signature_help()
+			end,
+			"LSP signature help",
+		},
+    },
+
 }
 
 M.nvimtree = {

@@ -49,6 +49,14 @@ ls.add_snippets("tex", {
 })
 
 ls.add_snippets("tex", {
+	s("g", {
+		t({ "\\begin{gather*}", "\t" }),
+		i(1),
+		t({ "", "\\end{gather*}" }),
+	}),
+})
+
+ls.add_snippets("tex", {
 	s("div", {
 		t("\\ \\vdots \\ "),
         i(1)
@@ -119,7 +127,7 @@ ls.add_snippets("tex", {
 	s("lim", {
 		t("\\lim\\limits_{"),
         i(1),
-		t(" \\longrightarrow "),
+		t(" \\to "),
         i(2),
 		t("}{"),
         i(3),
@@ -138,10 +146,18 @@ ls.add_snippets("tex", {
 
 
 ls.add_snippets("tex", {
-	s("p", {
+	s("pm", {
 		t({ "\\begin{pmatrix}", "\t" }),
 		i(1),
 		t({ "", "\\end{pmatrix}" }),
+	}),
+})
+
+ls.add_snippets("tex", {
+	s("vm", {
+		t({ "\\begin{vmatrix}", "\t" }),
+		i(1),
+		t({ "", "\\end{vmatrix}" }),
 	}),
 })
 
