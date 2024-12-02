@@ -129,6 +129,12 @@ M.tabufline = {
 			end,
 			"Close buffer",
 		},
+		["<leader>ч"] = {
+			function()
+				require("nvchad.tabufline").close_buffer()
+			end,
+			"Close buffer",
+		},
 	},
 }
 

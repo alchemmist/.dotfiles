@@ -1,2 +1,2 @@
 #!/bin/sh
-cd /home/alchemmist/knowledge-base/CU && nvim
+cd /home/alchemmist/CU && nvim

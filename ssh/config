@@ -17,3 +17,9 @@ Host 31.129.59.20
     HostName 31.129.59.20
     User root
     IdentityFile ~/.ssh/test
+
+Host 178.208.79.42
+    HostName 178.208.79.42
+    User www
+    IdentityFile ~/.ssh/personal_server
+

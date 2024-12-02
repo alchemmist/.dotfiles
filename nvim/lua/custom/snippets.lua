@@ -161,3 +161,9 @@ ls.add_snippets("tex", {
 	}),
 })
 
+ls.add_snippets("tex", {
+	s("\'", {
+		t("\\prime"),
+        i(1)
+	}),
+})

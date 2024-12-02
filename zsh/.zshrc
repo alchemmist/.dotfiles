@@ -206,3 +206,15 @@ fi
 
 # HA HA HA
 
+fzf_history() {
+    local selected=$(fc -l 1 | sed 's/^[[:space:]]*[0-9]*[[:space:]]*//' | fzf --reverse --height=40%)
+    if [[ -n $selected ]]; then
+        LBUFFER="$selected"
+    fi
+}
+
+# Зарегистрируйте функцию как виджет
+zle -N fzf_history
+
+# Привяжите Ctrl+A к виджету
+bindkey "^S" fzf_history
