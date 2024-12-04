@@ -218,3 +218,16 @@ zle -N fzf_history
 
 # Привяжите Ctrl+A к виджету
 bindkey "^S" fzf_history
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+    zle accept-line
+}
+
+zle -N y
+bindkey "^y" y
