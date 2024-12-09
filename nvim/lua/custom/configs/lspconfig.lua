@@ -19,11 +19,21 @@ for _, lsp in ipairs(servers) do
 					-- pythonPath = vim.fn.getcwd() .. "/venv/bin/python",
 				},
 			},
+            format = {
+                indentSize = 4,
+                tabSize = 4
+            }
+
 		})
 	else
 		lspconfig[lsp].setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
+            format = {
+                indentSize = 4,
+                tabSize = 4
+            }
+
 		})
 	end
 end

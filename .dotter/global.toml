@@ -16,6 +16,7 @@ depends = [
     "fastfetch",
     "zathura",
     "wallpapers",
+    "mako"
 ]
 
 
@@ -67,3 +68,6 @@ depends = [
 
 [wallpapers.files]
 "wallpapers" = "~/Pictures/wallpapers"
+
+[mako.files]
+"mako" = "~/.config/mako"

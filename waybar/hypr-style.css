@@ -59,6 +59,7 @@ tooltip {
 #network,
 #custom-google_calendar,
 #custom-temperature,
+#custom-notifications,
 #custom-disk_space,
 #idle_inhibitor,
 #bluetooth,
@@ -103,6 +104,18 @@ tooltip {
   border-radius: 10px;
 }
 
+#custom-notifications {
+  border-radius: 10px;
+  margin-right: 5px;
+  padding-right: 13px;
+  font-size: 18px;
+  min-width: 17px;
+}
+
+#custom-notifications.off {
+  font-size: 20px;
+}
+
 #idle_inhibitor {
   border-radius: 10px;
   margin-right: 5px;
@@ -112,7 +125,7 @@ tooltip {
   border-radius: 10px;
   margin-right: 5px;
   padding-right: 13px;
-  font-size: 20px;  /* Увеличьте размер по вашему усмотрению */
+  font-size: 20px; /* Увеличьте размер по вашему усмотрению */
 }
 
 #custom-vpn {

@@ -30,24 +30,38 @@
     "custom/caffeine",
     "hyprland/language",
     "custom/wireguard-manager",
+    "custom/notifications",
     "idle_inhibitor"
   ],
+  "custom/notifications": {
+    "exec": "~/scripts/notification_mode.sh status",
+    "interval": "once",
+    "format": "{icon}",
+    "on-click": "~/scripts/notification_mode.sh toggle && pkill -SIGRTMIN+2 waybar",
+    "format-icons": {
+      "off": "",
+      "on": "󰂚"
+    }, 
+    "signal": 2, 
+    "return-type": "json"
+  },
+
   "custom/wireguard-manager": {
-    "exec": "exec ~/scripts/wireguard-manager.sh -s",
+    "exec": "~/scripts/wireguard-manager.sh -s",
     "format": "{icon}",
     "format-icons": {
       "connected": "<span>󰯄</span>",
       "disconnected": "<span>󰒙</span>"
     },
     "interval": "once",
-    "on-click": "~/.config/waybar/wireguard-manager/wireguard-manager.sh -t && pkill -SIGRTMIN+1 waybar",
+    "on-click": "~/scripts/wireguard-manager.sh -t && pkill -SIGRTMIN+1 waybar",
     "return-type": "json",
     "signal": 1
   },
 
   "custom/localtime": {
     "exec": "date +'%H:%M'",
-    "interval": 50,
+    "interval": 30,
     "format": "{}"
   },
 
@@ -81,13 +95,13 @@
 
   "custom/pacman_updates": {
     "exec": "checkupdates | wc -l",
-    "interval": 10,
+    "interval": 60,
     "format": " {}"
   },
 
   "custom/paru_updates": {
     "exec": "paru -Qu | wc -l",
-    "interval": 10,
+    "interval": 60,
     "format": "󰣇 {}"
   },
 
@@ -95,7 +109,7 @@
     "interval": 5,
     "format": " {usage}%",
     "tooltip-format": "CPU Load: {load}%",
-    "max-length": 10,
+    "max-length": 5,
     "text-max-length": 25
   },
 
@@ -106,7 +120,8 @@
   },
 
   "memory": {
-    "format": " {}%"
+    "format": " {}%",
+    "interval": 5
   },
 
   "custom/wallpaper": {
