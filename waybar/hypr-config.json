@@ -33,7 +33,7 @@
     "idle_inhibitor"
   ],
   "custom/wireguard-manager": {
-    "exec": "exec ~/.config/waybar/wireguard-manager/wireguard-manager.sh -s",
+    "exec": "exec ~/scripts/wireguard-manager.sh -s",
     "format": "{icon}",
     "format-icons": {
       "connected": "<span>󰯄</span>",
