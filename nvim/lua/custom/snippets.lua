@@ -138,7 +138,7 @@ ls.add_snippets("tex", {
 
 
 ls.add_snippets("tex", {
-	s("8", {
+	s("inf", {
 		t("\\infty"),
         i(1)
 	}),
