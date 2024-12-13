@@ -63,3 +63,5 @@ vim.api.nvim_set_keymap(
 	":lua require('custom.figures').edit_figure()<CR>",
 	{ noremap = true, silent = true }
 )
+
+require("git-conflict")
