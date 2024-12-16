@@ -8,18 +8,17 @@ Host github-sub
   User git
   IdentityFile ~/.ssh/github-sub
 
-Host 45.95.235.20
+Host romanenko
     HostName 45.95.235.20
     User root
     IdentityFile ~/.ssh/romanenko_vpn_server
 
-Host 31.129.59.20
-    HostName 31.129.59.20
-    User root
-    IdentityFile ~/.ssh/test
-
-Host 178.208.79.42
+Host laba
     HostName 178.208.79.42
     User www
     IdentityFile ~/.ssh/personal_server
 
+Host cu_ctf
+    HostName 10.80.2.2
+    User root
+    IdentityFile ~/.ssh/cu_ctf
