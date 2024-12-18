@@ -13,3 +13,6 @@
 
 [url "git@github-sub:"]
     insteadOf = git@github.com:flamelen/
+
+[alias]
+	st = status
