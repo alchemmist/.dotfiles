@@ -227,7 +227,6 @@ function y() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
-    zle accept-line
 }
 
 zle -N y

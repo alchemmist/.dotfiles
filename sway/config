@@ -86,10 +86,9 @@ input type:keyboard {
   xkb_options ctrl:nocaps,grp:shifts_toggle
 }
 
-input 10182:480:GXTP7863:00_27C6:01E0_Touchpad {
+input "GXTP7863:00 27C6:01E0" {
     tap enabled
 }
-
 #
 # Example configuration:
 #
