@@ -65,3 +65,11 @@ vim.api.nvim_set_keymap(
 )
 
 require("git-conflict")
+
+vim.diagnostic.config({
+  virtual_text = false,  -- Отключаем текст ошибок
+  signs = false,  -- Оставляем иконки (красный крестик)
+  update_in_insert = true,
+  underline = true,
+  severity_sort = true,
+})

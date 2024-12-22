@@ -69,6 +69,7 @@ tooltip {
 #custom-vpn,
 #custom-wireguard-manager,
 #custom-wofi,
+#custom-hyprshade,
 #memory,
 #tray,
 #custom-pacman_updates,
@@ -102,6 +103,20 @@ tooltip {
   margin-left: 5px;
   margin-right: 0px;
   border-radius: 10px;
+}
+
+#custom-hyprshade {
+  border-radius: 10px;
+  margin-right: 5px;
+  font-size: 18px;
+  min-width: 17px;
+}
+
+#custom-hyprshade.on {
+  border-radius: 10px;
+  margin-right: 5px;
+  font-size: 18px;
+  min-width: 17px;
 }
 
 #custom-notifications {

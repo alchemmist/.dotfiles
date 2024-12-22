@@ -64,9 +64,7 @@ M.ui = {
 
   -- nvdash (dashboard)
   nvdash = {
-    size = 10,
     load_on_startup = true,
-
 
     header = {"██╗   ██╗██╗███╗   ███╗",
               "██║   ██║██║████╗ ████║",

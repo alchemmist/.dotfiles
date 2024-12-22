@@ -31,8 +31,23 @@
     "hyprland/language",
     "custom/wireguard-manager",
     "custom/notifications",
-    "idle_inhibitor"
+    "idle_inhibitor",
+    "custom/hyprshade"
   ],
+  "custom/hyprshade": {
+    "format": "{icon}",
+    "format-icons": {
+      "off": "",
+      "on": ""
+    },
+    "interval": "once",
+    "exec": "hyprshade current 2>/dev/null | grep -q 'blue-light-filter' && echo '{\"class\": \"on\", \"alt\": \"on\"}' || echo '{\"class\": \"off\", \"alt\": \"off\"}'",
+    "on-click": "hyprshade toggle && pkill -SIGRTMIN+3 waybar",
+    "signal": 3,
+    "interval": "once",
+    "tooltip": false,
+    "return-type": "json"
+  },
   "custom/notifications": {
     "exec": "~/scripts/notification_mode.sh status",
     "interval": "once",
@@ -41,8 +56,8 @@
     "format-icons": {
       "off": "",
       "on": "󰂚"
-    }, 
-    "signal": 2, 
+    },
+    "signal": 2,
     "return-type": "json"
   },
 
