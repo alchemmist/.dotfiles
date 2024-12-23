@@ -145,6 +145,7 @@ alias latex_clear_cache="rm -rf ~/latex/aux/* && rm -rf ~/latex/out/*"
 alias tex_compile="latexmk -pdf -silent -c -outdir=. -auxdir=/home/alchemmist/.cache/latex/aux"
 alias xo="xdg-open"
 alias cls="clear"
+alias vim="/usr/bin/vim -u NONE"
 
 hp-scan() {
     cd ~/Pictures/scans

@@ -16,7 +16,7 @@ depends = [
     "fastfetch",
     "zathura",
     "wallpapers",
-    "mako"
+    "mako",
 ]
 
 

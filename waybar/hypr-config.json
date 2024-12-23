@@ -41,8 +41,8 @@
       "on": ""
     },
     "interval": "once",
-    "exec": "hyprshade current 2>/dev/null | grep -q 'blue-light-filter' && echo '{\"class\": \"on\", \"alt\": \"on\"}' || echo '{\"class\": \"off\", \"alt\": \"off\"}'",
-    "on-click": "hyprshade toggle && pkill -SIGRTMIN+3 waybar",
+    "exec": "pgrep -x gammastep >/dev/null && echo '{\"class\": \"on\", \"alt\": \"on\"}' || echo '{\"class\": \"off\", \"alt\": \"off\"}'",
+    "on-click": "pgrep -x gammastep >/dev/null && pkill gammastep || (gammastep -O 4000 &) && pkill -SIGRTMIN+3 waybar", 
     "signal": 3,
     "interval": "once",
     "tooltip": false,
