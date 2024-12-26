@@ -395,7 +395,7 @@ local plugins = {
 		ft = { "tex", "cls" },
 	},
 	{
-		"nativerv/cyrillic.nvim",
+		"Alchemmist/cyrillic.nvim",
 		event = { "VeryLazy" },
 		config = function()
 			require("cyrillic").setup({

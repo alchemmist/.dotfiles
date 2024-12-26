@@ -311,6 +311,10 @@ tooltip {
   min-width: 60px;
 }
 
+#battery.critical {
+  color: red;
+}
+
 #custom-weather {
   border-radius: 10px;
   /* border-radius: 0px 10px 10px 0px; */

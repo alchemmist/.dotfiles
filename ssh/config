@@ -8,6 +8,11 @@ Host github-sub
   User git
   IdentityFile ~/.ssh/github-sub
 
+Host gitlab.com
+    HostName gitlab.com
+    User git
+    IdentityFile ~/.ssh/gitlab
+
 Host romanenko
     HostName 45.95.235.20
     User root

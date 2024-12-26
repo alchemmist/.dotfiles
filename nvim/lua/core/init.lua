@@ -15,7 +15,9 @@ opt.showmode = false
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
 
-opt.scrolloff = 5
+opt.scrolloff = 2
+opt.scrolljump = 2
+
 
 -- Indenting
 opt.expandtab = true
