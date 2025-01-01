@@ -2,6 +2,10 @@ dofile(vim.g.base46_cache .. "lsp")
 require "nvchad.lsp"
 
 local M = {}
+
+local servers = { "html", "cssls", "ts_ls", "clangd", "pyright", "lua_ls", "rust_analyzer", "eslint", "gopls" }
+
+
 local utils = require "core.utils"
 
 -- export on_attach & capabilities for custom lspconfigs
@@ -41,6 +45,18 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
+for _, lsp in ipairs(servers) do
+    require("lspconfig")[lsp].setup({
+        on_attach = M.on_attach,
+        capabilities = M.capabilities,
+        format = {
+            indentSize = 4,
+            tabSize = 4
+        }
+
+    })
+end
+
 require("lspconfig").lua_ls.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
@@ -63,5 +79,7 @@ require("lspconfig").lua_ls.setup {
     },
   },
 }
+
+
 
 return M

@@ -71,6 +71,11 @@ M.general = {
 		},
 		["<leader>b"] = { "<cmd>VimtexCompile<CR>", "Build latex doc" },
 		["<leader>v"] = { "<cmd>VimtexView<CR>", "View place in latex doc" },
+        ["<leader>w"] = { "<cmd>w<CR>", "Save"},
+        ["|"] = { "<cmd>:vsplit<CR>", "Vertical split"},
+        ["<TAB>"] = { "<cmd>:tabNext<CR>", "Go to next tab"},
+        ["."] = {"."},
+        ["<S-E>"] = {"<cmd>:lua vim.diagnostic.open_float()<CR>", "Show LSP message"},
 	},
 
 	t = {
