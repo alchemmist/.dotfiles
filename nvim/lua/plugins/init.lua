@@ -21,10 +21,8 @@ local overrides = {
 	},
 }
 
-local default_plugins = {
-
+local plugins = {
 	"nvim-lua/plenary.nvim",
-
 	{
 		"NvChad/base46",
 		branch = "v2.0",
@@ -697,8 +695,4 @@ local default_plugins = {
 
 local config = require("core.utils").load_config()
 
--- if #config.plugins > 0 then
--- 	table.insert(default_plugins, { import = config.plugins })
--- end
-
-require("lazy").setup(default_plugins, config.lazy_nvim)
+require("lazy").setup(plugins, config.lazy_nvim)

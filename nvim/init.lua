@@ -27,14 +27,3 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 require("git-conflict")
-
-vim.diagnostic.config({
-  virtual_text = false,  -- Отключаем текст ошибок
-  signs = false,  -- Оставляем иконки (красный крестик)
-  update_in_insert = true,
-  underline = true,
-  severity_sort = true,
-})
-
-
-

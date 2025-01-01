@@ -75,7 +75,7 @@ M.general = {
         ["|"] = { "<cmd>:vsplit<CR>", "Vertical split"},
         ["<TAB>"] = { "<cmd>:tabNext<CR>", "Go to next tab"},
         ["."] = {"."},
-        ["<S-E>"] = {"<cmd>:lua vim.diagnostic.open_float()<CR>", "Show LSP message"},
+        ["<S-E>"] = {vim.diagnostic.open_float, "Show LSP message"},
 	},
 
 	t = {

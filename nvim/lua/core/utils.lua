@@ -2,13 +2,14 @@ local M = {}
 local merge_tb = vim.tbl_deep_extend
 
 M.load_config = function()
-	local config = require("core.default_config")
+	local config = require("core.nvchad_config")
 	local chadrc = {
 		ui = {
 			theme = "gruvbox",
 			hl_override = {
 				Comment = {
 					italic = true,
+                    fg = "red"
 				},
 				NvDashAscii = { bg = "NONE", fg = "green" },
 				NvDashButtons = { bg = "NONE" },
