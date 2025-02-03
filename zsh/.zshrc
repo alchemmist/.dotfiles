@@ -13,10 +13,14 @@ export PATH=$HOME/code/CU-lms-wrapper/src-tauri/target/release:$PATH
 export VIMRUNTIME=/usr/share/nvim/runtime
 export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.12/site-packages
 
-
-
 export MANPATH=/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH
 export INFOPATH=/usr/local/texlive/2024/texmf-dist/doc/info:$INFOPATH
+
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
+
+
 
 #export WAYLAND_DISPLAY=''
 # Path to your Oh My Zsh installation.
@@ -201,12 +205,10 @@ fi
 
 
 
-if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/tty2" ] && [ -z "$(printenv HYPRLAND_INSTANCE_SIGNATURE)" ]; then
+if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/tty2"  -o "$(tty)" = "/dev/tty3" ] && [ -z "$(printenv HYPRLAND_INSTANCE_SIGNATURE)" ]; then
   exec ~/.local/bin/wlinitrc
 fi
 
-
-# HA HA HA
 
 fzf_history() {
     local selected=$(fc -l 1 | sed 's/^[[:space:]]*[0-9]*[[:space:]]*//' | fzf --reverse --height=40%)

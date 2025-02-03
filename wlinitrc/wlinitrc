@@ -8,6 +8,9 @@ export QT_QPA_PLATFORM=wayland
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export SDL_VIDEODRIVER=wayland
 export CLUTTER_BACKEND=wayland
+export XDG_SESSION_TYPE=wayland
+export GDK_BACKEND=wayland
+
 
 exec /home/alchemmist/scripts/tdm.sh
 

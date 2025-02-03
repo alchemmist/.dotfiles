@@ -39,6 +39,7 @@
 "scripts/rofi.rasi" = "/home/alchemmist/scripts/rofi.rasi"
 "scripts/start_nvim_in_kb.sh" = "/home/alchemmist/scripts/start_nvim_in_kb.sh"
 "scripts/swww_random.sh" = "/home/alchemmist/scripts/swww_random.sh"
+"scripts/sync_public_notes.py" = "/home/alchemmist/scripts/sync_public_notes.py"
 "scripts/tdm.sh" = "/home/alchemmist/scripts/tdm.sh"
 "scripts/test.sh" = "/home/alchemmist/scripts/test.sh"
 "scripts/tmux_window_finder.sh" = "/home/alchemmist/scripts/tmux_window_finder.sh"

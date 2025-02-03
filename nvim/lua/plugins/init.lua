@@ -285,11 +285,6 @@ local plugins = {
 			},
 		},
 	},
-
-	{
-		"neovim/nvim-lspconfig",
-	},
-
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -691,6 +686,13 @@ local plugins = {
 			})
 		end,
 	},
+    {
+        "fatih/vim-go",
+        config = function()
+            vim.g.go_fmt_command = "gofmt"
+            vim.g.go_auto_type_info = 1
+        end
+    },
 }
 
 local config = require("core.utils").load_config()

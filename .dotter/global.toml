@@ -71,3 +71,4 @@ depends = [
 
 [mako.files]
 "mako" = "~/.config/mako"
+

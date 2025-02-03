@@ -39,9 +39,10 @@ M.general = {
 
 		-- save
 		["<C-s>"] = { "<cmd> w <CR>", "Save file" },
-		-- run python script
+		-- run script
 		["<leader>rp"] = { "<cmd> !python % <CR>", "Fust run python file" },
 		["<leader>rr"] = { "<cmd> RustRun <CR>", "Fust run rust file" },
+		["<leader>rl"] = { "<cmd> !lua % <CR>", "Fust run lua file" },
 
 		-- Copy all
 		["<C-c>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
