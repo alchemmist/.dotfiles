@@ -27,3 +27,23 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 require("git-conflict")
+
+
+require("null-ls").setup({
+  sources = {
+    require("null-ls").builtins.formatting.prettier.with({
+      extra_args = { "--tab-width", "4" },
+    }),
+  },
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function()
+    vim.bo.tabstop = 4
+    vim.bo.shiftwidth = 4
+    vim.bo.expandtab = true
+  end
+})
+
+

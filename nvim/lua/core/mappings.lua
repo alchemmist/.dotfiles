@@ -43,6 +43,7 @@ M.general = {
 		["<leader>rp"] = { "<cmd> !python % <CR>", "Fust run python file" },
 		["<leader>rr"] = { "<cmd> RustRun <CR>", "Fust run rust file" },
 		["<leader>rl"] = { "<cmd> !lua % <CR>", "Fust run lua file" },
+		["<leader>rg"] = { "<cmd> !go run % <CR>", "Fust run go file" },
 
 		-- Copy all
 		["<C-c>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
@@ -72,11 +73,17 @@ M.general = {
 		},
 		["<leader>b"] = { "<cmd>VimtexCompile<CR>", "Build latex doc" },
 		["<leader>v"] = { "<cmd>VimtexView<CR>", "View place in latex doc" },
-        ["<leader>w"] = { "<cmd>w<CR>", "Save"},
-        ["|"] = { "<cmd>:vsplit<CR>", "Vertical split"},
-        ["<TAB>"] = { "<cmd>:tabNext<CR>", "Go to next tab"},
-        ["."] = {"."},
-        ["<S-E>"] = {vim.diagnostic.open_float, "Show LSP message"},
+		["<leader>w"] = { "<cmd>w<CR>", "Save" },
+		["|"] = { "<cmd>:vsplit<CR>", "Vertical split" },
+		["<TAB>"] = { "<cmd>:tabNext<CR>", "Go to next tab" },
+		["."] = { "." },
+		["<S-E>"] = {
+			function()
+				vim.diagnostic.open_float({ border = "rounded" })
+			end,
+			"Show LSP message",
+			opts = { silent = true, noremap = true },
+		},
 	},
 
 	t = {
@@ -172,12 +179,256 @@ M.lspconfig = {
 	-- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
 
 	n = {
-		["gD"] = {
+		-- Go to definition
+		["gd"] = {
 			function()
-				vim.lsp.buf.declaration()
+				vim.lsp.buf.definition()
 			end,
-			"LSP declaration",
+			"LSP definition",
 		},
+
+		-- Hover documentation
+		["K"] = {
+			function()
+				vim.lsp.buf.hover()
+			end,
+			"LSP hover",
+		},
+
+		-- Go to implementation
+		["gi"] = {
+			function()
+				vim.lsp.buf.implementation()
+			end,
+			"LSP implementation",
+		},
+
+		-- Type definition
+		["<leader>D"] = {
+			function()
+				vim.lsp.buf.type_definition()
+			end,
+			"LSP type definition",
+		},
+
+		-- Rename symbol
+		["<leader>ra"] = {
+			function()
+				require("nvchad.renamer").open()
+			end,
+			"LSP rename",
+		},
+
+		-- Code action
+		["<leader>ca"] = {
+			function()
+				vim.lsp.buf.code_action()
+			end,
+			"LSP code action",
+		},
+
+		-- Find references
+		["gr"] = {
+			function()
+				vim.lsp.buf.references()
+			end,
+			"LSP references",
+		},
+
+		-- Show floating diagnostic
+		["E"] = {
+			function()
+				vim.diagnostic.open_float({ border = "rounded" })
+			end,
+			"Floating diagnostic",
+		},
+
+		-- Go to previous diagnostic
+		["[d"] = {
+			function()
+				vim.diagnostic.goto_prev({ float = { border = "rounded" } })
+			end,
+			"Goto previous diagnostic",
+		},
+
+		-- Go to next diagnostic
+		["]d"] = {
+			function()
+				vim.diagnostic.goto_next({ float = { border = "rounded" } })
+			end,
+			"Goto next diagnostic",
+		},
+
+		-- Set diagnostic location list
+		["<leader>q"] = {
+			function()
+				vim.diagnostic.setloclist()
+			end,
+			"Diagnostic setloclist",
+		},
+
+		-- Add workspace folder
+		["<leader>wa"] = {
+			function()
+				vim.lsp.buf.add_workspace_folder()
+			end,
+			"Add workspace folder",
+		},
+
+		-- Remove workspace folder
+		["<leader>wr"] = {
+			function()
+				vim.lsp.buf.remove_workspace_folder()
+			end,
+			"Remove workspace folder",
+		},
+
+		-- List workspace folders
+		["<leader>wl"] = {
+			function()
+				print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+			end,
+			"List workspace folders",
+		},
+
+		-- Extract variable
+		["<leader>ev"] = {
+			function()
+				vim.lsp.buf.execute_command({
+					command = "java.extract.variable",
+				})
+			end,
+			"Extract variable",
+		},
+
+		-- Extract constant
+		["<leader>ec"] = {
+			function()
+				vim.lsp.buf.execute_command({
+					command = "java.extract.constant",
+				})
+			end,
+			"Extract constant",
+		},
+
+		-- Extract method
+		["<leader>em"] = {
+			function()
+				vim.lsp.buf.execute_command({
+					command = "java.extract.method",
+				})
+			end,
+			"Extract method",
+		},
+
+		-- Generate constructor
+		["<leader>gc"] = {
+			function()
+				vim.lsp.buf.execute_command({
+					command = "java.generate.constructor",
+				})
+			end,
+			"Generate constructor",
+		},
+
+		-- Generate toString method
+		["<leader>gt"] = {
+			function()
+				vim.lsp.buf.execute_command({
+					command = "java.generate.toString",
+				})
+			end,
+			"Generate toString method",
+		},
+
+		-- Generate hashCode and equals methods
+		["<leader>ge"] = {
+			function()
+				vim.lsp.buf.execute_command({
+					command = "java.generate.hashCodeAndEquals",
+				})
+			end,
+			"Generate hashCode and equals methods",
+		},
+
+		-- Generate delegate methods
+		["<leader>gd"] = {
+			function()
+				vim.lsp.buf.execute_command({
+					command = "java.generate.delegate",
+				})
+			end,
+			"Generate delegate methods",
+		},
+
+		-- Move method or class
+		["<leader>gm"] = {
+			function()
+				vim.lsp.buf.execute_command({
+					command = "java.move.methodOrClass",
+				})
+			end,
+			"Move method or class",
+		},
+
+		-- Refactor method signature
+		["<leader>rf"] = {
+			function()
+				vim.lsp.buf.execute_command({
+					command = "java.refactor.signature",
+				})
+			end,
+			"Refactor method signature",
+		},
+
+		-- Display bytecode with javap
+		["<leader>jp"] = {
+			function()
+				vim.lsp.buf.execute_command({
+					command = "java.javap",
+				})
+			end,
+			"Display bytecode with javap",
+		},
+
+		-- Show memory usage with jol
+		["<leader>jl"] = {
+			function()
+				vim.lsp.buf.execute_command({
+					command = "java.jol",
+				})
+			end,
+			"Show memory usage with jol",
+		},
+
+		-- Open JShell
+		["<leader>js"] = {
+			function()
+				vim.lsp.buf.execute_command({
+					command = "java.jshell",
+				})
+			end,
+			"Open JShell",
+		},
+
+		-- Generate tests
+		["<leader>gt"] = {
+			function()
+				require("jdtls.tests").generate()
+			end,
+			"Generate tests",
+		},
+
+		-- Go to test subject
+		["<leader>gtg"] = {
+			function()
+				require("jdtls.tests").goto_subjects()
+			end,
+			"Go to test subject",
+		},
+
+        ---------------------------------------------------
+
 		["gd"] = {
 			function()
 				vim.lsp.buf.definition()
@@ -275,6 +526,163 @@ M.lspconfig = {
 			end,
 			"List workspace folders",
 		},
+		["<leader>rn"] = {
+			function()
+				vim.lsp.buf.rename()
+			end,
+			"LSP rename",
+		},
+
+		["<leader>ft"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.test.run" })
+			end,
+			"Run Java tests",
+		},
+
+		-- Организация импортов
+		["<leader>oi"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.organize.imports" })
+			end,
+			"Organize imports",
+		},
+
+		-- Извлечение локальной переменной
+		["<leader>ev"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.extract.variable" })
+			end,
+			"Extract variable",
+		},
+
+		-- Извлечение локальной переменной и замена всех вхождений
+		["<leader>eva"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.extract.variable.all" })
+			end,
+			"Extract variable (all)",
+		},
+
+		-- Извлечение константы
+		["<leader>ec"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.extract.constant" })
+			end,
+			"Extract constant",
+		},
+
+		-- Извлечение метода
+		["<leader>em"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.extract.method" })
+			end,
+			"Extract method",
+		},
+
+		-- Открытие содержимого файла класса
+		["<leader>cl"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.class.contents" })
+			end,
+			"Class contents",
+		},
+
+		-- Расширенные действия кода
+		["<leader>ea"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.code.actions" })
+			end,
+			"Code actions",
+		},
+
+		-- Генерация конструктора
+		["<leader>gc"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.generate.constructor" })
+			end,
+			"Generate constructor",
+		},
+
+		-- Генерация toString
+		["<leader>gT"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.generate.toString" })
+			end,
+			"Generate toString",
+		},
+
+		-- Генерация hashCode и equals
+		["<leader>gh"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.generate.hashcode_equals" })
+			end,
+			"Generate hashCode and equals",
+		},
+
+		-- Генерация методов делегата
+		["<leader>gd"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.generate.delegate.methods" })
+			end,
+			"Generate delegate methods",
+		},
+
+		-- Перемещение пакета, метода или типа
+		["<leader>mp"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.move.package.method.type" })
+			end,
+			"Move package, method or type",
+		},
+
+		-- Рефакторинг подписи
+		["<leader>rs"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.refactor.signature" })
+			end,
+			"Refactor signature",
+		},
+
+		-- Команда javap для отображения байт-кода
+		["<leader>jp"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.javap" })
+			end,
+			"Display bytecode (javap)",
+		},
+
+		-- Команда jol для отображения использования памяти
+		["<leader>jl"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.jol" })
+			end,
+			"Display memory usage (jol)",
+		},
+
+		-- Открытие jshell
+		["<leader>js"] = {
+			function()
+				vim.lsp.buf.execute_command({ command = "java.jshell" })
+			end,
+			"Open jshell",
+		},
+
+		-- Поддержка отладчика через nvim-dap
+		["<leader>db"] = {
+			function()
+				require("dap").continue()
+			end,
+			"Start debugger",
+		},
+
+		-- Перейти к тестам или предметам через jdtls
+		["<leader>ts"] = {
+			function()
+				require("jdtls.tests").goto_subjects()
+			end,
+			"Go to tests/subjects",
+		},
 	},
 
 	v = {
@@ -285,15 +693,14 @@ M.lspconfig = {
 			"LSP code action",
 		},
 	},
-    i = {
+	i = {
 		["<C-l>"] = {
 			function()
 				vim.lsp.buf.signature_help()
 			end,
 			"LSP signature help",
 		},
-    },
-
+	},
 }
 
 M.nvimtree = {
@@ -429,6 +836,5 @@ M.blankline = {
 		},
 	},
 }
-
 
 return M

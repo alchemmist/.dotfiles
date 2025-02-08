@@ -3,11 +3,14 @@ require("nvchad.lsp")
 
 local M = {}
 
-local servers = { "html", "cssls", "ts_ls", "clangd", "pyright", "lua_ls", "rust_analyzer", "eslint", "gopls" }
+local servers = { "html", "cssls", "ts_ls", "clangd", "pyright", "lua_ls", "rust_analyzer", "eslint", "gopls", "jdtls" }
 
 local utils = require("core.utils")
 
 -- export on_attach & capabilities for custom lspconfigs
+
+local cmp = require("cmp")
+local lspconfig = require("lspconfig")
 
 M.on_attach = function(client, bufnr)
 	client.server_capabilities.documentFormattingProvider = false
@@ -50,10 +53,11 @@ vim.diagnostic.config({
 	update_in_insert = false,
 	underline = true,
 	severity_sort = true,
+	open_loclist = true,
 })
 
 for _, lsp in ipairs(servers) do
-	require("lspconfig")[lsp].setup({
+	lspconfig[lsp].setup({
 		on_attach = M.on_attach,
 		capabilities = M.capabilities,
 		format = {
@@ -63,7 +67,7 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-require("lspconfig").lua_ls.setup({
+lspconfig.lua_ls.setup({
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
 
@@ -85,5 +89,65 @@ require("lspconfig").lua_ls.setup({
 		},
 	},
 })
+
+-- Настройка автодополнения с nvim-cmp
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
+	mapping = cmp.mapping.preset.insert({
+		["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.close(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+	}),
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" }, -- Сниппеты (если используются)
+	}, {
+		{ name = "buffer" },
+		{ name = "path" },
+	}),
+})
+
+-- Настройка LSP для Go (gopls)
+lspconfig.gopls.setup({
+	on_attach = function(client, bufnr)
+		-- Настройка диагностики
+		vim.diagnostic.config({
+			virtual_text = false, -- Отключаем виртуальный текст с ошибками
+			signs = true, -- Отключаем знаки (крестик)
+			underline = true, -- Включаем подчеркивание
+			update_in_insert = false,
+			severity_sort = true, -- Сортировка по важности
+		})
+		vim.o.splitright = false
+		vim.o.splitbelow = false
+	end,
+})
+
+lspconfig.jdtls.setup({
+    cmd = { "jdtls" },
+    root_dir = require('lspconfig.util').root_pattern("pom.xml", "build.gradle", ".git"),
+    settings = {
+        java = {
+            format = { enabled = true,
+                settings = {
+                    tabSize = 4,
+                    indentSize = 4,
+                    insertSpaces = true
+                }
+            }
+        }
+    },
+    on_attach = function(client, bufnr)
+        vim.bo[bufnr].shiftwidth = 4
+        vim.bo[bufnr].expandtab = true
+    end
+})
+
 
 return M

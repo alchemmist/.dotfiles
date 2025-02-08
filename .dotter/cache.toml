@@ -18,6 +18,7 @@
 "nvim/lua/core/nvchad_config.lua" = "/home/alchemmist/.config/nvim/lua/core/nvchad_config.lua"
 "nvim/lua/core/utils.lua" = "/home/alchemmist/.config/nvim/lua/core/utils.lua"
 "nvim/lua/plugins/configs/cmp.lua" = "/home/alchemmist/.config/nvim/lua/plugins/configs/cmp.lua"
+"nvim/lua/plugins/configs/java.lua" = "/home/alchemmist/.config/nvim/lua/plugins/configs/java.lua"
 "nvim/lua/plugins/configs/lazy_nvim.lua" = "/home/alchemmist/.config/nvim/lua/plugins/configs/lazy_nvim.lua"
 "nvim/lua/plugins/configs/lspconfig.lua" = "/home/alchemmist/.config/nvim/lua/plugins/configs/lspconfig.lua"
 "nvim/lua/plugins/configs/mason.lua" = "/home/alchemmist/.config/nvim/lua/plugins/configs/mason.lua"

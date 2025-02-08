@@ -11,12 +11,12 @@ local overrides = {
 			"deno",
 			"prettier",
 			"clangd",
-			"clang-format",
 			"pyright",
 			"black",
 			"latexindent",
 			"rust-analyzer",
 			"gopls",
+			"jdtls",
 		},
 	},
 }
@@ -655,6 +655,7 @@ local plugins = {
 	{
 		"lervag/vimtex",
 		config = function()
+			vim.g.vimtex_quickfix_enabled = 0
 			vim.g.vimtex_compiler_method = "latexmk"
 			vim.g.vimtex_compiler_latexmk = {
 				aux_dir = vim.fn.expand("$HOME/latex/aux"),
@@ -686,13 +687,44 @@ local plugins = {
 			})
 		end,
 	},
-    {
-        "fatih/vim-go",
-        config = function()
-            vim.g.go_fmt_command = "gofmt"
-            vim.g.go_auto_type_info = 1
-        end
-    },
+	{
+		"fatih/vim-go",
+		ft = "go",
+		config = function()
+            -- vim.g.go_updatetime = 9999999
+			vim.g.go_auto_type_info = 0
+			vim.g.go_fmt_autosave = 0
+			vim.g.go_fmt_fail_silently = 1
+			vim.g.syntastic_auto_loc_list = 0
+			vim.g.go_list_height = 0
+			vim.g.go_statusline_duration = 10
+			vim.g.go_statusline_info = 0
+			vim.g.go_doc_keywordprg_enabled = 0
+			vim.g.go_echo_command_info = 0
+			vim.g.go_echo_go_info = 0
+			vim.g.go_debug_windows = { "right" }
+			vim.g.go_fmt_command = "gofmt"
+			vim.g.go_auto_type_info = 1
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		dependencies = {
+			"williamboman/mason.nvim", -- Убедитесь, что mason также установлен
+			"neovim/nvim-lspconfig", -- Убедитесь, что nvim-lspconfig установлен
+		},
+		config = function() end,
+	},
+	{
+		"mfussenegger/nvim-jdtls",
+		lazy = true,
+		ft = {
+			"java",
+		},
+		config = function()
+			require("plugins.configs.java")
+		end,
+	},
 }
 
 local config = require("core.utils").load_config()

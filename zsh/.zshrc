@@ -10,6 +10,7 @@ export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
 export PATH=/home/alchemmist/time-desktop-linux-x64:$PATH
 export PATH=$HOME/code/CU-lms-wrapper/src-tauri/target/release:$PATH
 
+
 export VIMRUNTIME=/usr/share/nvim/runtime
 export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.12/site-packages
 
@@ -20,6 +21,7 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
+export PATH=/usr/lib/jvm/java-23-openjdk/bin:$PATH
 
 
 #export WAYLAND_DISPLAY=''
