@@ -3,7 +3,7 @@ require("nvchad.lsp")
 
 local M = {}
 
-local servers = { "html", "cssls", "ts_ls", "clangd", "pyright", "lua_ls", "rust_analyzer", "eslint", "gopls", "jdtls" }
+local servers = { "html", "cssls", "ts_ls", "clangd", "pyright", "lua_ls", "rust_analyzer", "eslint", "gopls",  }
 
 local utils = require("core.utils")
 
@@ -131,6 +131,7 @@ lspconfig.gopls.setup({
 
 lspconfig.jdtls.setup({
     cmd = { "jdtls" },
+
     root_dir = require('lspconfig.util').root_pattern("pom.xml", "build.gradle", ".git"),
     settings = {
         java = {
@@ -148,6 +149,7 @@ lspconfig.jdtls.setup({
         vim.bo[bufnr].expandtab = true
     end
 })
+
 
 
 return M

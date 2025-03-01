@@ -10,6 +10,8 @@ export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
 export PATH=/home/alchemmist/time-desktop-linux-x64:$PATH
 export PATH=$HOME/code/CU-lms-wrapper/src-tauri/target/release:$PATH
 
+export QT_QPA_PLATFORM=xcb
+
 
 export VIMRUNTIME=/usr/share/nvim/runtime
 export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.12/site-packages
@@ -153,6 +155,7 @@ alias xo="xdg-open"
 alias cls="clear"
 alias vim="/usr/bin/vim -u NONE"
 
+
 hp-scan() {
     cd ~/Pictures/scans
     yes "" | /usr/bin/hp-scan -m color
@@ -196,6 +199,7 @@ rm() {
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 
+source <(fzf --zsh)
 eval "fastfetch"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
@@ -207,23 +211,28 @@ fi
 
 
 
-if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/tty2"  -o "$(tty)" = "/dev/tty3" ] && [ -z "$(printenv HYPRLAND_INSTANCE_SIGNATURE)" ]; then
+if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/tty2"  ] && [ -z "$(printenv HYPRLAND_INSTANCE_SIGNATURE)" ]; then
   exec ~/.local/bin/wlinitrc
 fi
 
 
 fzf_history() {
-    local selected=$(fc -l 1 | sed 's/^[[:space:]]*[0-9]*[[:space:]]*//' | fzf --reverse --height=40%)
+    local selected=$(fc -rl 1 | sed 's/^[[:space:]]*[0-9]*[[:space:]]*//' | fzf --reverse --height=40% --no-sort)
     if [[ -n $selected ]]; then
         LBUFFER="$selected"
     fi
 }
 
+
 # Зарегистрируйте функцию как виджет
 zle -N fzf_history
 
-# Привяжите Ctrl+A к виджету
+# Привяжите Ctrl+S к виджету
 bindkey "^S" fzf_history
+
+bindkey -s '^F' "fzf --height=40% --preview 'bat {} --color=always'^M"
+bindkey -s '^J' 'zi^M'
+
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -233,6 +242,9 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+bindkey -s '^Y' 'y^M'
 
-zle -N y
-bindkey "^y" y
+
+
+
+

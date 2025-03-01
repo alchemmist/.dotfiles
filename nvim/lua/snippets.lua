@@ -161,9 +161,16 @@ ls.add_snippets("tex", {
 	}),
 })
 
+
 ls.add_snippets("tex", {
-	s("\'", {
-		t("\\prime"),
-        i(1)
+	s("fig", {
+        t({"\\begin{figure}[ht]", "\t"}),
+        t({"\\centering", "\t"}),
+        t({"\\includegraphics[width=1\\textwidth]{../../../figures/"}),
+        i(1),
+        t({".png}", }),
+        -- t({"\\caption{}", "\t"}),
+        -- t({"\\label{fig:robinson-table}"}),
+        t({"", "\\end{figure}"})
 	}),
 })

@@ -17,6 +17,7 @@ local overrides = {
 			"rust-analyzer",
 			"gopls",
 			"jdtls",
+			"kotlin-language-server",
 		},
 	},
 }
@@ -691,7 +692,7 @@ local plugins = {
 		"fatih/vim-go",
 		ft = "go",
 		config = function()
-            -- vim.g.go_updatetime = 9999999
+			-- vim.g.go_updatetime = 9999999
 			vim.g.go_auto_type_info = 0
 			vim.g.go_fmt_autosave = 0
 			vim.g.go_fmt_fail_silently = 1
@@ -715,16 +716,38 @@ local plugins = {
 		},
 		config = function() end,
 	},
-	{
-		"mfussenegger/nvim-jdtls",
-		lazy = true,
-		ft = {
-			"java",
-		},
-		config = function()
-			require("plugins.configs.java")
-		end,
-	},
+	-- {
+	-- 	"mfussenegger/nvim-jdtls",
+	-- 	lazy = true,
+	-- 	ft = {
+	-- 		"java",
+	-- 	},
+	-- 	config = function()
+	-- 		require("plugins.configs.java")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"kevinhwang91/nvim-ufo",
+	-- 	dependencies = { "kevinhwang91/promise-async" },
+	-- 	event = "BufReadPost", -- Загружать плагин при открытии файла
+	-- 	config = function()
+	-- 		vim.o.foldcolumn = "0" -- Колонка сворачивания
+	-- 		vim.o.foldlevel = 99 -- Развернуть все блоки при старте
+	-- 		vim.o.foldlevelstart = 99
+	-- 		vim.o.foldenable = true
+	--
+	-- 		-- Устанавливаем методы сворачивания
+	-- 		vim.o.foldmethod = "expr"
+	-- 		vim.o.foldexpr = "v:lua.require'ufo'.foldexpr()"
+	--
+	-- 		-- Настройка провайдеров (LSP, Tree-sitter или indent)
+	-- 		require("ufo").setup({
+	-- 			provider_selector = function(_, _, _)
+	-- 				return { "lsp",  "treesitter" }
+	-- 			end,
+	-- 		})
+	-- 	end,
+	-- },
 }
 
 local config = require("core.utils").load_config()
