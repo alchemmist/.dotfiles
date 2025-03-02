@@ -17,6 +17,7 @@ depends = [
     "zathura",
     "wallpapers",
     "mako",
+    "vim",
 ]
 
 
@@ -71,4 +72,7 @@ depends = [
 
 [mako.files]
 "mako" = "~/.config/mako"
+
+[vim.files]
+"vim/.vimrc" = "~/.vimrc"
 

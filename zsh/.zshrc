@@ -26,6 +26,7 @@ export PATH=$GOPATH/bin:$PATH
 export PATH=/usr/lib/jvm/java-23-openjdk/bin:$PATH
 
 
+
 #export WAYLAND_DISPLAY=''
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -154,6 +155,7 @@ alias tex_compile="latexmk -pdf -silent -c -outdir=. -auxdir=/home/alchemmist/.c
 alias xo="xdg-open"
 alias cls="clear"
 alias vim="/usr/bin/vim -u NONE"
+alias cd="z"
 
 
 hp-scan() {
@@ -203,6 +205,8 @@ source <(fzf --zsh)
 eval "fastfetch"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+source ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh
+
 
 # SSH-agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
@@ -230,7 +234,7 @@ zle -N fzf_history
 # Привяжите Ctrl+S к виджету
 bindkey "^S" fzf_history
 
-bindkey -s '^F' "fzf --height=40% --preview 'bat {} --color=always'^M"
+bindkey -s '^F' "fzf --reverse --height=40% --preview 'bat {} --color=always'^M"
 bindkey -s '^J' 'zi^M'
 
 
@@ -243,6 +247,7 @@ function y() {
 	rm -f -- "$tmp"
 }
 bindkey -s '^Y' 'y^M'
+
 
 
 
