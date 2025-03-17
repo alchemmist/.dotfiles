@@ -1,7 +1,6 @@
 " Основные настройки
 set nocompatible        " Отключаем совместимость с Vi
 set number             " Включаем нумерацию строк
-set relativenumber     " Относительная нумерация строк
 set hidden            " Позволяет переключаться между буферами без сохранения
 set clipboard=unnamedplus " Копирование в системный буфер обмена (если поддерживается)
 
@@ -18,7 +17,6 @@ set hlsearch          " Подсвечивать результаты поиск
 set incsearch         " Интерактивный поиск при вводе запроса
 
 " Визуальные улучшения
-set cursorline        " Подсветка текущей строки
 set wrap              " Перенос строк
 set showcmd           " Показывать вводимые команды
 set wildmenu          " Улучшенное автодополнение команд
@@ -45,4 +43,14 @@ set completeopt=menu,menuone,noselect
 " Улучшенная навигация
 set scrolloff=5         " Минимум 5 строк отступа сверху/снизу при прокрутке
 set sidescrolloff=8     " Отступ по бокам при горизонтальной прокрутке
+
+set noswapfile     " Отключает swap-файл
+set nobackup       " Отключает резервные копии
+set nowritebackup  " Отключает бэкап перед сохранением
+set noundofile     " Отключает историю изменений (undo-файл)
+
+syntax on
+colorscheme default
+
+set clipboard=unnamedplus
 

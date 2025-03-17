@@ -1,4 +1,4 @@
-#autoswitch_virtualenv If you come from bash you might have to change your $PATH.
+
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=/usr/local/bin:$PATH
@@ -13,7 +13,6 @@ export PATH=$HOME/code/CU-lms-wrapper/src-tauri/target/release:$PATH
 export QT_QPA_PLATFORM=xcb
 
 
-export VIMRUNTIME=/usr/share/nvim/runtime
 export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.12/site-packages
 
 export MANPATH=/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH
@@ -23,7 +22,10 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
+
 export PATH=/usr/lib/jvm/java-23-openjdk/bin:$PATH
+
+export XDG_DATA_HOME="$HOME/.local/share"
 
 
 
@@ -107,7 +109,6 @@ plugins=(
     poetry
     zsh-autosuggestions
     zoxide
-    zsh-you-should-use
     fzf
     shellfirm
     docker
@@ -154,8 +155,14 @@ alias latex_clear_cache="rm -rf ~/latex/aux/* && rm -rf ~/latex/out/*"
 alias tex_compile="latexmk -pdf -silent -c -outdir=. -auxdir=/home/alchemmist/.cache/latex/aux"
 alias xo="xdg-open"
 alias cls="clear"
-alias vim="/usr/bin/vim -u NONE"
+alias vim="/usr/bin/vim -u ~/.vimrc"
 alias cd="z"
+
+alias glog="git log --oneline --graph --decorate --all"
+alias pptx2pdf='libreoffice --headless --convert-to pdf'
+alias trans="~/scripts/translate.sh"
+
+alias cat='mycat'
 
 
 hp-scan() {
@@ -207,6 +214,7 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 source ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh
 
+eval $(opam env)
 
 # SSH-agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
@@ -234,22 +242,55 @@ zle -N fzf_history
 # Привяжите Ctrl+S к виджету
 bindkey "^S" fzf_history
 
-bindkey -s '^F' "fzf --reverse --height=40% --preview 'bat {} --color=always'^M"
-bindkey -s '^J' 'zi^M'
 
-
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+# Функция для fzf, запускает поиск из текущей директории
+fzf-widget() {
+    zle reset-prompt
+    local file
+    file=$(find . -type f ! -readable -prune -o -print 2>/dev/null | fzf --reverse --height=40% --preview 'bat {} --color=always')
+    if [[ -n $file ]]; then
+        LBUFFER+="$file" # Вставляет выбранный файл в командную строку
+    fi
+    zle reset-prompt
 }
-bindkey -s '^Y' 'y^M'
 
 
+# Функция для zi, теперь эмулирует Enter после смены директории
+zi-widget() {
+    zle reset-prompt
+    zi
+    zle accept-line  # Эмулирует нажатие Enter
+}
+
+# Функция для yazi с автопереходом и эмуляцией Enter
+y-widget() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+        zle reset-prompt
+        zle accept-line  # Эмулирует нажатие Enter
+    fi
+    rm -f -- "$tmp"
+}
 
 
+# Регистрируем функции как виджеты
+zle -N fzf-widget
+zle -N zi-widget
+zle -N y-widget
 
+# Привязываем сочетания клавиш
+bindkey '^F' fzf-widget
+bindkey '^J' zi-widget
+bindkey '^Y' y-widget
+
+
+mycat() {
+    if file --mime-type "$1" | grep -q 'image/'; then
+        kitten icat --align left --scale-up "$1"
+    else
+        command cat "$1"
+    fi
+}
 

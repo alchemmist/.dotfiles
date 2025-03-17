@@ -19,6 +19,7 @@
     "icons",
     "terminal",
     "cpu",
+    "gpu",
     "memory",
     "break"
   ]

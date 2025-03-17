@@ -18,6 +18,7 @@ depends = [
     "wallpapers",
     "mako",
     "vim",
+    "ghostty",
 ]
 
 
@@ -76,3 +77,5 @@ depends = [
 [vim.files]
 "vim/.vimrc" = "~/.vimrc"
 
+[ghostty.files]
+"ghostty" = "~/.config/ghostty"

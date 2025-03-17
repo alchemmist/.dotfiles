@@ -84,6 +84,8 @@ M.general = {
 			"Show LSP message",
 			opts = { silent = true, noremap = true },
 		},
+
+		["<leader>dc"] = { ":%s/\\v\\s*(#|\\/\\/|--|;).*$//g<CR>", "Clearn all comments" },
 	},
 
 	t = {
@@ -834,6 +836,15 @@ M.blankline = {
 
 			"Jump to current context",
 		},
+	},
+}
+
+M.coq = {
+	plugin = true,
+
+	n = {
+		["<A-j>"] = { "<cmd> CoqNext <CR>", "Next coq line",  noremap = true, silent = true },
+		["<F-k>"] = { "<cmd> CoqUndo <CR>", "Prev coq line",  noremap = true, silent = true },
 	},
 }
 

@@ -32,7 +32,7 @@ opt.smartcase = true
 opt.mouse = "a"
 
 -- Numbers
-opt.number = true
+opt.number = false
 opt.numberwidth = 2
 opt.ruler = false
 

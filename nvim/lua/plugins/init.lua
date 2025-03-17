@@ -18,6 +18,7 @@ local overrides = {
 			"gopls",
 			"jdtls",
 			"kotlin-language-server",
+			"coq-lsp",
 		},
 	},
 }
@@ -709,12 +710,22 @@ local plugins = {
 		end,
 	},
 	{
+
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = {
 			"williamboman/mason.nvim", -- Убедитесь, что mason также установлен
 			"neovim/nvim-lspconfig", -- Убедитесь, что nvim-lspconfig установлен
 		},
 		config = function() end,
+	},
+	{
+		"whonore/Coqtail",
+		ft = "coq",
+		config = function()
+			vim.cmd([[
+            let g:coqtail_enable = 1
+        ]])
+		end,
 	},
 	-- {
 	-- 	"mfussenegger/nvim-jdtls",

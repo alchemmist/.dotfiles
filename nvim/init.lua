@@ -46,4 +46,9 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+vim.g.python3_host_prog = '/usr/bin/python3'
+vim.g.loaded_python3_provider=nil
+
+vim.api.nvim_set_keymap('n', '<A-j>', '<cmd> CoqNext <CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-k>', '<cmd> CoqUndo <CR>', { noremap = true, silent = true })
 
