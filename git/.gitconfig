@@ -11,3 +11,5 @@
 
 [url "git@github-sub:"]
     insteadOf = git@github.com:flamelen/
+[http]
+	postBuffer = 524288000
