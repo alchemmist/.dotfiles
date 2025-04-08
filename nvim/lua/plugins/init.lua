@@ -294,11 +294,6 @@ local plugins = {
 		opts = overrides.treesitter,
 	},
 
-	{
-		"nvim-tree/nvim-tree.lua",
-		opts = overrides.nvimtree,
-	},
-
 	-- Install a plugin
 	{
 		"max397574/better-escape.nvim",
@@ -366,6 +361,8 @@ local plugins = {
 			vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
 			vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
+
+
 			require("neo-tree").setup({
 				close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
 				popup_border_style = "rounded",
@@ -382,6 +379,14 @@ local plugins = {
 				--       end
 				--   end , -- this sorts files and directories descendantly
 				default_component_configs = {
+					directory = {
+						highlight = "NeoTreeDirectoryName", -- Color for directories
+                        icon = {
+                            highlight = "NeoTreeDirectoryIcon", -- Color for directory icons
+                        },
+
+					},
+
 					container = {
 						enable_character_fade = true,
 					},
@@ -620,6 +625,8 @@ local plugins = {
 
 			vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
 			vim.cmd([[ inoremap <C-BS> <C-w> ]])
+            vim.cmd([[highlight NeoTreeDirectoryName guifg='#B3B1AD']])
+            vim.cmd([[highlight NeoTreeDirectoryIcon guifg='#B3B1AD']])
 		end,
 	},
 	{
@@ -816,6 +823,12 @@ local plugins = {
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
 			vim.cmd("colorscheme nothing")
+		end,
+	},
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
 		end,
 	},
 }

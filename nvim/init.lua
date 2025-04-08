@@ -48,6 +48,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	pattern = "*",
 	callback = function()
 		require("conform").format({ async = true })
+		vim.cmd("ColorizerToggle")
 	end,
 })
 
@@ -62,16 +63,17 @@ require("ufo")
 vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 vim.keymap.set("n", "<leader>h", function()
-    local winid = vim.api.nvim_get_current_win()
-    local lnum = vim.api.nvim_win_get_cursor(winid)[1]
-    local fold_closed = vim.fn.foldclosed(lnum) ~= -1
+	local winid = vim.api.nvim_get_current_win()
+	local lnum = vim.api.nvim_win_get_cursor(winid)[1]
+	local fold_closed = vim.fn.foldclosed(lnum) ~= -1
 
-    if fold_closed then
-        vim.cmd("normal! zo")  -- open fold
-    else
-        vim.cmd("normal! zc")  -- close fold
-    end
+	if fold_closed then
+		vim.cmd("normal! zo") -- open fold
+	else
+		vim.cmd("normal! zc") -- close fold
+	end
 end, { desc = "Toggle fold under cursor" })
 
-
 vim.cmd("colorscheme nothing")
+
+require("colorizer").setup()
