@@ -53,4 +53,3 @@ syntax on
 colorscheme default
 
 set clipboard=unnamedplus
-

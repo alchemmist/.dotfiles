@@ -183,6 +183,7 @@ M.lspconfig = {
 	-- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
 
 	n = {
+
 		-- Go to definition
 		["gd"] = {
 			function()

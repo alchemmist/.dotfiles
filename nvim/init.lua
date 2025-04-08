@@ -42,13 +42,15 @@ vim.g.loaded_python3_provider = nil
 
 vim.api.nvim_set_keymap("n", "<A-j>", "<cmd> CoqNext <CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-k>", "<cmd> CoqUndo <CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-m>", "<cmd> CoqToLine <CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>sc", "<cmd> CoqStart <CR>", { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap("n", "<M-_>", "<cmd>:split<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
 	pattern = "*",
 	callback = function()
 		require("conform").format({ async = true })
-		vim.cmd("ColorizerToggle")
 	end,
 })
 
@@ -63,17 +65,28 @@ require("ufo")
 vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 vim.keymap.set("n", "<leader>h", function()
-	local winid = vim.api.nvim_get_current_win()
-	local lnum = vim.api.nvim_win_get_cursor(winid)[1]
-	local fold_closed = vim.fn.foldclosed(lnum) ~= -1
+    local winid = vim.api.nvim_get_current_win()
+	-- Skip if in floating window
+	if vim.api.nvim_win_get_config(winid).relative ~= "" then
+		return
+	end
 
-	if fold_closed then
+	-- Get current line number
+	local lnum = vim.api.nvim_win_get_cursor(winid)[1]
+
+	-- Check if fold is closed at current line
+	local is_closed = vim.fn.foldclosed(lnum)
+	local is_open = vim.fn.foldlevel(lnum) > 0 and is_closed == -1
+
+	if is_closed ~= -1 then
 		vim.cmd("normal! zo") -- open fold
-	else
+	elseif is_open then
 		vim.cmd("normal! zc") -- close fold
+	else
+		-- pass: do nothing
 	end
 end, { desc = "Toggle fold under cursor" })
 
 vim.cmd("colorscheme nothing")
 
-require("colorizer").setup()
+-- require("colorizer").setup()
