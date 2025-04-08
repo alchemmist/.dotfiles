@@ -161,7 +161,8 @@ alias cls="clear"
 alias vim="/usr/bin/vim -u ~/.vimrc"
 alias cd="z"
 
-alias glog="git log --oneline --graph --decorate --all"
+# alias glog="git log --oneline --graph --decorate --all"
+alias glog="tig"
 alias pptx2pdf='libreoffice --headless --convert-to pdf'
 alias trans="~/scripts/translate.sh"
 
