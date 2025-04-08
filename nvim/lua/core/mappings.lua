@@ -67,14 +67,16 @@ M.general = {
 
 		["<leader>fm"] = {
 			function()
-				vim.lsp.buf.format({ async = true })
+                require("conform").format({ async = true })
+				-- vim.lsp.buf.format({ async = true })
 			end,
 			"LSP formatting",
 		},
 		["<leader>b"] = { "<cmd>VimtexCompile<CR>", "Build latex doc" },
 		["<leader>v"] = { "<cmd>VimtexView<CR>", "View place in latex doc" },
 		["<leader>w"] = { "<cmd>w<CR>", "Save" },
-		["|"] = { "<cmd>:vsplit<CR>", "Vertical split" },
+		["<A-|>"] = { "<cmd>:vsplit<CR>", "Vertical split" },
+		["<M-_"] = { "<cmd>:split<CR>", "Horisontal split", opts = { noremap = true, silent = true } },
 		["<TAB>"] = { "<cmd>:tabNext<CR>", "Go to next tab" },
 		["."] = { "." },
 		["<S-E>"] = {
@@ -429,7 +431,7 @@ M.lspconfig = {
 			"Go to test subject",
 		},
 
-        ---------------------------------------------------
+		---------------------------------------------------
 
 		["gd"] = {
 			function()
@@ -843,8 +845,8 @@ M.coq = {
 	plugin = true,
 
 	n = {
-		["<A-j>"] = { "<cmd> CoqNext <CR>", "Next coq line",  noremap = true, silent = true },
-		["<F-k>"] = { "<cmd> CoqUndo <CR>", "Prev coq line",  noremap = true, silent = true },
+		["<A-j>"] = { "<cmd> CoqNext <CR>", "Next coq line", opts = { noremap = true, silent = true } },
+		["<F-k>"] = { "<cmd> CoqUndo <CR>", "Prev coq line", opts = { noremap = true, silent = true } },
 	},
 }
 

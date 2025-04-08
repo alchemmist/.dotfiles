@@ -52,21 +52,6 @@ local plugins = {
 	},
 
 	{
-		"NvChad/nvim-colorizer.lua",
-		init = function()
-			require("core.utils").lazy_load("nvim-colorizer.lua")
-		end,
-		config = function(_, opts)
-			require("colorizer").setup(opts)
-
-			-- execute colorizer as soon as possible
-			vim.defer_fn(function()
-				require("colorizer").attach_to_buffer(0)
-			end, 0)
-		end,
-	},
-
-	{
 		"nvim-tree/nvim-web-devicons",
 		opts = function()
 			return { override = require("nvchad.icons.devicons") }
@@ -287,17 +272,9 @@ local plugins = {
 			},
 		},
 	},
+
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			-- format & linting
-			{
-				"jose-elias-alvarez/null-ls.nvim",
-				config = function()
-					require("plugins.configs.null-ls")
-				end,
-			},
-		},
 		init = function()
 			require("core.utils").lazy_load("nvim-lspconfig")
 		end,
@@ -760,6 +737,87 @@ local plugins = {
 	-- 		})
 	-- 	end,
 	-- },
+	--
+	{
+		"stevearc/conform.nvim",
+		opts = {
+			formatters_by_ft = {
+				lua = { "stylua" },
+				python = { "black" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				latex = { "latexindent" },
+			},
+		},
+		format_on_save = function(bufnr)
+			return { timeout_ms = 500, lsp_fallback = true }
+		end,
+	},
+	{
+		"debugloop/telescope-undo.nvim",
+		dependencies = { -- note how they're inverted to above example
+			{
+				"nvim-telescope/telescope.nvim",
+				dependencies = { "nvim-lua/plenary.nvim" },
+			},
+		},
+		keys = {
+			{ -- lazy style key map
+				"<leader>u",
+				"<cmd>Telescope undo<cr>",
+				desc = "undo history",
+			},
+		},
+		opts = {
+			-- don't use `defaults = { }` here, do this in the main telescope spec
+			extensions = {
+				undo = {
+					-- telescope-undo.nvim config, see below
+				},
+				-- no other extensions here, they can have their own spec too
+			},
+		},
+		config = function(_, opts)
+			-- Calling telescope's setup from multiple specs does not hurt, it will happily merge the
+			-- configs for us. We won't use data, as everything is in it's own namespace (telescope
+			-- defaults, as well as each extension).
+			require("telescope").setup(opts)
+			require("telescope").load_extension("undo")
+		end,
+	},
+	{
+		"github/copilot.vim",
+		cmd = "Copilot",
+		event = "InsertEnter",
+	},
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = {
+			"kevinhwang91/promise-async",
+			"nvim-treesitter/nvim-treesitter", -- for Treesitter folding
+		},
+		event = "BufReadPost",
+		config = function()
+			vim.o.foldcolumn = "0" -- '0' is hide | '1' shows fold column
+			vim.o.foldlevel = 99 -- using ufo provider need a large value
+			vim.o.foldlevelstart = 99
+			vim.o.foldenable = true
+
+			require("ufo").setup({
+				provider_selector = function(_, _, _)
+					return { "treesitter", "indent" }
+				end,
+			})
+		end,
+	},
+	{
+		"Alchemmist/nothing.nvim",
+		version = "*",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			vim.cmd("colorscheme nothing")
+		end,
+	},
 }
 
 local config = require("core.utils").load_config()
