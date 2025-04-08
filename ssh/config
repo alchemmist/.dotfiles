@@ -37,3 +37,8 @@ Host git.culab.ru
     HostName git.culab.ru
     User git
     IdentityFile ~/.ssh/cu-gitlab
+
+Host patchloyalty.com
+    HostName patchloyalty.com
+    User git
+    IdentityFile ~/.ssh/patch-landing-server

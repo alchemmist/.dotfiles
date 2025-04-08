@@ -89,6 +89,11 @@ input type:keyboard {
 input "GXTP7863:00 27C6:01E0" {
     tap enabled
 }
+
+input type:touchpad {
+    tap enabled
+}
+
 #
 # Example configuration:
 #

@@ -27,6 +27,9 @@ export PATH=/usr/lib/jvm/java-23-openjdk/bin:$PATH
 
 export XDG_DATA_HOME="$HOME/.local/share"
 
+export OZONE_PLATFORME=wayland
+export CHROME_EXECUTABLE=google-chrome-stable
+
 
 
 #export WAYLAND_DISPLAY=''
@@ -294,3 +297,9 @@ mycat() {
     fi
 }
 
+
+PATH="/home/alchemmist/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/alchemmist/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/alchemmist/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/alchemmist/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/alchemmist/perl5"; export PERL_MM_OPT;
