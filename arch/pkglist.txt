@@ -65,12 +65,10 @@ hyprcursor
 hyprgraphics
 hypridle
 hyprland
-hyprland-protocols
 hyprland-qt-support
 hyprland-qtutils
 hyprlock
 hyprpaper
-hyprutils
 imagemagick
 imv
 inetutils
@@ -212,7 +210,7 @@ wofi
 wtype
 xcalib
 xclip
-xdg-desktop-portal-wlr
+xdg-desktop-portal-gtk
 xf86-video-amdgpu
 xsel
 yazi

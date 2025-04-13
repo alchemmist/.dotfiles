@@ -36,6 +36,7 @@ ulauncher
 visual-studio-code-bin
 wlogout
 wofi-emoji
+xdg-desktop-portal-hyprland-git
 yandex-music
 yay-debug
 zen-browser-bin

@@ -90,3 +90,13 @@ end, { desc = "Toggle fold under cursor" })
 vim.cmd("colorscheme nothing")
 
 -- require("colorizer").setup()
+
+function ToggleTabline()
+    if vim.o.showtabline == 0 then
+        vim.o.showtabline = 2
+    else
+        vim.o.showtabline = 0
+    end
+end
+
+vim.keymap.set("n", "<leader>tt", ToggleTabline, { desc = "Toggle tabline" })
