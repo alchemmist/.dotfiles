@@ -793,11 +793,6 @@ local plugins = {
 		end,
 	},
 	{
-		"github/copilot.vim",
-		cmd = "Copilot",
-		event = "InsertEnter",
-	},
-	{
 		"kevinhwang91/nvim-ufo",
 		dependencies = {
 			"kevinhwang91/promise-async",
