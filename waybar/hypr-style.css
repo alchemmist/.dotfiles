@@ -132,6 +132,7 @@ tooltip {
 }
 
 #idle_inhibitor {
+  font-size: 18px;
   border-radius: 10px;
   margin-right: 5px;
 }

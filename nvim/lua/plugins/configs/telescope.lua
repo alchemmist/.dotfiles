@@ -16,9 +16,12 @@ local options = {
 			"--smart-case",
 		},
 
-
 		mappings = {
 			n = { ["q"] = require("telescope.actions").close },
+			i = {
+				["<C-j>"] = require("telescope.actions").move_selection_next,
+				["<C-k>"] = require("telescope.actions").move_selection_previous,
+			},
 		},
 		prompt_prefix = "   ",
 		selection_caret = "  ",
@@ -31,7 +34,6 @@ local options = {
 			horizontal = {
 				prompt_position = "bottom",
 				preview_width = 0.55,
-				results_width = 0.8,
 			},
 			vertical = {
 				mirror = false,

@@ -10,9 +10,9 @@ eovpn
 flameshot-git
 git-extras
 google-chrome
+grimblast-git
 hyprswitch
 jdtls
-min-browser-bin
 netbird
 netbird-debug
 netbird-management
@@ -20,13 +20,16 @@ netbird-signal
 netbird-ui
 netbird-ui-debug
 ngrok
+nomacs
 oneko
 paru
 paru-debug
 pipes-rs
 postman-bin
+python-sentencepiece
 shellfirm
 sioyek
+slides
 smassh-bin
 steghide
 sublime-text-4
@@ -39,7 +42,6 @@ wofi-emoji
 xdg-desktop-portal-hyprland-git
 yandex-music
 yay-debug
-zen-browser-bin
 zoom
 zsh-you-should-use
 zsteg

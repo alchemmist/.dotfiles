@@ -37,6 +37,15 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "tex",
+	callback = function()
+		vim.bo.tabstop = 4
+		vim.bo.shiftwidth = 4
+		vim.bo.expandtab = true
+	end,
+})
+
 vim.g.python3_host_prog = "/usr/bin/python3"
 vim.g.loaded_python3_provider = nil
 
@@ -54,10 +63,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
-vim.keymap.set("n", "<leader>fm", function()
-	require("conform").format({ async = true })
-end, { desc = "LSP formatting" })
-
 vim.api.nvim_set_hl(0, "Comment", { fg = "#555555", italic = true })
 
 require("ufo")
@@ -65,7 +70,7 @@ require("ufo")
 vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 vim.keymap.set("n", "<leader>h", function()
-    local winid = vim.api.nvim_get_current_win()
+	local winid = vim.api.nvim_get_current_win()
 	-- Skip if in floating window
 	if vim.api.nvim_win_get_config(winid).relative ~= "" then
 		return
@@ -89,14 +94,26 @@ end, { desc = "Toggle fold under cursor" })
 
 vim.cmd("colorscheme nothing")
 
--- require("colorizer").setup()
+require("colorizer").setup()
 
 function ToggleTabline()
-    if vim.o.showtabline == 0 then
-        vim.o.showtabline = 2
-    else
-        vim.o.showtabline = 0
-    end
+	if vim.o.showtabline == 0 then
+		vim.o.showtabline = 2
+	else
+		vim.o.showtabline = 0
+	end
 end
 
 vim.keymap.set("n", "<leader>tt", ToggleTabline, { desc = "Toggle tabline" })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "html", "css" },
+	callback = function()
+		vim.bo.tabstop = 2 -- ширина таба визуально
+		vim.bo.shiftwidth = 2 -- ширина отступа для >> << и auto-indent
+		vim.bo.softtabstop = 2 -- backspace и таб работают как 2 пробела
+		vim.bo.expandtab = true -- табы заменяются пробелами
+	end,
+})
+
+require("auto-save")

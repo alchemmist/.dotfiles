@@ -70,11 +70,11 @@ hyprland-qtutils
 hyprlock
 hyprpaper
 imagemagick
-imv
 inetutils
 inkscape
 intellij-idea-community-edition
 ipython
+iwd
 jre11-openjdk
 jupyter-lsp
 jupyter-notebook
@@ -88,6 +88,7 @@ linux
 linux-firmware
 linux-headers
 lolcat
+lsd
 lua-language-server
 lxappearance
 mako
@@ -102,6 +103,7 @@ neovim
 netctl
 network-manager-applet
 networkmanager
+nmap
 nodejs
 noto-fonts-emoji
 noto-fonts-extra
@@ -169,7 +171,6 @@ sshfs
 sshpass
 starship
 sudo
-swappy
 sway
 swaybg
 swaylock
@@ -217,7 +218,6 @@ yazi
 zathura
 zathura-pdf-mupdf
 zeal
-zed
 zellij
 zip
 zola

@@ -6,9 +6,10 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.python3.12/bin:$PATH
 export PATH=/home/alchemmist/.local/lib/python3.12/site-packages:$PATH
 export PATH=$HOME/code/syncthing-wrapper/src-tauri/target/release:$PATH
-export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
+export PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH
 export PATH=/home/alchemmist/time-desktop-linux-x64:$PATH
 export PATH=$HOME/code/CU-lms-wrapper/src-tauri/target/release:$PATH
+
 
 export QT_QPA_PLATFORM=xcb
 
@@ -164,9 +165,8 @@ alias cd="z"
 # alias glog="git log --oneline --graph --decorate --all"
 alias glog="tig"
 alias pptx2pdf='libreoffice --headless --convert-to pdf'
-alias trans="~/scripts/translate.sh"
-
 alias cat='mycat'
+alias tree='lsd --tree --color=always --icon=always'
 
 
 hp-scan() {

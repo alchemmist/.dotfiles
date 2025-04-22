@@ -37,8 +37,6 @@ M.general = {
 		["<C-j>"] = { "<C-w>j", "Window down" },
 		["<C-k>"] = { "<C-w>k", "Window up" },
 
-		-- save
-		["<C-s>"] = { "<cmd> w <CR>", "Save file" },
 		-- run script
 		["<leader>rp"] = { "<cmd> !python % <CR>", "Fust run python file" },
 		["<leader>rr"] = { "<cmd> RustRun <CR>", "Fust run rust file" },
@@ -67,10 +65,10 @@ M.general = {
 
 		["<leader>fm"] = {
 			function()
-                require("conform").format({ async = true })
+                require("conform").format({ async = true, lsp_fallback = true })
 				-- vim.lsp.buf.format({ async = true })
 			end,
-			"LSP formatting",
+			"Format code with Conform",
 		},
 		["<leader>b"] = { "<cmd>VimtexCompile<CR>", "Build latex doc" },
 		["<leader>v"] = { "<cmd>VimtexView<CR>", "View place in latex doc" },

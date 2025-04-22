@@ -18,7 +18,10 @@ local overrides = {
 			"gopls",
 			"jdtls",
 			"kotlin-language-server",
+			"clang-format",
 			"coq-lsp",
+			"tex-fmt",
+			"shfmt",
 		},
 	},
 }
@@ -361,8 +364,6 @@ local plugins = {
 			vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
 			vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
-
-
 			require("neo-tree").setup({
 				close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
 				popup_border_style = "rounded",
@@ -381,10 +382,9 @@ local plugins = {
 				default_component_configs = {
 					directory = {
 						highlight = "NeoTreeDirectoryName", -- Color for directories
-                        icon = {
-                            highlight = "NeoTreeDirectoryIcon", -- Color for directory icons
-                        },
-
+						icon = {
+							highlight = "NeoTreeDirectoryIcon", -- Color for directory icons
+						},
 					},
 
 					container = {
@@ -480,7 +480,7 @@ local plugins = {
 						["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
 						-- Read `# Preview Mode` for more information
 						["l"] = "focus_preview",
-						["S"] = "open_split",
+						-- ["S"] = "open_split",
 						["s"] = "open_vsplit",
 						-- ["S"] = "split_with_window_picker",
 						-- ["s"] = "vsplit_with_window_picker",
@@ -625,8 +625,8 @@ local plugins = {
 
 			vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
 			vim.cmd([[ inoremap <C-BS> <C-w> ]])
-            vim.cmd([[highlight NeoTreeDirectoryName guifg='#B3B1AD']])
-            vim.cmd([[highlight NeoTreeDirectoryIcon guifg='#B3B1AD']])
+			vim.cmd([[highlight NeoTreeDirectoryName guifg='#B3B1AD']])
+			vim.cmd([[highlight NeoTreeDirectoryIcon guifg='#B3B1AD']])
 		end,
 	},
 	{
@@ -747,17 +747,8 @@ local plugins = {
 	--
 	{
 		"stevearc/conform.nvim",
-		opts = {
-			formatters_by_ft = {
-				lua = { "stylua" },
-				python = { "black" },
-				javascript = { "prettier" },
-				typescript = { "prettier" },
-				latex = { "latexindent" },
-			},
-		},
-		format_on_save = function(bufnr)
-			return { timeout_ms = 500, lsp_fallback = true }
+		config = function()
+			require("plugins.configs.conform")
 		end,
 	},
 	{
@@ -824,6 +815,61 @@ local plugins = {
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("colorizer").setup()
+		end,
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		keys = {
+			{
+				"s",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").jump()
+				end,
+				desc = "Flash",
+			},
+		},
+	},
+	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	},
+	{
+		"Pocco81/auto-save.nvim",
+		config = function()
+			require("auto-save").setup({
+				enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
+				execution_message = {
+					message = function() -- message to print on save
+						return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
+					end,
+					dim = 0.18, -- dim the color of `message`
+					cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
+				},
+				trigger_events = { "InsertLeave", "TextChanged" }, -- vim events that trigger auto-save. See :h events
+				-- function that determines whether to save the current buffer or not
+				-- return true: if buffer is ok to be saved
+				-- return false: if it's not ok to be saved
+				condition = function(buf)
+					local fn = vim.fn
+					local utils = require("auto-save.utils.data")
+
+					if fn.getbufvar(buf, "&modifiable") == 1 and utils.not_in(fn.getbufvar(buf, "&filetype"), {}) then
+						return true -- met condition(s), can save
+					end
+					return false -- can't save
+				end,
+				write_all_buffers = false, -- write all buffers when the current one meets `condition`
+				debounce_delay = 135, -- saves the file at most every `debounce_delay` milliseconds
+				callbacks = { -- functions to be executed at different intervals
+					enabling = nil, -- ran when enabling auto-save
+					disabling = nil, -- ran when disabling auto-save
+					before_asserting_save = nil, -- ran before checking `condition`
+					before_saving = nil, -- ran before doing the actual save
+					after_saving = nil, -- ran after doing the actual save
+				},
+			})
 		end,
 	},
 }

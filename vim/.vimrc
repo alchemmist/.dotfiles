@@ -53,3 +53,6 @@ syntax on
 colorscheme default
 
 set clipboard=unnamedplus
+
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
