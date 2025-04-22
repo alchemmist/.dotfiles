@@ -167,6 +167,7 @@ alias glog="tig"
 alias pptx2pdf='libreoffice --headless --convert-to pdf'
 alias cat='mycat'
 alias tree='lsd --tree --color=always --icon=always'
+alias cmatrix="unimatrix -n -s 97 -l o"
 
 
 hp-scan() {
