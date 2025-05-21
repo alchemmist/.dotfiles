@@ -3,8 +3,7 @@ require("nvchad.lsp")
 
 local M = {}
 
-local servers =
-	{ "html", "cssls", "ts_ls", "clangd", "pyright", "lua_ls", "rust_analyzer", "eslint", "gopls" }
+local servers = { "html", "cssls", "ts_ls", "clangd", "pyright", "lua_ls", "rust_analyzer", "eslint", "gopls", "sqlls" }
 
 local utils = require("core.utils")
 
@@ -137,64 +136,64 @@ lspconfig.gopls.setup({
 -- print(os.getenv("XDG_DATA_HOME"))
 -- print(project_name)
 -- local JDTLS_DATA = os.getenv("XDG_DATA_HOME") .. "/jdtls/" .. project_name
-
-lspconfig.jdtls.setup({
-	cmd = { "jdtls" },
-	-- cmd = {
-	--     "java",
-	--     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-	--     "-Dosgi.bundles.defaultStartLevel=4",
-	--     "-Declipse.product=org.eclipse.jdt.ls.core.product",
-	--     "-Dlog.protocol=true",
-	--     "-Dlog.level=ALL",
-	--     "-javaagent:" .. JDTLS_PATH .. "/lombok.jar",
-	--     "-Xmx1g",
-	--     "--add-modules=ALL-SYSTEM",
-	--     "--add-opens",
-	--     "java.base/java.util=ALL-UNNAMED",
-	--     "--add-opens",
-	--     "java.base/java.lang=ALL-UNNAMED",
-	--
-	--     "-jar",
-	--     vim.fn.glob(JDTLS_PATH .. "/plugins/org.eclipse.equinox.launcher_*.jar", true),
-	--
-	--     "-configuration",
-	--     JDTLS_PATH .. "/config_linux",
-	--
-	--     "-data",
-	--     JDTLS_DATA,
-	-- },
-
-	root_dir = require("lspconfig.util").root_pattern("pom.xml", "build.gradle", ".git"),
-	settings = {
-		java = {
-			format = {
-				enabled = true,
-				settings = {
-					tabSize = 4,
-					indentSize = 4,
-					insertSpaces = true,
-				},
-			},
-			imports = {
-				gradle = {
-					wrapper = {
-						checksums = {
-							{
-								sha256 = "81a82aaea5abcc8ff68b3dfcb58b3c3c429378efd98e7433460610fecd7ae45f",
-								allowed = true,
-							},
-						},
-					},
-				},
-			},
-		},
-	},
-	on_attach = function(client, bufnr)
-		vim.bo[bufnr].shiftwidth = 4
-		vim.bo[bufnr].expandtab = true
-	end,
-})
+--
+-- lspconfig.jdtls.setup({
+-- 	cmd = { "jdtls" },
+-- 	cmd = {
+-- 	    "java",
+-- 	    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+-- 	    "-Dosgi.bundles.defaultStartLevel=4",
+-- 	    "-Declipse.product=org.eclipse.jdt.ls.core.product",
+-- 	    "-Dlog.protocol=true",
+-- 	    "-Dlog.level=ALL",
+-- 	    "-javaagent:" .. JDTLS_PATH .. "/lombok.jar",
+-- 	    "-Xmx1g",
+-- 	    "--add-modules=ALL-SYSTEM",
+-- 	    "--add-opens",
+-- 	    "java.base/java.util=ALL-UNNAMED",
+-- 	    "--add-opens",
+-- 	    "java.base/java.lang=ALL-UNNAMED",
+--
+-- 	    "-jar",
+-- 	    vim.fn.glob(JDTLS_PATH .. "/plugins/org.eclipse.equinox.launcher_*.jar", true),
+--
+-- 	    "-configuration",
+-- 	    JDTLS_PATH .. "/config_linux",
+--
+-- 	    "-data",
+-- 	    JDTLS_DATA,
+-- 	},
+--
+-- 	root_dir = require("lspconfig.util").root_pattern("pom.xml", "build.gradle", ".git"),
+-- 	settings = {
+-- 		java = {
+-- 			format = {
+-- 				enabled = true,
+-- 				settings = {
+-- 					tabSize = 4,
+-- 					indentSize = 4,
+-- 					insertSpaces = true,
+-- 				},
+-- 			},
+-- 			imports = {
+-- 				gradle = {
+-- 					wrapper = {
+-- 						checksums = {
+-- 							{
+-- 								sha256 = "81a82aaea5abcc8ff68b3dfcb58b3c3c429378efd98e7433460610fecd7ae45f",
+-- 								allowed = true,
+-- 							},
+-- 						},
+-- 					},
+-- 				},
+-- 			},
+-- 		},
+-- 	},
+-- 	on_attach = function(client, bufnr)
+-- 		vim.bo[bufnr].shiftwidth = 4
+-- 		vim.bo[bufnr].expandtab = true
+-- 	end,
+-- })
 
 require("lspconfig").coq_lsp.setup({})
 

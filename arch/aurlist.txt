@@ -3,6 +3,7 @@ ascii-image-converter-git
 ascii-image-converter-git-debug
 bananas-bin
 cbonsai-git
+clock-tui
 debtap
 dotter-rs
 dracula-gtk-theme
@@ -13,6 +14,7 @@ google-chrome
 grimblast-git
 hyprswitch
 jdtls
+neofetch
 netbird
 netbird-debug
 netbird-management
@@ -21,12 +23,13 @@ netbird-ui
 netbird-ui-debug
 ngrok
 nomacs
-oneko
 paru
 paru-debug
 pipes-rs
 postman-bin
 python-sentencepiece
+redis
+redis-debug
 shellfirm
 sioyek
 slides
@@ -39,7 +42,6 @@ ulauncher
 visual-studio-code-bin
 wlogout
 wofi-emoji
-xdg-desktop-portal-hyprland-git
 yandex-music
 yay-debug
 zoom

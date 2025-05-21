@@ -49,8 +49,8 @@ set nobackup       " Отключает резервные копии
 set nowritebackup  " Отключает бэкап перед сохранением
 set noundofile     " Отключает историю изменений (undo-файл)
 
+colorscheme elflord
 syntax on
-colorscheme default
 
 set clipboard=unnamedplus
 

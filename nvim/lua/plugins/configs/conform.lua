@@ -33,12 +33,34 @@ require("conform").setup({
 				"--stdin-filepath",
 				"$FILENAME",
 				"--tab-width",
-				"4",
+				"2",
+				"--use-tabs",
+				"false",
+			},
+		},
+		["prettier_jsx"] = {
+			command = "prettier",
+			args = {
+				"--stdin-filepath",
+				"$FILENAME",
+				"--tab-width",
+				"2",
 				"--use-tabs",
 				"false",
 			},
 		},
 		["prettier_html"] = {
+			command = "prettier",
+			args = {
+				"--stdin-filepath",
+				"$FILENAME",
+				"--tab-width",
+				"2",
+				"--use-tabs",
+				"false",
+			},
+		},
+		["prettier_css"] = {
 			command = "prettier",
 			args = {
 				"--stdin-filepath",

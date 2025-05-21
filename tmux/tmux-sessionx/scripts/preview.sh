@@ -54,9 +54,11 @@ display_session() {
 }
 
 window_mode() {
-	args=($1)
-	tmux capture-pane -ep -t "${args[0]}"
+  # $1 == session_name:window_index:window_name
+  IFS=':' read -r session_name window_index window_name <<< "$1"
+  tmux capture-pane -ep -t "${session_name}:${window_index}"
 }
+
 
 # Display a full tree, with selected session highlighted.
 # If an session name is passed as an argument, highlight it
@@ -66,7 +68,7 @@ tree_mode() {
 	highlight="${1}"
 	icon=$(tmux_option_or_fallback "@sessionx-tree-icon" "󰘍")
 	tmux ls -F'#{session_id}' | while read -r s; do
-		S=$(tmux ls -F'#{session_id}#{session_name}: #{T:tree_mode_format}' | grep ^"$s")
+		S=$(tmux ls -F'#{session_id}#{session_name}:#{T:tree_mode_format}' | grep ^"$s")
 		session_info=${S##$s}
 		session_name=$(echo "$session_info" | cut -d ':' -f 1)
 		if [[ -n "$highlight" ]] && [[ "$highlight" == "$session_name" ]]; then

@@ -47,8 +47,8 @@ handle_binds() {
     bind_back=$(tmux_option_or_fallback "@sessionx-bind-back" "ctrl-b")
     bind_new_window=$(tmux_option_or_fallback "@sessionx-bind-new-window" "ctrl-e")
     bind_zo=$(tmux_option_or_fallback "@sessionx-bind-zo-new-window" "ctrl-f")
-    bind_kill_session=$(tmux_option_or_fallback "@sessionx-bind-kill-session" "alt-bspace")
-    ibind_kill_window=$(tmux_option_or_fallback "@sessionx-bind-kill-window" "alt-d")
+    bind_kill_session=$(tmux_option_or_fallback "@sessionx-bind-kill-session" "alt-D")
+    bind_kill_window=$(tmux_option_or_fallback "@sessionx-bind-kill-window" "alt-d")
 
     bind_exit=$(tmux_option_or_fallback "@sessionx-bind-abort" "esc")
     bind_accept=$(tmux_option_or_fallback "@sessionx-bind-accept" "enter")
@@ -73,12 +73,15 @@ handle_args() {
 
     TREE_MODE="$bind_tree_mode:change-preview(${SCRIPTS_DIR%/}/preview.sh -t {1})"
     CONFIGURATION_MODE="$bind_configuration_mode:reload(find $CONFIGURATION_PATH -mindepth 1 -maxdepth 1 -type d -o -type l)+change-preview($LS_COMMAND {})"
-    WINDOWS_MODE="$bind_window_mode:reload(tmux list-windows -a -F '#{session_name}:#{window_name}')+change-preview(${SCRIPTS_DIR%/}/preview.sh -w {1})"
+    WINDOWS_MODE="$bind_window_mode:reload(tmux list-windows -a -F '#{session_name}:#{window_index}:#{window_name}')+change-preview(${SCRIPTS_DIR}/preview.sh -w {1})"
+
 
     NEW_WINDOW="$bind_new_window:reload(find $PWD -mindepth 1 -maxdepth 1 -type d -o -type l)+change-preview($LS_COMMAND {})"
     ZO_WINDOW="$bind_zo:reload(zoxide query -l)+change-preview($LS_COMMAND {})"
     KILL_SESSION="$bind_kill_session:execute-silent(tmux kill-session -t {})+reload(${SCRIPTS_DIR%/}/reload_sessions.sh)"
-    KILL_WINDOW="$bind_kill_window:execute-silent(tmux kill-window -t {})+reload(tmux list-windows -a -F '#{session_name}:#{window_name}')"
+    KILL_WINDOW="$bind_kill_window:execute-silent(tmux kill-window -t {1}:{2})+reload(tmux list-windows -a -F '#{session_name}:#{window_index}:#{window_name}')"
+
+
 
     ACCEPT="$bind_accept:replace-query+print-query"
     DELETE="$bind_delete_char:backward-delete-char"
@@ -105,13 +108,14 @@ handle_args() {
     fi
 
     args=(
+        --delimiter ':'
         --bind "$TREE_MODE"
         --bind "$CONFIGURATION_MODE"
         --bind "$WINDOWS_MODE"
         --bind "$NEW_WINDOW"
         --bind "$ZO_WINDOW"
         --bind "$KILL_SESSION"
-        # --bind "$KILL_WINDOW"
+        --bind "$KILL_WINDOW"
         --bind "$DELETE"
         --bind "$EXIT"
         --bind "$SELECT_UP"

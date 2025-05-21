@@ -4,6 +4,7 @@ amdgpu_top
 appmenu-gtk-module
 ascii
 asciiquarium
+atac
 base
 base-devel
 bat
@@ -14,6 +15,7 @@ bluez
 bluez-utils
 brightnessctl
 btop
+calibre
 cava
 cliphist
 cloc
@@ -67,8 +69,10 @@ hypridle
 hyprland
 hyprland-qt-support
 hyprland-qtutils
+hyprlang
 hyprlock
 hyprpaper
+hyprutils
 imagemagick
 inetutils
 inkscape
@@ -98,9 +102,9 @@ mesa
 modemmanager
 mpv
 nano
-neofetch
 neovim
 netctl
+netscanner
 network-manager-applet
 networkmanager
 nmap
@@ -131,6 +135,7 @@ pipewire-libcamera
 pipewire-pulse
 pipewire-v4l2
 pkgconf
+pnpm
 polkit-gnome
 polkit-kde-agent
 postgresql
@@ -152,10 +157,10 @@ python-requests
 python-seaborn
 qt5-graphicaleffects
 qt5-quickcontrols2
-redis
 redshift
 refind
 reflector
+repgrep
 ripgrep
 rocm-opencl-runtime
 rofi
@@ -164,6 +169,7 @@ sagemath
 sagetex
 sane
 scrcpy
+serie
 sl
 slurp
 sqlitebrowser
@@ -183,7 +189,6 @@ termdown
 texinfo
 thunar
 thunar-archive-plugin
-tig
 tmux
 tokei
 translate-shell
@@ -212,6 +217,7 @@ wtype
 xcalib
 xclip
 xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
 xf86-video-amdgpu
 xsel
 yazi

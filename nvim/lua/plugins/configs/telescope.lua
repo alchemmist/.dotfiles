@@ -2,12 +2,13 @@ local options = {
 	pickers = {
 		find_files = {
 			hidden = true,
+            follow = true,
 		},
 	},
-	defaults = {
-		vimgrep_arguments = {
-			"rg",
+	defaults = { vimgrep_arguments = { "rg",
 			"-L",
+			"--follow", 
+			"--hidden",
 			"--color=never",
 			"--no-heading",
 			"--with-filename",

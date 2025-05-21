@@ -107,13 +107,26 @@ end
 vim.keymap.set("n", "<leader>tt", ToggleTabline, { desc = "Toggle tabline" })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "html", "css" },
+	pattern = { "html", "css", "javascriptreact", "javascript", "typescript", "typescriptreact" },
 	callback = function()
-		vim.bo.tabstop = 2 -- ширина таба визуально
-		vim.bo.shiftwidth = 2 -- ширина отступа для >> << и auto-indent
-		vim.bo.softtabstop = 2 -- backspace и таб работают как 2 пробела
-		vim.bo.expandtab = true -- табы заменяются пробелами
+		vim.schedule(function()
+			vim.bo.tabstop = 2 -- ширина таба визуально
+			vim.bo.shiftwidth = 2 -- ширина отступа для >> << и auto-indent
+			vim.bo.softtabstop = 2 -- backspace и таб работают как 2 пробела
+			vim.bo.expandtab = true -- табы заменяются пробелами
+		end)
 	end,
 })
 
 require("auto-save")
+
+local function show_hover_with_border()
+	local params = vim.lsp.util.make_position_params()
+	vim.lsp.buf_request(0, "textDocument/hover", params, function(err, result, ctx, config)
+		config = config or {}
+		config.border = "rounded"
+		vim.lsp.handlers.hover(err, result, ctx, config)
+	end)
+end
+
+vim.keymap.set("n", "K", show_hover_with_border, { desc = "LSP Hover with border" })

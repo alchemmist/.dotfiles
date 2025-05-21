@@ -299,53 +299,14 @@ local plugins = {
 
 	-- Install a plugin
 	{
-		"max397574/better-escape.nvim",
-		event = "InsertEnter",
-		config = function()
-			require("better_escape").setup()
-		end,
-	},
-	{
 		"simrat39/rust-tools.nvim",
 	},
 	{
-		"pocco81/auto-save.nvim",
-		config = function()
-			require("auto-save").setup({
-				{
-					enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
-					execution_message = {
-						message = function() -- message to print on save
-							return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
-						end,
-						dim = 0.18, -- dim the color of `message`
-						cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
-					},
-					trigger_events = { "InsertLeave", "TextChanged" }, -- vim events that trigger auto-save. See :h events
-					condition = function(buf)
-						local fn = vim.fn
-						local utils = require("auto-save.utils.data")
-
-						if
-							fn.getbufvar(buf, "&modifiable") == 1
-							and utils.not_in(fn.getbufvar(buf, "&filetype"), {})
-						then
-							return true -- met condition(s), can save
-						end
-						return false -- can't save
-					end,
-					write_all_buffers = false, -- write all buffers when the current one meets `condition`
-					debounce_delay = 135, -- saves the file at most every `debounce_delay` milliseconds
-					callbacks = { -- functions to be executed at different intervals
-						enabling = nil, -- ran when enabling auto-save
-						disabling = nil, -- ran when disabling auto-save
-						before_asserting_save = nil, -- ran before checking `condition`
-						before_saving = nil, -- ran before doing the actual save
-						after_saving = nil, -- ran after doing the actual save
-					},
-				},
-			})
-		end,
+		{
+			"brianhuster/autosave.nvim",
+			event = "InsertEnter",
+			opts = {}, -- Configuration here
+		},
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -691,6 +652,15 @@ local plugins = {
 			vim.g.go_debug_windows = { "right" }
 			vim.g.go_fmt_command = "gofmt"
 			vim.g.go_auto_type_info = 1
+			vim.g.go_doc_balloon = 0
+			-- Отключить автоматический показ информации о типе/документации
+			vim.g.go_auto_type_info = 0
+
+			-- Отключить документацию в balloon (если используется)
+			vim.g.go_doc_balloon = 0
+
+			-- Если используется версия vim-go с обновленными настройками
+			vim.g.go_info_mode = ""
 		end,
 	},
 	{
@@ -712,39 +682,23 @@ local plugins = {
 		end,
 	},
 
-	-- {
-	-- 	"mfussenegger/nvim-jdtls",
-	-- 	lazy = true,
-	-- 	ft = {
-	-- 		"java",
-	-- 	},
-	-- 	config = function()
-	-- 		require("plugins.configs.java")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"kevinhwang91/nvim-ufo",
-	-- 	dependencies = { "kevinhwang91/promise-async" },
-	-- 	event = "BufReadPost", -- Загружать плагин при открытии файла
-	-- 	config = function()
-	-- 		vim.o.foldcolumn = "0" -- Колонка сворачивания
-	-- 		vim.o.foldlevel = 99 -- Развернуть все блоки при старте
-	-- 		vim.o.foldlevelstart = 99
-	-- 		vim.o.foldenable = true
-	--
-	-- 		-- Устанавливаем методы сворачивания
-	-- 		vim.o.foldmethod = "expr"
-	-- 		vim.o.foldexpr = "v:lua.require'ufo'.foldexpr()"
-	--
-	-- 		-- Настройка провайдеров (LSP, Tree-sitter или indent)
-	-- 		require("ufo").setup({
-	-- 			provider_selector = function(_, _, _)
-	-- 				return { "lsp",  "treesitter" }
-	-- 			end,
-	-- 		})
-	-- 	end,
-	-- },
-	--
+	{
+		"mfussenegger/nvim-jdtls",
+		lazy = true,
+		ft = {
+			"java",
+		},
+		-- config = function()
+		-- 	require("ftplugin.java")
+		-- end,
+	},
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "BufRead",
+		config = function()
+			require("lsp_signature").setup()
+		end,
+	},
 	{
 		"stevearc/conform.nvim",
 		config = function()
@@ -871,6 +825,89 @@ local plugins = {
 				},
 			})
 		end,
+	},
+	{
+		"epwalsh/obsidian.nvim",
+		config = function()
+			local obsidian = require("obsidian")
+			vim.opt.conceallevel = 1
+			obsidian.setup({
+				mappings = {
+					["gd"] = {
+						action = function()
+							return require("obsidian").util.gf_passthrough()
+						end,
+						opts = { noremap = false, expr = true, buffer = true },
+					},
+					-- Toggle check-boxes.
+					["<leader>ch"] = {
+						action = function()
+							return require("obsidian").util.toggle_checkbox()
+						end,
+						opts = { buffer = true },
+					},
+					-- Smart action depending on context, either follow link or toggle checkbox.
+					["<cr>"] = {
+						action = function()
+							return require("obsidian").util.smart_action()
+						end,
+						opts = { buffer = true, expr = true },
+					},
+				},
+				workspaces = {
+					{
+						name = "knowledge-base",
+						path = "~/knowledge-base",
+					},
+					{
+						name = "alex-kb",
+						path = "~/alex-kb",
+					},
+					{
+						name = "opr",
+						path = "~/CU/semester-2/etc/opr",
+					},
+				},
+
+				completion = {
+					nvim_cmp = true, -- интеграция с autocompletion
+					min_chars = 2, -- начинать предлагать дополнения после 2 символов
+				},
+
+				note_id_func = function(title)
+					return title:gsub(" ", "-"):lower()
+				end,
+
+				templates = {
+					subdir = "Templates",
+					date_format = "%d-%m-%Y",
+					time_format = "%H:%M",
+				},
+				attachments = {
+					img_folder = "Files", -- папка для изображений
+					img_text_func = function(path)
+						return "![](" .. path .. ")"
+					end,
+				},
+			})
+		end,
+		lazy = true,
+		ft = "markdown",
+		-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+		event = {
+			-- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+			-- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
+			-- refer to `:h file-pattern` for more examples
+			"BufReadPre ~/knowledge-base/*.md",
+			"BufNewFile ~/knowledge-base/*.md",
+		},
+		dependencies = {
+			-- Required.
+			"nvim-lua/plenary.nvim",
+
+			-- see below for full list of optional dependencies 👇
+		},
+		opts = {},
 	},
 }
 

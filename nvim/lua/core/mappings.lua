@@ -191,12 +191,12 @@ M.lspconfig = {
 		},
 
 		-- Hover documentation
-		["K"] = {
-			function()
-				vim.lsp.buf.hover()
-			end,
-			"LSP hover",
-		},
+		-- ["K"] = {
+		-- 	function()
+		-- 		vim.lsp.buf.hover({border = "rounded"})
+		-- 	end,
+		-- 	"LSP hover",
+		-- },
 
 		-- Go to implementation
 		["gi"] = {
@@ -439,12 +439,12 @@ M.lspconfig = {
 			"LSP definition",
 		},
 
-		["K"] = {
-			function()
-				vim.lsp.buf.hover()
-			end,
-			"LSP hover",
-		},
+		-- ["K"] = {
+		-- 	function()
+		-- 		vim.lsp.buf.hover({ border = "rounded" })
+		-- 	end,
+		-- 	"LSP hover",
+		-- },
 
 		["gi"] = {
 			function()

@@ -31,6 +31,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export OZONE_PLATFORME=wayland
 export CHROME_EXECUTABLE=google-chrome-stable
 
+export TERM=xterm-256color
+
 
 
 #export WAYLAND_DISPLAY=''
@@ -151,6 +153,7 @@ plugins=(
 # alias pip="/home/alchemmist/.python3.12/bin/pip"
 
 alias pbcopy='wl-copy'
+alias docker='~/scripts/docker.sh'
 alias pbpaste='wl-paste'
 
 alias tuxsay="cowsay -f tux"
@@ -163,10 +166,9 @@ alias vim="/usr/bin/vim -u ~/.vimrc"
 alias cd="z"
 
 # alias glog="git log --oneline --graph --decorate --all"
-alias glog="tig"
+alias glog="serie"
 alias pptx2pdf='libreoffice --headless --convert-to pdf'
 alias cat='mycat'
-alias tree='lsd --tree --color=always --icon=always'
 alias cmatrix="unimatrix -n -s 97 -l o"
 
 
@@ -286,7 +288,7 @@ zle -N zi-widget
 zle -N y-widget
 
 # Привязываем сочетания клавиш
-bindkey '^F' fzf-widget
+bindkey '^G' fzf-widget
 bindkey '^J' zi-widget
 bindkey '^Y' y-widget
 
@@ -307,3 +309,7 @@ PERL_MB_OPT="--install_base \"/home/alchemmist/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/alchemmist/perl5"; export PERL_MM_OPT;
 
 . "$HOME/.local/share/../bin/env"
+
+eval "tmux bind-key s choose-tree -ZsN"
+eval "tmux bind-key w choose-tree -ZwN"
+
