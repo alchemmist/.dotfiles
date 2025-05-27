@@ -57,6 +57,7 @@ grim
 gspell
 gvfs
 hashcat
+helix
 hostapd
 hplip
 htop
@@ -117,7 +118,7 @@ obs-studio
 obsidian
 obsidian-icon-theme
 opam
-opencl-rusticl-mesa
+opencl-mesa
 opencv
 openvpn
 pacman-contrib
