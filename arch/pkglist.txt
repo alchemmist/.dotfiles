@@ -48,6 +48,7 @@ gammastep
 gdb
 ghostty
 git
+git-filter-repo
 github-cli
 gnu-netcat
 go
@@ -75,6 +76,7 @@ hyprlock
 hyprpaper
 hyprutils
 imagemagick
+img2pdf
 inetutils
 inkscape
 intellij-idea-community-edition
@@ -152,6 +154,7 @@ python-pillow
 python-pip
 python-pipx
 python-poetry
+python-pygame
 python-pynvim
 python-pyqt5
 python-requests
@@ -185,11 +188,13 @@ swww
 syncthing
 sysstat
 system-config-printer
+tabiew
 telegram-desktop
 termdown
 texinfo
 thunar
 thunar-archive-plugin
+thunderbird
 tmux
 tokei
 translate-shell

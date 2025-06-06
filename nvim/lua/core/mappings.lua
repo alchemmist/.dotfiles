@@ -59,18 +59,19 @@ M.general = {
 		["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
 		["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
 
-		["<leader>z"] = { "<cmd>Nvdash<CR>", "Dashboard" },
+		["<leader>z"] = { "<cmd>bufdo bd<CR><cmd>Nvdash<CR>", "Dashboard" },
 		["<leader>l"] = { "<cmd>LazyGit<CR>", "LazyGit" },
 		["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
 
 		["<leader>fm"] = {
 			function()
-                require("conform").format({ async = true, lsp_fallback = true })
+				require("conform").format({ async = true, lsp_fallback = true })
 				-- vim.lsp.buf.format({ async = true })
 			end,
 			"Format code with Conform",
 		},
 		["<leader>b"] = { "<cmd>VimtexCompile<CR>", "Build latex doc" },
+		["<leader>m"] = { "<cmd>MarkdownPreviewToggle<CR>", "Preview markdown document in Gihub style" },
 		["<leader>v"] = { "<cmd>VimtexView<CR>", "View place in latex doc" },
 		["<leader>w"] = { "<cmd>w<CR>", "Save" },
 		["<A-|>"] = { "<cmd>:vsplit<CR>", "Vertical split" },

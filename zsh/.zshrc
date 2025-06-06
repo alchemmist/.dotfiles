@@ -9,6 +9,8 @@ export PATH=$HOME/code/syncthing-wrapper/src-tauri/target/release:$PATH
 export PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH
 export PATH=/home/alchemmist/time-desktop-linux-x64:$PATH
 export PATH=$HOME/code/CU-lms-wrapper/src-tauri/target/release:$PATH
+export PATH=~/.npm-global/bin:$PATH
+
 
 
 export QT_QPA_PLATFORM=xcb
@@ -113,11 +115,11 @@ source $ZSH/oh-my-zsh.sh
 plugins=(
     git
     poetry
-    zsh-autosuggestions
     zoxide
     fzf
     shellfirm
     docker
+    docker-compose
 )
 
 
@@ -165,9 +167,10 @@ alias cls="clear"
 alias vim="/usr/bin/vim -u ~/.vimrc"
 alias cd="z"
 
-# alias glog="git log --oneline --graph --decorate --all"
-alias glog="serie"
+alias glog="git log --oneline --graph --decorate --all"
+# alias glog="serie"
 alias pptx2pdf='libreoffice --headless --convert-to pdf'
+alias mp42gif='~/scripts/mp42gif.sh'
 alias cat='mycat'
 alias cmatrix="unimatrix -n -s 97 -l o"
 
@@ -312,4 +315,3 @@ PERL_MM_OPT="INSTALL_BASE=/home/alchemmist/perl5"; export PERL_MM_OPT;
 
 eval "tmux bind-key s choose-tree -ZsN"
 eval "tmux bind-key w choose-tree -ZwN"
-

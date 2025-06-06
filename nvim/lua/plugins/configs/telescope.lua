@@ -2,12 +2,14 @@ local options = {
 	pickers = {
 		find_files = {
 			hidden = true,
-            follow = true,
+			follow = true,
 		},
 	},
-	defaults = { vimgrep_arguments = { "rg",
+	defaults = {
+		vimgrep_arguments = {
+			"rg",
 			"-L",
-			"--follow", 
+			"--follow",
 			"--hidden",
 			"--color=never",
 			"--no-heading",
@@ -22,6 +24,8 @@ local options = {
 			i = {
 				["<C-j>"] = require("telescope.actions").move_selection_next,
 				["<C-k>"] = require("telescope.actions").move_selection_previous,
+				["<C-n>"] = require("telescope.actions").cycle_history_next,
+				["<C-p>"] = require("telescope.actions").cycle_history_prev,
 			},
 		},
 		prompt_prefix = "   ",
@@ -57,6 +61,23 @@ local options = {
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 		-- Developer configurations: Not meant for general override
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+		history = {
+			-- По умолчанию path уже будет указывать в ~/.local/share/nvim/telescope_history.sqlite3
+			-- Но можно явно задать:
+			path = vim.fn.stdpath("data") .. "/telescope_history.sqlite3",
+			-- Сколько «старых» запросов хранить в sqlite (по умолчанию 100):
+			limit = 100,
+		},
+
+		-- (Опционально) Блок cache_picker, чтобы можно было «возобновить» прошлый picker:
+		cache_picker = {
+			-- сколько различных пиковеров (по умолчанию 15) хранить в кэше:
+			max_pickers = 15,
+			-- если поставить true, в :Telescope pickers будут показаны результаты
+			-- без учёта названия пика, иначе — фильтрация по текущему picker's name
+			-- (необязательно менять):
+			picker = nil,
+		},
 	},
 
 	extensions_list = { "themes", "terms", "fzf" },

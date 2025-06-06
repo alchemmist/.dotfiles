@@ -7,6 +7,7 @@ if ! systemctl is-active --quiet docker; then
         echo "Failed to start the docker service." >&2
         exit 1
     fi
+    docker stop $(docker ps -a -q)
 fi
 
 exec docker "$@"

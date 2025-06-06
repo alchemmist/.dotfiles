@@ -40,5 +40,10 @@ Host git.culab.ru
 
 Host patchloyalty.com
     HostName patchloyalty.com
-    User git
+    User root
     IdentityFile ~/.ssh/patch-landing-server
+
+Host flycloud.ballkit.ru
+    HostName flycloud.ballkit.ru
+    User root
+    IdentityFile ~/.ssh/ballkit-flycloud

@@ -26,6 +26,9 @@ adjust-cursor-height = 1
 adjust-cursor-thickness = 1
 cursor-style = block_hollow
 mouse-hide-while-typing = true
+# window-padding-x = 20
+
+
 
 
 # Config syntax crash course

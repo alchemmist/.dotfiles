@@ -118,8 +118,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-require("auto-save")
-
 local function show_hover_with_border()
 	local params = vim.lsp.util.make_position_params()
 	vim.lsp.buf_request(0, "textDocument/hover", params, function(err, result, ctx, config)
@@ -130,3 +128,19 @@ local function show_hover_with_border()
 end
 
 vim.keymap.set("n", "K", show_hover_with_border, { desc = "LSP Hover with border" })
+
+vim.g.vimtex_quickfix_mode = 0
+vim.g.vimtex_compiler_latexmk = {
+	callback = 0,
+	continuous = 1,
+	executable = "latexmk",
+	options = {
+		"-verbose",
+		"-file-line-error",
+		"-synctex=1",
+		"-interaction=nonstopmode",
+	},
+}
+vim.g.vimtex_compiler_progname = "nvr"
+vim.g.vimtex_compiler_callback_hooks = {}
+
