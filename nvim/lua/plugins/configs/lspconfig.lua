@@ -7,8 +7,6 @@ local servers = { "html", "cssls", "ts_ls", "clangd", "pyright", "lua_ls", "rust
 
 local utils = require("core.utils")
 
--- export on_attach & capabilities for custom lspconfigs
-
 local cmp = require("cmp")
 local lspconfig = require("lspconfig")
 local mason_status, mason = pcall(require, "mason-registry")
@@ -19,16 +17,14 @@ M.on_attach = function(client, bufnr)
 
 	utils.load_mappings("lspconfig", { buffer = bufnr })
 
-	-- if client.server_capabilities.signatureHelpProvider then
-	--   require("nvchad.signature").setup(client)
-	-- end
-
 	if not utils.load_config().ui.lsp_semantic_tokens and client.supports_method("textDocument/semanticTokens") then
 		client.server_capabilities.semanticTokensProvider = nil
 	end
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
+
+vim.lsp.handlers["textDocument/signatureHelp"] = function() end
 
 M.capabilities.textDocument.completion.completionItem = {
 	documentationFormat = { "markdown", "plaintext" },
@@ -64,6 +60,19 @@ for _, lsp in ipairs(servers) do
 		format = {
 			indentSize = 4,
 			tabSize = 4,
+		},
+		settings = {
+			-- Для Python (pyright)
+			python = {
+				analysis = {
+					typeCheckingMode = "off",
+					autoSearchPaths = true,
+					useLibraryCodeForTypes = true,
+					diagnosticMode = "workspace",
+					-- Отключаем сигнатуры
+					disableSignatureHelp = true, -- если поддерживается сервером
+				},
+			},
 		},
 	})
 end
@@ -114,10 +123,8 @@ cmp.setup({
 	}),
 })
 
--- Настройка LSP для Go (gopls)
 lspconfig.gopls.setup({
 	on_attach = function(client, bufnr)
-		-- Настройка диагностики
 		vim.diagnostic.config({
 			virtual_text = false, -- Отключаем виртуальный текст с ошибками
 			signs = true, -- Отключаем знаки (крестик)
@@ -129,71 +136,6 @@ lspconfig.gopls.setup({
 		vim.o.splitbelow = false
 	end,
 })
-
--- local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
---
--- local JDTLS_PATH = mason.get_package("jdtls"):get_install_path()
--- print(os.getenv("XDG_DATA_HOME"))
--- print(project_name)
--- local JDTLS_DATA = os.getenv("XDG_DATA_HOME") .. "/jdtls/" .. project_name
---
--- lspconfig.jdtls.setup({
--- 	cmd = { "jdtls" },
--- 	cmd = {
--- 	    "java",
--- 	    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
--- 	    "-Dosgi.bundles.defaultStartLevel=4",
--- 	    "-Declipse.product=org.eclipse.jdt.ls.core.product",
--- 	    "-Dlog.protocol=true",
--- 	    "-Dlog.level=ALL",
--- 	    "-javaagent:" .. JDTLS_PATH .. "/lombok.jar",
--- 	    "-Xmx1g",
--- 	    "--add-modules=ALL-SYSTEM",
--- 	    "--add-opens",
--- 	    "java.base/java.util=ALL-UNNAMED",
--- 	    "--add-opens",
--- 	    "java.base/java.lang=ALL-UNNAMED",
---
--- 	    "-jar",
--- 	    vim.fn.glob(JDTLS_PATH .. "/plugins/org.eclipse.equinox.launcher_*.jar", true),
---
--- 	    "-configuration",
--- 	    JDTLS_PATH .. "/config_linux",
---
--- 	    "-data",
--- 	    JDTLS_DATA,
--- 	},
---
--- 	root_dir = require("lspconfig.util").root_pattern("pom.xml", "build.gradle", ".git"),
--- 	settings = {
--- 		java = {
--- 			format = {
--- 				enabled = true,
--- 				settings = {
--- 					tabSize = 4,
--- 					indentSize = 4,
--- 					insertSpaces = true,
--- 				},
--- 			},
--- 			imports = {
--- 				gradle = {
--- 					wrapper = {
--- 						checksums = {
--- 							{
--- 								sha256 = "81a82aaea5abcc8ff68b3dfcb58b3c3c429378efd98e7433460610fecd7ae45f",
--- 								allowed = true,
--- 							},
--- 						},
--- 					},
--- 				},
--- 			},
--- 		},
--- 	},
--- 	on_attach = function(client, bufnr)
--- 		vim.bo[bufnr].shiftwidth = 4
--- 		vim.bo[bufnr].expandtab = true
--- 	end,
--- })
 
 require("lspconfig").coq_lsp.setup({})
 

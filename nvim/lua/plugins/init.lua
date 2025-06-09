@@ -694,7 +694,12 @@ local plugins = {
 		"ray-x/lsp_signature.nvim",
 		event = "BufRead",
 		config = function()
-			require("lsp_signature").setup()
+			require("lsp_signature").setup({
+				bind = false, -- Не привязывать автоматически
+				hint_enable = false, -- Отключить подсказки
+				floating_window = false, -- Полностью отключить плавающее окно
+				toggle_key = "<C-k>", -- Назначьте клавишу для ручного вызова
+			})
 		end,
 	},
 	{

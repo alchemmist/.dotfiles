@@ -144,3 +144,5 @@ vim.g.vimtex_compiler_latexmk = {
 vim.g.vimtex_compiler_progname = "nvr"
 vim.g.vimtex_compiler_callback_hooks = {}
 
+
+

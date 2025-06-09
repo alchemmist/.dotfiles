@@ -10,6 +10,7 @@ export PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH
 export PATH=/home/alchemmist/time-desktop-linux-x64:$PATH
 export PATH=$HOME/code/CU-lms-wrapper/src-tauri/target/release:$PATH
 export PATH=~/.npm-global/bin:$PATH
+export PATH=$HOME/.elan/bin:$PATH
 
 
 
@@ -168,6 +169,7 @@ alias vim="/usr/bin/vim -u ~/.vimrc"
 alias cd="z"
 
 alias glog="git log --oneline --graph --decorate --all"
+alias gacp="git add . && git commit --amend --no-edit && git push --force-with-lease"
 # alias glog="serie"
 alias pptx2pdf='libreoffice --headless --convert-to pdf'
 alias mp42gif='~/scripts/mp42gif.sh'

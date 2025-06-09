@@ -52,6 +52,7 @@ git-filter-repo
 github-cli
 gnu-netcat
 go
+golangci-lint
 gptfdisk
 gradle
 grim
@@ -105,6 +106,7 @@ mesa
 modemmanager
 mpv
 nano
+neovide
 neovim
 netctl
 netscanner
