@@ -106,7 +106,6 @@ mesa
 modemmanager
 mpv
 nano
-neovide
 neovim
 netctl
 netscanner
