@@ -11,6 +11,7 @@ export PATH=/home/alchemmist/time-desktop-linux-x64:$PATH
 export PATH=$HOME/code/CU-lms-wrapper/src-tauri/target/release:$PATH
 export PATH=~/.npm-global/bin:$PATH
 export PATH=$HOME/.elan/bin:$PATH
+export PATH=/home/alchemmist/.local/share/gem/ruby/3.4.0/bin:$PATH
 
 
 
@@ -115,6 +116,7 @@ source $ZSH/oh-my-zsh.sh
 
 plugins=(
     git
+    gitfast
     poetry
     zoxide
     fzf
@@ -184,7 +186,7 @@ hp-scan() {
 }
 
 dot() {
-    cd ~/.dotfiles
+    cd ~/code/dotfiles
     dotter $argv
     cd -
 }
@@ -241,7 +243,7 @@ fi
 
 
 fzf_history() {
-    local selected=$(fc -rl 1 | sed 's/^[[:space:]]*[0-9]*[[:space:]]*//' | fzf --reverse --height=40% --no-sort)
+    local selected=$(fc -rl 1 | sed 's/^[[:space:]]*[0-9]*[[:space:]]*//' | fzf --reverse --height=40%)
     if [[ -n $selected ]]; then
         LBUFFER="$selected"
     fi

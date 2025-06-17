@@ -8,6 +8,7 @@ atac
 base
 base-devel
 bat
+bind
 binwalk
 blueman
 bluetui
@@ -216,6 +217,7 @@ waybar
 webkit2gtk
 wev
 wget
+whois
 wireguard-tools
 wireshark-qt
 wmctrl

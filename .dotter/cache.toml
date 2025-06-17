@@ -57,6 +57,8 @@
 "scripts/toggle_caffeine.sh" = "/home/alchemmist/scripts/toggle_caffeine.sh"
 "scripts/vpn-toggler.sh" = "/home/alchemmist/scripts/vpn-toggler.sh"
 "scripts/wallpaper_pack_selector.sh" = "/home/alchemmist/scripts/wallpaper_pack_selector.sh"
+"scripts/wg-domain-list.py" = "/home/alchemmist/scripts/wg-domain-list.py"
+"scripts/wg-domain-list.sh" = "/home/alchemmist/scripts/wg-domain-list.sh"
 "scripts/wifi_rest.sh" = "/home/alchemmist/scripts/wifi_rest.sh"
 "scripts/wireguard-manager.sh" = "/home/alchemmist/scripts/wireguard-manager.sh"
 "ssh/config" = "/home/alchemmist/.ssh/config"

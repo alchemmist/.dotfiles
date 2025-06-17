@@ -10,7 +10,7 @@ output_file="$2"
 
 magick "$input_file" \
   \( +clone -alpha extract \
-     -draw "fill black polygon 0,0 0,%[fx:min(w,h)*0.03] %[fx:min(w,h)*0.03],0 fill white circle %[fx:min(w,h)*0.03],%[fx:min(w,h)*0.03] %[fx:min(w,h)*0.03],0" \
+     -draw "fill black polygon 0,0 0,%[fx:min(w,h)*0.02] %[fx:min(w,h)*0.02],0 fill white circle %[fx:min(w,h)*0.02],%[fx:min(w,h)*0.02] %[fx:min(w,h)*0.02],0" \
      \( +clone -flip \) -compose Multiply -composite \
      \( +clone -flop \) -compose Multiply -composite \
   \) \
