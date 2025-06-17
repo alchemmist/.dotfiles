@@ -1,57 +1,57 @@
-[a5b32f08-c8b4-4f73-a51d-457ad1b56686-5D96D.jpg](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/a5b32f08-c8b4-4f73-a51d-457ad1b56686-5D96D.jpg)<br>
+[a5b32f08-c8b4-4f73-a51d-457ad1b56686-5D96D.jpg](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/a5b32f08-c8b4-4f73-a51d-457ad1b56686-5D96D.jpg)<br>
 <img src="/media/wlp-preview/abstract/a5b32f08-c8b4-4f73-a51d-457ad1b56686-5D96D.png" width="500">
 
-[image0-21E71.jpg](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/image0-21E71.jpg)<br>
+[image0-21E71.jpg](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/image0-21E71.jpg)<br>
 <img src="/media/wlp-preview/abstract/image0-21E71.png" width="500">
 
-[linux-retro_bGpqbmuUmZqaraWkpJRmbmdlrWZlbW-FE7F6.jpg](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/linux-retro_bGpqbmuUmZqaraWkpJRmbmdlrWZlbW-FE7F6.jpg)<br>
+[linux-retro_bGpqbmuUmZqaraWkpJRmbmdlrWZlbW-FE7F6.jpg](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/linux-retro_bGpqbmuUmZqaraWkpJRmbmdlrWZlbW-FE7F6.jpg)<br>
 <img src="/media/wlp-preview/abstract/linux-retro_bGpqbmuUmZqaraWkpJRmbmdlrWZlbW-FE7F6.png" width="500">
 
-[richard-horvath-_nWaeTF6qo0-unsplash.jpg](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/richard-horvath-_nWaeTF6qo0-unsplash.jpg)<br>
+[richard-horvath-_nWaeTF6qo0-unsplash.jpg](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/richard-horvath-_nWaeTF6qo0-unsplash.jpg)<br>
 <img src="/media/wlp-preview/abstract/richard-horvath-_nWaeTF6qo0-unsplash.png" width="500">
 
-[sand-desert-morocco-wallpaper-nature.jpg](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/sand-desert-morocco-wallpaper-nature.jpg)<br>
+[sand-desert-morocco-wallpaper-nature.jpg](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/sand-desert-morocco-wallpaper-nature.jpg)<br>
 <img src="/media/wlp-preview/abstract/sand-desert-morocco-wallpaper-nature.png" width="500">
 
-[wallhaveasdfasdfnpe3.jpg](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/wallhaveasdfasdfnpe3.jpg)<br>
+[wallhaveasdfasdfnpe3.jpg](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/wallhaveasdfasdfnpe3.jpg)<br>
 <img src="/media/wlp-preview/abstract/wallhaveasdfasdfnpe3.png" width="500">
 
-[Uno_Xray-EF354.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/Uno_Xray-EF354.png)<br>
+[Uno_Xray-EF354.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/Uno_Xray-EF354.png)<br>
 <img src="/media/wlp-preview/abstract/Uno_Xray-EF354.png" width="500">
 
-[black_bubbles-4DE5A.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/black_bubbles-4DE5A.png)<br>
+[black_bubbles-4DE5A.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/black_bubbles-4DE5A.png)<br>
 <img src="/media/wlp-preview/abstract/black_bubbles-4DE5A.png" width="500">
 
-[image.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/image.png)<br>
+[image.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/image.png)<br>
 <img src="/media/wlp-preview/abstract/image.png" width="500">
 
-[image_1.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/image_1.png)<br>
+[image_1.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/image_1.png)<br>
 <img src="/media/wlp-preview/abstract/image_1.png" width="500">
 
-[nordterm2-76FE9.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/nordterm2-76FE9.png)<br>
+[nordterm2-76FE9.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/nordterm2-76FE9.png)<br>
 <img src="/media/wlp-preview/abstract/nordterm2-76FE9.png" width="500">
 
-[pacman-9D537.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/pacman-9D537.png)<br>
+[pacman-9D537.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/pacman-9D537.png)<br>
 <img src="/media/wlp-preview/abstract/pacman-9D537.png" width="500">
 
-[qsave_2020-12-20_027-900CC.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/qsave_2020-12-20_027-900CC.png)<br>
+[qsave_2020-12-20_027-900CC.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/qsave_2020-12-20_027-900CC.png)<br>
 <img src="/media/wlp-preview/abstract/qsave_2020-12-20_027-900CC.png" width="500">
 
-[sway_wallpaper.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/sway_wallpaper.png)<br>
+[sway_wallpaper.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/sway_wallpaper.png)<br>
 <img src="/media/wlp-preview/abstract/sway_wallpaper.png" width="500">
 
-[uckgbxxfvdr21-08722.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/uckgbxxfvdr21-08722.png)<br>
+[uckgbxxfvdr21-08722.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/uckgbxxfvdr21-08722.png)<br>
 <img src="/media/wlp-preview/abstract/uckgbxxfvdr21-08722.png" width="500">
 
-[v1-74ABF.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/v1-74ABF.png)<br>
+[v1-74ABF.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/v1-74ABF.png)<br>
 <img src="/media/wlp-preview/abstract/v1-74ABF.png" width="500">
 
-[wallhaven-9djgpk.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/wallhaven-9djgpk.png)<br>
+[wallhaven-9djgpk.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/wallhaven-9djgpk.png)<br>
 <img src="/media/wlp-preview/abstract/wallhaven-9djgpk.png" width="500">
 
-[wallhaven-gpgqjq.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/wallhaven-gpgqjq.png)<br>
+[wallhaven-gpgqjq.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/wallhaven-gpgqjq.png)<br>
 <img src="/media/wlp-preview/abstract/wallhaven-gpgqjq.png" width="500">
 
-[wallhaven-vmw3e3.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/wallhaven-vmw3e3.png)<br>
+[wallhaven-vmw3e3.png](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/abstract/images/wallhaven-vmw3e3.png)<br>
 <img src="/media/wlp-preview/abstract/wallhaven-vmw3e3.png" width="500">
 
