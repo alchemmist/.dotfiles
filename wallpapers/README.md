@@ -2,6 +2,11 @@
 
 This is my wallpapers. I'm on Wayland, so I'm use [this](https://github.com/alchemmist/dotfiles/blob/main/scripts/wallpaper_pack_selector.sh) script for select wallpapers pack and then random switch it with [`swww`](https://github.com/LGFae/swww) and some [script](https://github.com/alchemmist/dotfiles/blob/main/scripts/sww_random.sh).
 
+<details>
+  <summary><strong>My workflow</strong></summary>
+    <img src="/media/wlp-demo.gif">
+</details><br>
+
 I have a few packs by theme:
 #### [Nature](https://github.com/alchemmist/dotfiles/blob/main/wallpapers/nature)
 <img src="/media/wlp-preview/wlp-nature-pack.png" width="600">
