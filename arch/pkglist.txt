@@ -39,7 +39,6 @@ egl-wayland
 eslint
 eslint-language-server
 eslint_d
-eza
 fastfetch
 ffmpeg
 file-roller
@@ -200,6 +199,7 @@ thunderbird
 tmux
 tokei
 translate-shell
+trash-cli
 tree
 ttf-jetbrains-mono-nerd
 ttyper
@@ -212,7 +212,6 @@ vi
 vim
 vlc
 vulkan-radeon
-warp-terminal
 waybar
 webkit2gtk
 wev

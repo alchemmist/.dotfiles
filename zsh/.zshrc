@@ -179,6 +179,7 @@ alias cat='mycat'
 alias cmatrix="unimatrix -n -s 97 -l o"
 
 
+
 hp-scan() {
     cd ~/Pictures/scans
     yes "" | /usr/bin/hp-scan -m color
@@ -192,18 +193,19 @@ dot() {
 }
 
 
+
 # PROTECTION FOR RM COMMAND
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 STOP_MESSAGE="!!!    STOP     !!!\nWHAT ARE YOU DOING?"
 
 BLACK_LIST=(
-    "/*" 
-    "/" 
-    "~" 
+    "/*"
+    "/"
+    "~"
     "~/*"
 )
 
-check_second_argument() {
+check_blacklist() {
     for str in "${BLACK_LIST[@]}"; do
         if [[ "$1" == "$str" ]]; then
             return 0
@@ -213,13 +215,38 @@ check_second_argument() {
 }
 
 rm() {
-    if [[ "$1" == "-rf" ]] && check_second_argument "$2"; then
-        echo "$STOP_MESSAGE"
-    else
-        /bin/rm -i --preserve-root "$@"
+    # Использовать настоящее rm, если явно указано --no-trash
+    for arg in "$@"; do
+        if [[ "$arg" == "--no-trash" ]]; then
+            # Удаляем --no-trash из аргументов
+            args=()
+            for a in "$@"; do
+                [[ "$a" != "--no-trash" ]] && args+=("$a")
+            done
+            /bin/rm "${args[@]}"
+            return
+        fi
+    done
+
+    # Предотвращаем удаление критичных путей
+    for arg in "$@"; do
+        if check_blacklist "$arg"; then
+            echo -e "$STOP_MESSAGE"
+            return 1
+        fi
+    done
+
+    # Используем trash-put вместо rm
+    command -v trash-put >/dev/null 2>&1
+    if [[ $? -ne 0 ]]; then
+        echo "trash-put не установлен. Установи trash-cli: sudo pacman -S trash-cli"
+        return 1
     fi
+
+    trash-put "$@"
 }
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 
 
 source <(fzf --zsh)
